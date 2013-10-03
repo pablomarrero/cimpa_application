@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: rubyskeleton_development
+  username: postgres
+  password: postgres
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: rubyskeleton_test
+  username: hading
+  password: postgres
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: rubyskeleton_production
+  username: postgres
+  password: postgres
+  host: localhost
