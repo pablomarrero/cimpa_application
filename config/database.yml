@@ -10,7 +10,7 @@ test:
   adapter: postgresql
   encoding: utf8
   database: rubyskeleton_test
-  username: hading
+  username: postgres
   password: postgres
   host: localhost
 
