@@ -31,3 +31,14 @@ en:
       first_name: First Name
       last_name: Last Name
       birth_date: Birth Date
+    show:
+      first_name: First Name
+      last_name: Last Name
+      birth_date: Birth Date
+      friends: List of Friends
+    friensd_fields:
+      remove: Remove Friend
+      friends: Friend
+    form:
+      add_friend: Add Friend
+      friends_of: Friends Of

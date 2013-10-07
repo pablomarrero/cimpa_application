@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004160204) do
+ActiveRecord::Schema.define(version: 20131004200722) do
+
+  create_table "friends", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friends", ["friend_id"], name: "index_friends_on_friend_id", using: :btree
+  add_index "friends", ["person_id"], name: "index_friends_on_person_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "first_name"

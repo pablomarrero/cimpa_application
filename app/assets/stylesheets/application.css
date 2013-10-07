@@ -12,5 +12,6 @@
  *= require jquery.ui.all
  *= require datepicker
  *= require bootstrap-datepicker
+ *= require bootstrap-combobox
  *= require_tree .
  */

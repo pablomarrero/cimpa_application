@@ -1,4 +1,6 @@
 BasicSkeleton::Application.routes.draw do
+  resources :friends
+
   resources :people
 
   get "main/index"

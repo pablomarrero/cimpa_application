@@ -18,6 +18,18 @@
     </div>
   </div>
 
+  <div class="control-group">
+    <fieldset class="friends">
+      <legend> <%= "#{t('.friends_of')} #{@person.first_name} #{@person.last_name}"%> </legend>
+      <%= f.fields_for :friends do |friend| %>
+        <%= render 'friend_fields', :f => friend %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t('.add_friend'), f, :friends, :class => 'btn',
+              :wrap_object => Proc.new {|friend| friend.build_friend; friend }%>
+      </div>
+    </fieldset>
+  </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

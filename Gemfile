@@ -49,3 +49,7 @@ end
 
 # Use bootstrap 
 gem "twitter-bootstrap-rails"
+
+# Use Cocoon for nested froms management
+gem "cocoon"
+
