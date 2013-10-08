@@ -75,3 +75,7 @@ gem 'devise', '3.0.0'
 
 # Use Can Can for autorization
 gem 'cancan'
+
+# Used for manage jobs
+gem 'sucker_punch', '~> 1.0'
+
