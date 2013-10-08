@@ -104,6 +104,9 @@ GEM
     jquery-ui-rails (4.0.5)
       railties (>= 3.1.0)
     json (1.8.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libv8 (3.16.14.3)
     listen (2.0.0)
       celluloid (>= 0.15.1)
@@ -250,6 +253,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails
+  kaminari
   paperclip (~> 3.0)
   pg
   puma

@@ -87,3 +87,6 @@ gem "paperclip", "~> 3.0"
 
 # Use Webserver Puma
 gem 'puma'
+
+# Use Kaminari for model pagination
+gem 'kaminari'
