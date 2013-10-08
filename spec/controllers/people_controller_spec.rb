@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe PeopleController do
 
+	# login
+	before (:each) do
+    	@user = FactoryGirl.create(:user)
+    	sign_in @user
+  	end
+
 	describe "GET index" do
 		it "assigns @people" do
 			person = FactoryGirl.create(:person)
