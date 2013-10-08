@@ -35,6 +35,23 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'rspec-rails', "~> 2.12"
+  gem "spork-rails"
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner', '1.0.1'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -47,7 +64,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Use bootstrap 
+# Use bootstrap
 gem "twitter-bootstrap-rails"
 
 # Use Cocoon for nested froms management
