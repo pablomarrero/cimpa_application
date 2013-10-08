@@ -7,4 +7,6 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :friends, :reject_if => :all_blank, :allow_destroy => true
   has_many  :people, through: :friends
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>"}, :default_url => ":style/missing.png"
+
 end

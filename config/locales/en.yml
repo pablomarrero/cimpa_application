@@ -37,9 +37,10 @@ en:
       last_name: Last Name
       birth_date: Birth Date
       friends: List of Friends
-    friensd_fields:
+    friend_fields:
       remove: Remove Friend
       friends: Friend
     form:
       add_friend: Add Friend
       friends_of: Friends Of
+

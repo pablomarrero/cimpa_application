@@ -79,3 +79,6 @@ gem 'cancan'
 # Used for manage jobs
 gem 'sucker_punch', '~> 1.0'
 
+# Use Paperclip for file procesor
+gem "paperclip", "~> 3.0"
+
