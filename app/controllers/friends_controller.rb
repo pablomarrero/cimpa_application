@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
   before_action :set_friend, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /friends
   # GET /friends.json
