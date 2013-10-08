@@ -1,4 +1,5 @@
 BasicSkeleton::Application.routes.draw do
+  devise_for :users
   resources :friends
 
   resources :people

@@ -21,8 +21,9 @@
 
 en:
   hello: "Hello world"
-
-
+  logout: "Logout"
+  signin: "Login"
+  update: Update
 
   people_link: "People"
 

@@ -53,3 +53,8 @@ gem "twitter-bootstrap-rails"
 # Use Cocoon for nested froms management
 gem "cocoon"
 
+# Use Devise for authentification
+gem 'devise', '3.0.0'
+
+# Use Can Can for autorization
+gem 'cancan'
