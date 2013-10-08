@@ -132,6 +132,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   jquery-ui-rails
   paperclip (~> 3.0)
   pg
+  puma
   rails (= 4.0.0)
   rolify
   rspec-rails (~> 2.12)
