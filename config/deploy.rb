@@ -42,7 +42,7 @@ role :db,  server_to_deploy
 set :rails_env, "production"
 set :use_sudo, false
 
-
+default_run_options[:pty] = true
 # set :format, :pretty
 # set :log_level, :debug
 # set :pty, true
