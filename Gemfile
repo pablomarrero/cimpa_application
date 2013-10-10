@@ -59,7 +59,12 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', '2.15.4' , group: :development
+gem 'rvm-capistrano' , group: :development
+# Use Webserver Puma
+gem 'puma'
+# Use foreman for executing
+gem 'foreman'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -84,9 +89,6 @@ gem 'sucker_punch', '~> 1.0'
 
 # Use Paperclip for file procesor
 gem "paperclip", "~> 3.0"
-
-# Use Webserver Puma
-gem 'puma'
 
 # Use Kaminari for model pagination
 gem 'kaminari'
