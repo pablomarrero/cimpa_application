@@ -5,6 +5,7 @@ FactoryGirl.define do
     end    
     password "12345678"
     password_confirmation "12345678"
+    after(:create) { |user| user.add_role "admin" }
   end
 
 
