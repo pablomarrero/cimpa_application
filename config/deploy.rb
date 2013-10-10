@@ -9,9 +9,9 @@ set :default_stage, 'production'
 set :application, 'basic_ruby_skeleton'
 set :server_to_deploy, '192.241.148.42'
 set :user, 'pmarrero'
-set :user_git, 'deploy'
 #set :password, 'deploy'
-set :repository, "#{user_git}@localhost:/srv/gitrepositories/basic_skeleton.git"
+#git@github.com:aquait/basic_ruby_skeleton.git
+set :repository, "git@github.com:aquait/basic_ruby_skeleton.git"
 set :deploy_to, "/srv/www/#{application}"
 
 set :rvm_ruby_string, '2.0.0' 
@@ -56,6 +56,32 @@ set :use_sudo, false
 #############################################################
 ### Tasks
 ##############################################################
-namespace :deploy do
+namespace :foreman do
+  desc "Export the Procfile to Ubuntu's upstart scripts"
+  task :export, :roles => :app do
+    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{app_name} -u #{user} -l /var/#{app_name}/log"
+  end
+
+  desc "Start the application services"
+  task :start, :roles => :app do
+    run "#{sudo} service #{app_name} start"
+  end
+
+  desc "Stop the application services"
+  task :stop, :roles => :app do
+    run "#{sudo} service #{app_name} stop"
+  end
+
+  desc "Restart the application services"
+  task :restart, :roles => :app do
+    run "#{sudo} service #{app_name} start || #{sudo} service #{app_name} restart"
+  end
 end
 
+namespace :deploy do
+  task :restart, :roles => :app do
+    foreman.export
+    run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{app_name} restart"
+    # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
+  end
+end
