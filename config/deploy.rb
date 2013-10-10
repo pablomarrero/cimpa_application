@@ -57,31 +57,20 @@ default_run_options[:pty] = true
 ### Tasks
 ##############################################################
 namespace :foreman do
-  desc "Export the Procfile to Ubuntu's upstart scripts"
-  task :export, :roles => :app do
-    run "cd #{current_path} && #{sudo} foreman export upstart /etc/init -a #{application} -u #{user} -l /var/#{application}/log"
-  end
-
   desc "Start the application services"
   task :start, :roles => :app do
-    run "#{sudo} service #{application} start"
+    run "RAILS_ENV=production bundle exec foreman start"
   end
 
   desc "Stop the application services"
   task :stop, :roles => :app do
-    run "#{sudo} service #{application} stop"
-  end
-
-  desc "Restart the application services"
-  task :restart, :roles => :app do
-    run "#{sudo} service #{application} start || #{sudo} service #{application} restart"
+    run "(kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'}))"
   end
 end
 
 namespace :deploy do
   task :restart, :roles => :app do
-    foreman.export
-    run "(kill -s SIGUSR1 $(ps -C ruby -F | grep '/puma' | awk {'print $2'})) || #{sudo} service #{application} restart"
-    # foreman.restart # uncomment this (and comment line above) if we need to read changes to the procfile
+    foreman.stop
+    foreman.start
   end
 end
