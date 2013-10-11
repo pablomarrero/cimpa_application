@@ -59,7 +59,7 @@ default_run_options[:pty] = true
 namespace :foreman do
   desc "Start the application services"
   task :start, :roles => :app do
-    run "cd #{current_path} && nohup RAILS_ENV=production bundle exec foreman start  > /dev/null 2>&1 &" pty:false
+    run "cd #{current_path} && nohup RAILS_ENV=production bundle exec foreman start  > /dev/null 2>&1 &", pty:false
   end
 
   desc "Stop the application services"
