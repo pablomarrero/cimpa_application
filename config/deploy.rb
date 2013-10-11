@@ -64,7 +64,8 @@ namespace :foreman do
 
   desc "Stop the application services"
   task :stop, :roles => :app do
-    run "(kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'}))"
+    run "if test '$(ps -C ruby -F | grep '/puma' | awk {'print $2'})'; then kill -9 '$(ps -C ruby -F | grep '/puma' | awk {'print $2'})'; fi"
+    #run "(kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'}))"
   end
 end
 
