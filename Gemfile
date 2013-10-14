@@ -98,4 +98,3 @@ gem 'kaminari'
 # Use Paper Trail for auditing
 gem 'paper_trail', '>= 3.0.0.beta1'
 
-
