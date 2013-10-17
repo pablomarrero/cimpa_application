@@ -16,7 +16,11 @@ Spork.prefork do
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
   RSpec.configure do |config|
-    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, type: :controller
+    config.include FactoryGirl::Syntax::Methods
+    #include helpers here
+    config.include Features::SessionHelpers, type: :feature
+    
     # ## Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -47,10 +51,24 @@ Spork.prefork do
     config.expect_with :rspec do |c|
       c.syntax = :expect
     end
+
+    config.before :each do
+      if Capybara.current_driver == :selenium
+        DatabaseCleaner.strategy = :truncation
+      else
+        DatabaseCleaner.strategy = :transaction
+      end
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
+
   end
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
-
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  FactoryGirl.reload
 end

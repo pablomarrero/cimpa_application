@@ -4,13 +4,13 @@ describe PeopleController do
 
 	# login
 	before (:each) do
-    	@user = FactoryGirl.create(:user)
+    	@user = create(:user)
     	sign_in @user
   	end
 
 	describe "GET index" do
 		it "assigns @people" do
-			person = FactoryGirl.create(:person)
+			person = create(:person)
 			get :index
 			expect(assigns[:people]).to eq([person])
 		end
@@ -25,17 +25,17 @@ describe PeopleController do
 		context "valid params" do 
 
 			it "creates new person" do				
-				expect{ post :create, person: FactoryGirl.attributes_for(:person)}.to change(Person, :count).by(1)
+				expect{ post :create, person: attributes_for(:person)}.to change(Person, :count).by(1)
 			end
 
 			it "assigns created person to @person" do
-				post :create, person: FactoryGirl.attributes_for(:person)
+				post :create, person: attributes_for(:person)
 				expect(assigns(:person)).to be_a(Person)
 				expect(assigns(:person)).to be_persisted
 			end
 
 			it "redirects to show page" do 
-				post :create, person: FactoryGirl.attributes_for(:person)
+				post :create, person: attributes_for(:person)
 				expect(response).to redirect_to(person_url(Person.last))
 			end
 
@@ -43,7 +43,7 @@ describe PeopleController do
 
 		context "invalid params" do
 			before(:each) do 
-				post :create, person: FactoryGirl.attributes_for(:person, first_name: nil)
+				post :create, person: attributes_for(:person, first_name: nil)
 			end
 			it "doesn't persist the model" do
 				expect(assigns(:person)).to be_a_new(Person)
@@ -56,7 +56,7 @@ describe PeopleController do
 
 	describe "PUT update" do
 		context "valid params" do 
-			let(:person){FactoryGirl.create(:person)}
+			let(:person){create(:person)}
 
 			it "updates requested person" do				
 				Person.any_instance.should_receive(:update).with({"first_name" => "new first name"})
@@ -64,22 +64,22 @@ describe PeopleController do
 			end
 
 			it "assigns updated person to @person" do
-				put :update, id: person.id, person: FactoryGirl.attributes_for(:person)
+				put :update, id: person.id, person: attributes_for(:person)
 				expect(assigns(:person)).to eq(person)
 			end
 
 			it "redirects to show page" do 
-				put :update, id: person.id, person: FactoryGirl.attributes_for(:person)
+				put :update, id: person.id, person: attributes_for(:person)
 				expect(response).to redirect_to(person_url(person.id))
 			end
 
 		end
 
 		context "invalid params" do 
-			let(:person){FactoryGirl.create(:person)}
+			let(:person){create(:person)}
 
 			before(:each) do
-				put :update, id: person.id, person: FactoryGirl.attributes_for(:person, first_name: nil)
+				put :update, id: person.id, person: attributes_for(:person, first_name: nil)
 			end
 			
 			it "adds errors to the model" do				
@@ -95,7 +95,7 @@ describe PeopleController do
 
 	describe "DELETE destroy" do
 		before(:each) do
-			@person = FactoryGirl.create(:person)
+			@person = create(:person)
 		end
 
 	    it "destroys the requested person" do	      

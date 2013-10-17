@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  after_create :set_rolify_role
+
+   private
+   def set_rolify_role
+      self.add_role :basic
+   end
+
 end
