@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
    private
    def set_rolify_role
-      self.add_role :basic
+      self.add_role :admin
    end
 
 end

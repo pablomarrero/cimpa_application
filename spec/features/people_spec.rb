@@ -4,15 +4,16 @@ feature 'People management' do
 
   scenario "create new person" do
     sign_in create(:user)
+    person = build(:person)
     visit people_path
 
     expect{
-      person = build(:person)
+      
       click_link 'New'      
-      fill_in 'First Name', with: person.first_name
-      fill_in 'Last Name', with: person.last_name      
-      fill_in 'Birth Date', with: person.birth_date.strftime("%F")
-      click_button 'Create'
+      fill_in 'First name', with: person.first_name
+      fill_in 'Last name', with: person.last_name      
+      fill_in 'Birth date', with: person.birth_date.strftime("%F")
+      click_button 'Create Person'
     }.to change(Person, :count).by(1)
 
     expect(current_path).to eq person_path(Person.last)
@@ -25,13 +26,35 @@ feature 'People management' do
 
     visit person_path(person)
     click_link 'Edit'
-    fill_in 'First Name', with: 'New Name'
-    fill_in 'Last Name', with: 'New Lastname'
-    click_button 'Save'
+    fill_in 'First name', with: 'New Name'
+    fill_in 'Last name', with: 'New Lastname'
+    click_button 'Update Person'
 
     expect(current_path).to eq person_path(person)
     expect(page).to have_content 'New Name'
     expect(page).to have_content 'New Lastname'
+  end
+
+  scenario "add friends", js: true do
+    person = create(:person)
+    friend_one = create(:person)
+    friend_two = create(:person)
+
+    sign_in create(:user)    
+
+    visit person_path(person)
+    click_link 'Edit'
+    click_link 'Add Friend'
+    
+    within "fieldset.friends" do
+      find(:css, "input.combobox").set(friend_one.first_name)
+      sleep 1
+      page.execute_script("$('ul.typeahead li:first a').click()")
+    end
+
+    click_button 'Update Person'
+    expect(current_path).to eq person_path(person)
+    expect(page).to have_content friend_one.first_name
   end
 
   scenario "delete person" do
