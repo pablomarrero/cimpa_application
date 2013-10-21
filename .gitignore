@@ -16,3 +16,6 @@
 /tmp
 
 .rvmrc
+
+# Ignore coverage data
+/coverage

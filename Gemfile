@@ -51,6 +51,8 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'headless'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
 
 # Use ActiveModel has_secure_password

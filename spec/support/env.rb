@@ -1,7 +1,7 @@
 # use headless gem when HEADLESS variable is set
 if ENV['HEADLESS'] == 'true'
  require 'headless'
-  
+  	
     headless = Headless.new
     headless.start
   
