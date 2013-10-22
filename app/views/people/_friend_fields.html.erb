@@ -1,7 +1,6 @@
   <div class="control-group form-inline nested-fields">
     <label> <%= t('.friends') %> </label>
     <%= f.hidden_field :person_id, :value => @person.id %>
-    <%= f.select :friend_id, options_for_select(@people.map { |person| ["#{person.first_name} #{person.last_name}", person.id] }, 
-      :selected => f.object.friend_id),{}, :class => 'combobox' %>
+    <%= f.collection_select :friend_id, Person.all, :id, :name, :prompt => true%>
     <%= link_to_remove_association t('.remove'), f, :class => 'btn btn-danger' %>
   </div>
