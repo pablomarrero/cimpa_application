@@ -104,6 +104,7 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    headless (1.0.1)
     highline (1.6.19)
     hike (1.2.3)
     http_parser.rb (0.5.3)
@@ -214,6 +215,12 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     slop (3.4.6)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -277,6 +284,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-spork
+  headless
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails
@@ -292,6 +300,8 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver
+  simplecov
+  simplecov-rcov
   spork-rails
   sucker_punch (~> 1.0)
   therubyracer
