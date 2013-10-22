@@ -72,7 +72,7 @@ gem 'foreman'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-#gem 'ci_reporter', group: [:development, :test]
+gem 'ci_reporter', group: [:development, :test]
 
 # Use bootstrap
 gem "twitter-bootstrap-rails"
