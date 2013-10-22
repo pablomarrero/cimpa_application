@@ -3,6 +3,5 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-require 'ci/reporter/rake/rspec' unless $RAILS_ENV==='production'
 
 BasicSkeleton::Application.load_tasks
