@@ -46,10 +46,8 @@ feature 'People management' do
     click_link 'Edit'
     click_link 'Add Friend'
     
-    within "fieldset.friends" do
-      find(:css, "input.combobox").set(friend_one.first_name)
-      sleep 1
-      page.execute_script("$('ul.typeahead li:first a').click()")
+    within "fieldset.friends" do      
+      find("option[value='#{friend_one.id}']").click            
     end
 
     click_button 'Update Person'
