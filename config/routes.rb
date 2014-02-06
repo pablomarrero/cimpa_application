@@ -1,4 +1,6 @@
-BasicSkeleton::Application.routes.draw do
+CimpaApplication::Application.routes.draw do
+  resources :presentations
+
   devise_for :users
   resources :friends
 

@@ -6,12 +6,12 @@ require "rvm/capistrano"
 set :stages, %w[production]
 set :default_stage, 'production'
 
-set :application, 'basic_ruby_skeleton'
+set :application, 'cimpa_application'
 set :server_to_deploy, '192.241.148.42'
 set :user, 'pmarrero'
 #set :password, 'deploy'
 #git@github.com:aquait/basic_ruby_skeleton.git
-set :repository, "git@github.com:aquait/basic_ruby_skeleton.git"
+set :repository, "git@github.com:pablomarrero/cimpa_application.git"
 set :deploy_to, "/srv/www/#{application}"
 
 set :rvm_ruby_string, '2.0.0' 

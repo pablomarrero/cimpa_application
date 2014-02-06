@@ -1,0 +1,13 @@
+<% if target.errors.any? %>  
+  <div class="alert alert-error">  
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3><%= t('found_errors')%></h3>  
+    <ul>  
+      <% target.errors.each do |attr, msg| %>  
+        <% unless attr.to_s.end_with?('_content_type') %>
+          <li><strong><%= t("#{target.class.name.downcase}.#{attr}")%>: </strong><%= msg.class.to_s == 'Array' ? msg[0] : msg %></li>  
+        <% end %>
+      <% end %>  
+    </ul>  
+  </div>  
+<% end %>  

@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: rubyskeleton_development
+  database: cimpa_development
   username: postgres
   password: postgres
   host: localhost
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: utf8
-  database: rubyskeleton_test
+  database: cimpa_test
   username: postgres
   password: postgres
   host: localhost
@@ -17,7 +17,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: rubyskeleton_production
+  database: cimpa_production
   username: postgres
   password: postgres
   host: localhost

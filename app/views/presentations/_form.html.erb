@@ -1,0 +1,214 @@
+<div class="content-fluid">
+  <%= render "shared/error_messages", :target => @presentation %>  
+  <div class="alert alert-error">
+    <p><%= t('.please_read') %></p>
+  </div>
+  <div class="alert alert-success">
+    <p><%= t('.deadlines_html') %></p>
+  </div>
+
+  <%= form_for @presentation, :html => { :class => 'hand_writer well' } do |f| %>
+    <h2><%= t('.proposal') %></h2>
+    <hr>
+    <div class="control-group">
+      <%= f.label :similar_project, t('.similar_project'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :similar_project %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :completely_read, t('.completely_read_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :completely_read %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :research_school_title, t('.research_school_title'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :research_school_title, :class => 'input-xxlarge' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :project_type, t('.project_type'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :project_type, Presentation.project_type.values.map {|data| [t("enumerize.presentation.#{data}"),data]}, {:prompt => true}, {:class => 'combobox'} %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :subject_clasification, t('.subject_clasification_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :subject_clasification, :class => 'input-mini' %>
+      </div>
+    </div>
+    <hr>
+    <p><h6><%= t('.school_place_html') %></h6></p>
+    <div class="row-fluid">
+      <div class="control-group span3">
+        <%= f.label :school_place, t('.school_place_text'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :school_place %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :school_date_a, t('.school_date_a'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :school_date_a %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :school_date_b, t('.school_date_b'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :school_date_b %>
+        </div>
+      </div>
+    </div>  
+    <hr>
+    <div class="control-group">
+      <%= f.label :scientific_content, t('.scientific_content'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :scientific_content, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <p><blockquote><h5><%= t('.balance_woman') %></h5></blockquote></p>
+    <hr>
+    <div class="control-group">
+      <%= f.label :members_of_scientific_committee, t('.members_of_scientific_committee_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :members_of_scientific_committee, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :members_of_local_committee, t('.members_of_local_committee'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :members_of_local_committee, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :local_institution_description, t('.local_institution_description'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :local_institution_description, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :motivation, t('.motivation'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :motivation , :class => 'span12 text_area'%>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :related_scientific_work, t('.related_scientific_work'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :related_scientific_work, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :infrastructure, t('.infrastructure'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :infrastructure, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :courses, t('.courses_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :courses, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :tentative_schedule, t('.tentative_schedule_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :tentative_schedule, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <p><h6><%= t('.women_percentage_text') %></h6></p>
+    <div class="row-fluid">
+      <div class="control-group span3">
+        <%= f.label :women_percentage_scientific,t('.women_percentage_scientific'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :women_percentage_scientific, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :women_percentage_local,t('.women_percentage_local'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :women_percentage_local, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :women_percentage_course,t('.women_percentage_course'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :women_percentage_course, :class => 'input-small' %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p><h6><%= t('.how_much_cimpa_text') %></h6></p>
+    <div class="row-fluid">
+      <div class="control-group span3">
+        <%= f.label :how_much_cimpa,t('.how_much_cimpa'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :how_much_cimpa, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :how_much_cimpa_percentage,t('.how_much_cimpa_percentage'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.number_field :how_much_cimpa_percentage, :class => 'input-small' %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <%= f.label :young_people,t('.young_people'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :young_people, :class => 'input-small' %>
+      </div>
+    </div>
+    <hr>
+    <p><h6><%= t('.time_scientific_text') %></h6></p>
+    <div class="row-fluid">
+      <div class="control-group span3">
+        <%= f.label t('.average_time_scientific'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.number_field :average_time_scientific, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group span3">
+        <%= f.label :day_time_scientific,t('.day_time_scientific'), :class => 'control-label' %>
+        <div class="controls">
+          <%= f.number_field :day_time_scientific, :class => 'input-small' %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p><blockquote><h5><%= t('.notified_text') %></h5></blockquote></p>
+    <p><blockquote><h5><%= t('.notified2_text') %></h5></blockquote></p>
+    <div class="control-group">
+      <%= f.label :confirmation_completely_read, t('.confirmation_completely_read_html'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :confirmation_completely_read %>
+      </div>
+    </div>
+    <hr>
+    <div class="field">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit t('save'), :class => 'btn btn-primary hand_writer' %>
+      <%= link_to t('cancel', :default => t("helpers.links.cancel")), presentations_path, :class => 'btn hand_writer' %>
+    </div>
+
+  <% end %>
+</div>

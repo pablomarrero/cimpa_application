@@ -1,0 +1,126 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  logout: "Logout"
+  signin: "Login"
+  update: Réviser
+
+  cimpa_name: Centre International de Mathématiques Pures et Appliquées
+  address: Adresse
+  show: Montrer
+  actions: Actes
+  new: Nouveau
+  edit: Modifier
+  destroy: Détruire
+  save: Sauver
+
+
+  presentations_link: D’ÉCOLE
+  enumerize:
+    presentation:
+      fundamental: Fondamentales
+      applied: Appliqués
+      mixed: MIxte
+  presentations:
+    index:
+      user: Nom du propriétaire
+      similar_project: Projet Similaire
+      research_school_title: Titre
+      project_type: Type de Projet
+      title: Liste des PROJET D’ÉCOLE DE RECHERCHE CIMPA
+    new:
+      title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
+    show:
+      title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
+      proposal: D’ÉCOLE
+      deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
+      please_read: "Merci de lire en détail la feuille de route."
+      similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
+      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
+      project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
+      subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
+      school_place_html: "Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
+      school_place_text: Lieu
+      school_date_a: Dates A
+      school_date_b: Dates B
+      scientific_content: "Court résumé du contenu scientifique."
+      balance_woman: "L’équilibre entre les femmes et les hommes est un point important tout au long de l'évaluation de votre projet."
+      members_of_scientific_committee_html: "Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
+      members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
+      local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
+      motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
+      courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
+      tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
+      women_percentage_text: "Quel est le pourcentage de femmes?"
+      women_percentage_scientific: "Au Comité scientifique"
+      women_percentage_local: "Au Comité d’organisation"
+      women_percentage_course: "Qui feront un cours?"
+      how_much_cimpa_text: Quel montant sollicitez-vous au CIMPA (2/3 au moins sera destiné aux jeunes mathématiciens) et quel pourcentage des financements prévus cela représente?
+      how_much_cimpa: "Quel montant"
+      how_much_cimpa_percentage: "Pourcentage"
+      young_people: "Combien de jeunes mathématiciens de la région (non locaux) pourraient participer?"
+      time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
+      average_time_scientific: "Moyenne horaire"
+      day_time_scientific: "Jours"
+      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
+      notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
+    form:
+      proposal: D’ÉCOLE
+      deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
+      please_read: "Merci de lire en détail la feuille de route."
+      similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
+      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
+      project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
+      subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
+      school_place_html: "Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
+      school_place_text: Lieu
+      school_date_a: Dates A
+      school_date_b: Dates B
+      scientific_content: "Court résumé du contenu scientifique."
+      balance_woman: "L’équilibre entre les femmes et les hommes est un point important tout au long de l'évaluation de votre projet."
+      members_of_scientific_committee_html: "Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
+      members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
+      local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
+      motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
+      courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
+      tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
+      women_percentage_text: "Quel est le pourcentage de femmes?"
+      women_percentage_scientific: "Au Comité scientifique"
+      women_percentage_local: "Au Comité d’organisation"
+      women_percentage_course: "Qui feront un cours?"
+      how_much_cimpa_text: Quel montant sollicitez-vous au CIMPA (2/3 au moins sera destiné aux jeunes mathématiciens) et quel pourcentage des financements prévus cela représente?
+      how_much_cimpa: "Quel montant"
+      how_much_cimpa_percentage: "Pourcentage"
+      young_people: "Combien de jeunes mathématiciens de la région (non locaux) pourraient participer?"
+      time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
+      average_time_scientific: "Moyenne horaire"
+      day_time_scientific: "Jours"
+      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
+      notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."

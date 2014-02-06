@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009123212) do
+ActiveRecord::Schema.define(version: 20140204022527) do
 
   create_table "friends", force: true do |t|
     t.integer  "person_id"
@@ -34,6 +34,40 @@ ActiveRecord::Schema.define(version: 20131009123212) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "presentations", force: true do |t|
+    t.boolean  "similar_project"
+    t.integer  "user_id"
+    t.boolean  "completely_read"
+    t.string   "research_school_title"
+    t.string   "project_type"
+    t.integer  "subject_clasification"
+    t.string   "school_place"
+    t.string   "school_date_a"
+    t.string   "school_date_b"
+    t.text     "scientific_content"
+    t.text     "members_of_scientific_committee"
+    t.text     "members_of_local_committee"
+    t.text     "local_institution_description"
+    t.text     "motivation"
+    t.text     "related_scientific_work"
+    t.text     "infrastructure"
+    t.text     "courses"
+    t.text     "tentative_schedule"
+    t.integer  "women_percentage_scientific"
+    t.integer  "women_percentage_local"
+    t.integer  "women_percentage_course"
+    t.float    "how_much_cimpa"
+    t.integer  "how_much_cimpa_percentage"
+    t.integer  "young_people"
+    t.float    "average_time_scientific"
+    t.integer  "day_time_scientific"
+    t.boolean  "confirmation_completely_read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

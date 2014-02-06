@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'ci/reporter/rake/rspec'
-BasicSkeleton::Application.load_tasks
+CimpaApplication::Application.load_tasks

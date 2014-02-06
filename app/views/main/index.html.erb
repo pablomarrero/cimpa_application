@@ -1,122 +1,23 @@
-<% content_for :navbar do %>
-  <div class="well sidebar-nav">
-    <ul class="nav nav-list">
-      <li class="nav-header">Authors</li>
-      <li>
-        <dl>
-          <dt><strong>Pablo Marrero</strong></dt>
-          <dd>pablo@aquait.com.uy</dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt><strong>Leandro Bertolami</strong></dt>
-          <dd>leandro.bertolami@dyn-solutions.com</dd>
-        </dl>
-      </li>
-    </ul>
-  </div><!--/.well -->
-<% end %>
+<div class="row-fluid">
+  <div class="span9">
+    <div class="page-header center">
+      <h3 class="hand_writer_title">
+        <%= image_tag 'logo-cimpa.gif', :size => "200x160" %><br/>
+        <%= t 'cimpa_name' %>
+      </h3>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="well sidebar-nav">
+      <address>
+        <strong><%= t :address %></strong><br>
+        CIMPA<br>
+        Le Dubellay<br>
+        4 avenue Joachim - Bât. A<br>
+        06100 Nice<br>
+        FRANCE
+      </address>
+    </div>
+  </div>
+</div>
 
-<div class="hero-unit">
-  <h1>Basic Ruby Example</h1>
-  <h5>Basic example of how use the normal environment. This will be the point of start for projects whitout strong complexity.</h5>
-</div>
-<div class="row-fluid">
-  <div class="span3 well">
-    <h3>Ruby</h3>
-    <p>In this project we used Ruby MRI version 2.0.0</p>
-  </div>
-  <div class="span3 well">
-    <h3>Rails</h3>
-    <p>In this project we used Rails version 4.0</p>
-  </div>
-  <div class="span3 well">
-    <h3>Data Base</h3>
-    <p>
-    In this project we used Postgresql as the Database Server.<br/>
-    The version that we utilized is 9.1
-    </p>
-  </div>
-  <div class="span3 well"> 
-    <h3>CSS</h3>
-    <p>
-    In this project we used Twitter Bootstrap.<br/> 
-    The version that we utilized is 2.3.2<br/>
-    <a href='http://getbootstrap.com/2.3.2/index.html'>Bootstrap site</a>
-    </p>
-  </div>
-</div>
-<div class="row-fluid">
-  <div class="span3 well">
-    <h3>Paperclip</h3>
-    <p>
-    We use Paperclip for management of files.<br/> 
-    As an example of use we add an avatar to Person model.<br/>
-    <a href="https://github.com/thoughtbot/paperclip">Paperclip site</a>
-    </p>
-  </div>
-  <div class="span3 well">
-    <h3>Sucker Punch</h3>
-    <p>
-    We use SuckerPunch for manage background jobs.<br/> 
-    As an example of use we add a job UserLogJob that put information about users in the system and the date of last login.<br/> 
-    This job is used in main controller.<br/>
-    <a href="https://github.com/brandonhilkert/sucker_punch">SuckerPunch site</a>
-    </p>
-  </div>
-  <div class="span3 well">
-    <h3>Devise, CanCan and Rolify</h3>
-    <p>
-    For the management of authentication and authorization we use Devise (authentication), CanCan (authorization) and Rolify (role management).<br/>
-    <a href="https://github.com/plataformatec/devise">Devise site</a><br/>
-    <a href="https://github.com/ryanb/cancan">CanCan site</a><br/>
-    <a href="https://github.com/EppO/rolify">Rolify site</a>
-    </p>
-  </div>
-  <div class="span3 well"> 
-    <h3>Cocoon</h3>
-    <p>
-    We use Cocoon for the management of Nested Attributes in models.<br/> 
-    Example of use in Person model.<br/>
-    <a href="https://github.com/nathanvda/cocoon">Cocoon site</a>
-    </p>
-  </div>
-</div>
-<div class="row-fluid">
-  <div class="span3 well">
-    <h3>Kaminari</h3>
-    <p>
-    We use Kaminari for paginate lists.<br/> 
-    As an example of use we add it in the index view of Person model.<br/>
-    <a href="https://github.com/amatsuda/kaminari">Kaminari site</a>
-    </p>
-  </div>
-  <div class="span3 well">
-    <h3>Paper Trail</h3>
-    <p>
-    We use PaperTrail for auditing models.</br> 
-    As an example of use we add auditing to Person model.<br/>
-    <a href="https://github.com/airblade/paper_trail">PaperTrail site</a>
-    </p>
-  </div>
-  <div class="span3 well">
-    <h3></h3>
-    <p></p>
-  </div>
-  <div class="span3 well">
-    <h3></h3>
-    <p></p>
-  </div>
-</div>
-<div class="row-fluid">
-  <div class="span12 well">
-    <h3>Testing</h3>
-    <p>For unit/functional testing we use Rspec. <br/>For integration tests we use Capybara with Selenium.<br/> 
-      We encourage to use Guard to test any changes to the files automatically by running: <br/><br/>
-        > bundle exec guard<br/><br/>
-      This will auto-run the tests for the classes/controller you change while coding. Also you can run the tests manually at any time with:<br/><br/>
-        > bundle exec rspec
-        </p>
-  </div>  
-</div>

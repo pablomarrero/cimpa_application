@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  similar_project: false
+  user_id: 
+  completely_read: false
+  research_school_title: MyString
+  project_type: MyString
+  subject_clasification: 1
+  school_place: MyString
+  school_date_a: MyString
+  school_date_b: MyString
+  scientific_content: MyText
+  members_of_scientific_committee: MyText
+  members_of_local_committee: MyText
+  local_institution_description: MyText
+  motivation: MyText
+  related_scientific_work: MyText
+  infrastructure: MyText
+  courses: MyText
+  tentative_schedule: MyText
+  women_percentage_scientific: 1
+  women_percentage_local: 1
+  women_percentage_course: 1
+  how_much_cimpa: 1.5
+  how_much_cimpa_percentage: 1
+  young_people: 1
+  average_time_scientific: 1.5
+  day_time_scientific: 1
+  confirmation_completely_read: false
+
+two:
+  similar_project: false
+  user_id: 
+  completely_read: false
+  research_school_title: MyString
+  project_type: MyString
+  subject_clasification: 1
+  school_place: MyString
+  school_date_a: MyString
+  school_date_b: MyString
+  scientific_content: MyText
+  members_of_scientific_committee: MyText
+  members_of_local_committee: MyText
+  local_institution_description: MyText
+  motivation: MyText
+  related_scientific_work: MyText
+  infrastructure: MyText
+  courses: MyText
+  tentative_schedule: MyText
+  women_percentage_scientific: 1
+  women_percentage_local: 1
+  women_percentage_course: 1
+  how_much_cimpa: 1.5
+  how_much_cimpa_percentage: 1
+  young_people: 1
+  average_time_scientific: 1.5
+  day_time_scientific: 1
+  confirmation_completely_read: false
