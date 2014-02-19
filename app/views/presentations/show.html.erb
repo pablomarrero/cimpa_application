@@ -61,6 +61,81 @@
     </div>
   </div>  
   <hr>
+  <fieldset class="row-fluid">
+    <legend><%= raw t '.coordinators' %></legend>
+    <h5><%= t '.administration_coordinator' %></h5>
+    <div class="row-fluid">
+      <div class="control-group span2">
+        <%= t('.administration_name') %>
+        <div class="controls">
+          <pre><%= @presentation.administration_name %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.administration_place') %>
+        <div class="controls">
+          <pre><%= @presentation.administration_place %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.administration_email') %>
+        <div class="controls">
+          <pre><%= @presentation.administration_email %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.administration_phone') %>
+        <div class="controls">
+          <pre><%= @presentation.administration_phone %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.administration_cv') %>
+        <div class="controls">
+          <% if @presentation.administration_cv.present? %>
+            <%= link_to t('download'), download_administration_cv_path(@presentation), :class => 'btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h5><%= t '.scientific_coordinator' %></h5>
+    <div class="row-fluid">
+      <div class="control-group span2">
+        <%= t('.scientific_name') %>
+        <div class="controls">
+          <pre><%= @presentation.scientific_name %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.scientific_place') %>
+        <div class="controls">
+          <pre><%= @presentation.scientific_place %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.scientific_email') %>
+        <div class="controls">
+          <pre><%= @presentation.scientific_email %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.scientific_phone') %>
+        <div class="controls">
+          <pre><%= @presentation.scientific_phone %></pre>
+        </div>
+      </div>
+      <div class="control-group span2">
+        <%= t('.scientific_cv') %>
+        <div class="controls">
+          <% if @presentation.scientific_cv.present? %>
+            <%= link_to t('download'), download_scientific_cv_path(@presentation), :class => 'btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <hr>
   <div class="control-group">
     <%= t('.scientific_content') %>
     <div class="controls">
@@ -126,6 +201,59 @@
     </div>
   </div>
   <hr>
+  <div id="provisional_budget" class="row-fluid">
+    <div >
+      <fieldset class="provisional_budget">
+        <legend class="no-margin-bottom"><%= t('.provisional_budget')%></legend>
+        <table class="table table-striped well table-condensed">
+          <thead>
+            <tr>
+              <th class="span5"><%= t('.provisional_description') %></th>
+              <th class="span2"><%= t('.provisional_amount') %></th>
+              <th class="span2"><%= t('.provisional_type') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @presentation.provisional_budgets.each do |pro| %>
+            <tr>
+              <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.amount %></pre></td>
+              <td class="span2"><pre><%= pro.provisional_type %></pre></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <hr>
+  <div id="anticipated_funding" class="row-fluid">
+    <div >
+      <fieldset class="anticipated_funding">
+        <legend class="no-margin-bottom"><%= t('.anticipated_funding')%></legend>
+        <table class="table table-striped well table-condensed">
+          <thead>
+            <tr>
+              <th class="span5"><%= t('.anticipated_description') %></th>
+              <th class="span2"><%= t('.anticipated_amount') %></th>
+              <th class="span2"><%= t('.anticipated_type') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @presentation.anticipated_fundings.each do |pro| %>
+            <tr>
+              <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.amount %></pre></td>
+              <td class="span2"><pre><%= pro.anticipated_type %></pre></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <hr>
+
   <p><h6><%= t('.women_percentage_text') %></h6></p>
   <div class="row-fluid">
     <div class="control-group span3">

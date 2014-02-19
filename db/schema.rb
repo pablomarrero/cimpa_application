@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204022527) do
+ActiveRecord::Schema.define(version: 20140219192436) do
+
+  create_table "anticipated_fundings", force: true do |t|
+    t.integer  "presentation_id"
+    t.string   "description"
+    t.decimal  "amount"
+    t.string   "anticipated_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "anticipated_fundings", ["presentation_id"], name: "index_anticipated_fundings_on_presentation_id", using: :btree
 
   create_table "friends", force: true do |t|
     t.integer  "person_id"
@@ -65,9 +76,36 @@ ActiveRecord::Schema.define(version: 20140204022527) do
     t.boolean  "confirmation_completely_read"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "administration_name"
+    t.string   "administration_place"
+    t.string   "administration_email"
+    t.string   "administration_phone"
+    t.string   "administration_cv_file_name"
+    t.string   "administration_cv_content_type"
+    t.integer  "administration_cv_file_size"
+    t.datetime "administration_cv_updated_at"
+    t.string   "scientific_name"
+    t.string   "scientific_place"
+    t.string   "scientific_email"
+    t.string   "scientific_phone"
+    t.string   "scientific_cv_file_name"
+    t.string   "scientific_cv_content_type"
+    t.integer  "scientific_cv_file_size"
+    t.datetime "scientific_cv_updated_at"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
+
+  create_table "provisional_budgets", force: true do |t|
+    t.integer  "presentation_id"
+    t.string   "description"
+    t.decimal  "amount"
+    t.string   "provisional_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "provisional_budgets", ["presentation_id"], name: "index_provisional_budgets_on_presentation_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

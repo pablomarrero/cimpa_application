@@ -12,6 +12,8 @@ init = ->
   })
   $('.combobox').combobox()
   $(".friends").on "cocoon:after-insert", (e, insertedItem) -> insertedItem.find('.combobox').combobox()
+  $("#provisional_budget").on "cocoon:after-insert", (e, insertedItem) -> insertedItem.find('.combobox').combobox()
+  $("#anticipated_funding").on "cocoon:after-insert", (e, insertedItem) -> insertedItem.find('.combobox').combobox()
 
 
 $(document).ready init

@@ -50,6 +50,27 @@ fr:
     new:
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
     show:
+      provisional_budget: Budget Prévisionnel
+      provisional_description: Description
+      provisional_amount: Montant
+      provisional_type: Type
+      anticipated_funding: Financements Prévus
+      anticipated_description: Description
+      anticipated_amount: Montant
+      anticipated_type: Type
+      add_provisional_budget: Ajouter Budget Prévisionnel
+      add_anticipated_funding: Ajouter Financements Prévus
+      administration_name: Nom
+      administration_place: Lieu de travail
+      administration_email: Courriel
+      administration_phone: Téléphone
+      administration_cv: CV de deux pages au plus
+      scientific_name: Nom
+      scientific_place: Lieu de travail
+      scientific_email: Courriel
+      scientific_phone: Téléphone
+      scientific_cv: CV de deux pages au plus
+      sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
       proposal: D’ÉCOLE
       deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
@@ -88,6 +109,27 @@ fr:
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
     form:
+      provisional_budget: Budget Prévisionnel
+      provisional_description: Description
+      provisional_amount: Montant
+      provisional_type: Type
+      anticipated_funding: Financements Prévus
+      anticipated_description: Description
+      anticipated_amount: Montant
+      anticipated_type: Type
+      add_provisional_budget: Ajouter Budget Prévisionnel
+      add_anticipated_funding: Ajouter Financements Prévus
+      administration_name: Nom
+      administration_place: Lieu de travail
+      administration_email: Courriel
+      administration_phone: Téléphone
+      administration_cv: CV de deux pages au plus
+      scientific_name: Nom
+      scientific_place: Lieu de travail
+      scientific_email: Courriel
+      scientific_phone: Téléphone
+      scientific_cv: CV de deux pages au plus
+      sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       proposal: D’ÉCOLE
       deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
       please_read: "Merci de lire en détail la feuille de route."
