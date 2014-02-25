@@ -1,0 +1,7 @@
+<% if target.errors.any? %>  
+  <div class="alert alert-error">  
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3><%= t('found_errors')%></h3>  
+    <h5><%= t('please_fix') %></h5>
+  </div>  
+<% end %>  
