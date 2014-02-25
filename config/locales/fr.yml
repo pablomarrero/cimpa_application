@@ -32,7 +32,12 @@ fr:
   edit: Modifier
   destroy: Détruire
   save: Sauver
+  pre_proposal: Envoyer Proposition Pré
+  final_proposal: Envoyer Proposition Finale
 
+  states_pre_proposal: Proposition Pré
+  states_final_proposal: Proposition Finale
+  states_primary_fill: Proposition Charger
 
   presentations_link: D’ÉCOLE
   enumerize:

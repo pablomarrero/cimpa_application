@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1 class="hand_writer_title"><%=t '.title' %></h1>
+  <span class="label label-info"><%=t "states_#{@presentation.proposal_state}"%></span>
 </div>
 <div class="content-fluid">
   <h2><%= t('.proposal') %></h2>
@@ -329,6 +330,10 @@
               presentations_path, :class => 'btn'  %>
   <%= link_to t('edit', :default => t("helpers.links.edit")),
               edit_presentation_path(@presentation), :class => 'btn' %>
+  <%= link_to t('pre_proposal'),
+              pre_proposal_path(@presentation), :class => 'btn' %>
+  <%= link_to t('final_proposal'),
+              final_proposal_path(@presentation), :class => 'btn' %>
   <%= link_to t('destroy', :default => t("helpers.links.destroy")),
               presentation_path(@presentation),
               :method => 'delete',

@@ -31,8 +31,13 @@ en:
   destroy: Destroy
   save: Save
   download: Download
+  pre_proposal: Send Pre Proposal
+  final_proposal: Send Final Proposal
+  states_pre_proposal: Pre Proposal
+  states_final_proposal: Final Proposal
+  states_primary_fill: Charge Proposal
 
-
+  please_fix: Please Fix errors & perform action 
   cimpa_name: International Center for Pure and Applied Mathematics
   address: Address
   presentations_link: Proposals

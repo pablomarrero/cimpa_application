@@ -1,5 +1,5 @@
 class PresentationsController < ApplicationController
-  before_action :set_presentation, only: [:show, :edit, :update, :destroy]
+  before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal]
 
   # GET /presentations
   # GET /presentations.json
@@ -19,6 +19,7 @@ class PresentationsController < ApplicationController
   # GET /presentations/new
   def new
     @presentation = Presentation.new
+    @presentation.proposal_state = :proposal_fill
   end
 
   # GET /presentations/1/edit
@@ -29,6 +30,7 @@ class PresentationsController < ApplicationController
   # POST /presentations.json
   def create
     @presentation = Presentation.new(presentation_params)
+    @presentation.proposal_state = :primary_fill
 
     respond_to do |format|
       if @presentation.save
@@ -78,7 +80,41 @@ class PresentationsController < ApplicationController
       :disposition => 'attachment'
   end
 
+  def pre_proposal
+    @presentation.pre_proposal_date = DateTime.now
+    @presentation.proposal_state = :pre_proposal 
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def final_proposal
+    @presentation.final_proposal_date = DateTime.now
+    @presentation.proposal_state = :final_proposal 
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+    def verify_pre_proposal_fields
+      true
+    end
+    def verify_final_proposal_fields
+      true
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_presentation
       @presentation = Presentation.find(params[:id])

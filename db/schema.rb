@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219192436) do
+ActiveRecord::Schema.define(version: 20140225173908) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(version: 20140219192436) do
     t.string   "scientific_cv_content_type"
     t.integer  "scientific_cv_file_size"
     t.datetime "scientific_cv_updated_at"
+    t.string   "proposal_state"
+    t.datetime "pre_proposal_date"
+    t.datetime "final_proposal_date"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
