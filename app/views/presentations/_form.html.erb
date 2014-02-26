@@ -99,6 +99,9 @@
           <%= f.label :administration_cv, t('.administration_cv'), :class => 'control-label' %>
           <div class="controls">
             <%= f.file_field :administration_cv, :class => 'filestyle' %>
+            <% if f.object.administration_cv.present? %>
+              <%= link_to t('download'), download_administration_cv_path(f.object.id), :class => 'btn' %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -133,6 +136,9 @@
           <%= f.label :scientific_cv, t('.scientific_cv'), :class => 'control-label' %>
           <div class="controls">
             <%= f.file_field :scientific_cv, :class => 'filestyle' %>
+            <% if f.object.scientific_cv.present? %>
+              <%= link_to t('download'), download_scientific_cv_path(f.object.id), :class => 'btn' %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -212,6 +218,7 @@
             <thead>
               <tr>
                 <th class="span5"><%= t('.provisional_description') %></th>
+                <th class="span2"><%= t('.currency') %></th>
                 <th class="span2"><%= t('.provisional_amount') %></th>
                 <th class="span2"><%= t('.provisional_type') %></th>
                 <th class="span2"><%= t('actions') %></th>
@@ -236,6 +243,7 @@
             <thead>
               <tr>
                 <th class="span5"><%= t('.anticipated_description') %></th>
+                <th class="span2"><%= t('.currency') %></th>
                 <th class="span2"><%= t('.anticipated_amount') %></th>
                 <th class="span2"><%= t('.anticipated_type') %></th>
                 <th class="span2"><%= t('actions') %></th>

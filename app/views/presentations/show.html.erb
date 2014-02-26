@@ -210,6 +210,7 @@
           <thead>
             <tr>
               <th class="span5"><%= t('.provisional_description') %></th>
+              <th class="span2"><%= t('.currency') %></th>
               <th class="span2"><%= t('.provisional_amount') %></th>
               <th class="span2"><%= t('.provisional_type') %></th>
             </tr>
@@ -218,6 +219,7 @@
             <% @presentation.provisional_budgets.each do |pro| %>
             <tr>
               <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.currency.try(:symbol) %></pre></td>
               <td class="span2"><pre><%= pro.amount %></pre></td>
               <td class="span2"><pre><%= pro.provisional_type %></pre></td>
             </tr>
@@ -236,6 +238,7 @@
           <thead>
             <tr>
               <th class="span5"><%= t('.anticipated_description') %></th>
+              <th class="span2"><%= t('.currency') %></th>
               <th class="span2"><%= t('.anticipated_amount') %></th>
               <th class="span2"><%= t('.anticipated_type') %></th>
             </tr>
@@ -244,6 +247,7 @@
             <% @presentation.anticipated_fundings.each do |pro| %>
             <tr>
               <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.currency.try(:symbol) %></pre></td>
               <td class="span2"><pre><%= pro.amount %></pre></td>
               <td class="span2"><pre><%= pro.anticipated_type %></pre></td>
             </tr>

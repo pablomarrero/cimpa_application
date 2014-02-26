@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
-  before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal]
+  before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
+    :download_administration_cv, :download_scientific_cv]
 
   # GET /presentations
   # GET /presentations.json
@@ -132,7 +133,7 @@ class PresentationsController < ApplicationController
         :day_time_scientific, :confirmation_completely_read, :administration_name, :administration_place,
         :administration_email, :administration_phone, :administration_cv, :scientific_name, :scientific_place,
         :scientific_email, :scientific_phone, :scientific_cv, 
-        provisional_budgets_attributes: [:id, :description, :amount, :provisional_type, :presentation_id],
-        anticipated_fundings_attributes: [:id, :description, :amount, :anticipated_type, :presentation_id])
+        provisional_budgets_attributes: [:_destroy, :id, :description, :currency_id, :amount, :provisional_type, :presentation_id],
+        anticipated_fundings_attributes: [:_destroy, :id, :description, :currency_id, :amount, :anticipated_type, :presentation_id])
     end
 end
