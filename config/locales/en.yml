@@ -83,9 +83,9 @@ en:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
       proposal: Proposal
       deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15.<br><strong>Complete proposal:</strong> October 1."
-      please_read: "Please read carefully the roadmap."
+      please_read: "Please read carefully the asdf<a href='http://www.cimpa-icpam.org/spip.php?article153 target='_blank'>roadmap</a>."
       similar_project: "A similar project has been submitted to CIMPA last year or the previous one?"
-      completely_read_html: "We have completely read, we have understood and we will apply the points of the roadmap. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
+      completely_read_html: "We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153 target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
       research_school_title: "Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
       subject_clasification_html: "<strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project."

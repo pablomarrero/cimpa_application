@@ -39,7 +39,7 @@ fr:
   states_final_proposal: Proposition Finale
   states_primary_fill: Proposition Charger
 
-  presentations_link: D’ÉCOLE
+  presentations_link: Projets
   enumerize:
     presentation:
       fundamental: Fondamentales
@@ -78,8 +78,8 @@ fr:
       scientific_cv: CV de deux pages au plus
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
-      proposal: D’ÉCOLE
-      deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
+      proposal: Projet
+      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
       please_read: "Merci de lire en détail la feuille de route."
       similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
       completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
@@ -136,8 +136,8 @@ fr:
       scientific_phone: Téléphone
       scientific_cv: CV de deux pages au plus
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
-      proposal: D’ÉCOLE
-      deadlines_html: "<h4>Datess limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
+      proposal: Projet
+      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
       please_read: "Merci de lire en détail la feuille de route."
       similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
       completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
