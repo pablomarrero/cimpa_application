@@ -41,7 +41,7 @@
     <div class="control-group">
       <%= f.label :subject_clasification, t('.subject_clasification_html'), :class => 'control-label' %>
       <div class="controls">
-        <%= f.number_field :subject_clasification, :class => 'input-mini' %>
+        <%= f.select :subject_clasification, Presentation.subject_clasification.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
       </div>
     </div>
     <hr>
@@ -50,19 +50,27 @@
       <div class="control-group span3">
         <%= f.label :school_place, t('.school_place_text'), :class => 'control-label' %>
         <div class="controls">
-          <%= f.text_field :school_place %>
+          <%= f.select :school_place, Presentation.school_place.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
         </div>
       </div>
       <div class="control-group span3">
-        <%= f.label :school_date_a, t('.school_date_a'), :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :school_date_a %>
+        <%= f.label t('.school_date_a'), :class => 'control-label' %>
+        <div class="controls input-append date datepicker_future">
+          <%= f.text_field :school_date_a, :value => f.object.school_date_a.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            :class => 'text_field input-small' %>
+          <span class="add-on">
+            <i class="icon-calendar"></i>
+          </span>
         </div>
       </div>
       <div class="control-group span3">
-        <%= f.label :school_date_b, t('.school_date_b'), :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :school_date_b %>
+        <%= f.label t('.school_date_b'), :class => 'control-label' %>
+        <div class="controls input-append date datepicker_future">
+          <%= f.text_field :school_date_b, :value => f.object.school_date_b.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            :class => 'text_field input-small' %>
+          <span class="add-on">
+            <i class="icon-calendar"></i>
+          </span>
         </div>
       </div>
     </div>  
@@ -77,10 +85,10 @@
             <%= f.text_field :administration_name %>
           </div>
         </div>
-        <div class="control-group span2">
+        <div class="control-group span3">
           <%= f.label :administration_place, t('.administration_place'), :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :administration_place %>
+            <%= f.select :administration_place, Presentation.administration_place.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
           </div>
         </div>
         <div class="control-group span2">
@@ -114,10 +122,10 @@
             <%= f.text_field :scientific_name %>
           </div>
         </div>
-        <div class="control-group span2">
+        <div class="control-group span3">
           <%= f.label :scientific_place, t('.scientific_place'), :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :scientific_place %>
+            <%= f.select :scientific_place, Presentation.scientific_place.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
           </div>
         </div>
         <div class="control-group span2">
@@ -198,7 +206,54 @@
     <div class="control-group">
       <%= f.label :courses, t('.courses_html'), :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :courses, :class => 'span12 text_area' %>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course1'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course1, :class => 'span12 text_area' %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course2'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course2, :class => 'span12 text_area' %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course3'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course3, :class => 'span12 text_area' %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course4'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course4, :class => 'span12 text_area' %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course5'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course5, :class => 'span12 text_area' %>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">
+            <%= f.label :courses, t('.course6'), :class => 'control-label' %>
+          </div>
+          <div class="span11">
+            <%= f.text_area :course6, :class => 'span12 text_area' %>
+          </div>
+        </div>
       </div>
     </div>
     <hr>
@@ -319,6 +374,15 @@
           <%= f.label :day_time_scientific,t('.day_time_scientific'), :class => 'control-label' %>
           <div class="controls">
             <%= f.number_field :day_time_scientific, :class => 'input-small' %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row-fluid">
+        <div class="control-group span12">
+          <%= f.label t('.comment'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :comment, :class => 'span12 text_area ' %>
           </div>
         </div>
       </div>

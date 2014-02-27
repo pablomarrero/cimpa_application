@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226160103) do
+ActiveRecord::Schema.define(version: 20140227191926) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140226160103) do
     t.text     "motivation"
     t.text     "related_scientific_work"
     t.text     "infrastructure"
-    t.text     "courses"
+    t.text     "course1"
     t.text     "tentative_schedule"
     t.integer  "women_percentage_scientific"
     t.integer  "women_percentage_local"
@@ -104,6 +104,12 @@ ActiveRecord::Schema.define(version: 20140226160103) do
     t.string   "proposal_state"
     t.datetime "pre_proposal_date"
     t.datetime "final_proposal_date"
+    t.text     "comment"
+    t.text     "course2"
+    t.text     "course3"
+    t.text     "course4"
+    t.text     "course5"
+    t.text     "course6"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
