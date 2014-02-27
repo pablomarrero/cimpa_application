@@ -117,6 +117,13 @@ en:
       confirmation_completely_read_html: "<strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the roadmap.<br>This is crucial and will avoid misunderstandings."
       notified_text: "You will be notified of the Scientific Committee's advice and the Steering Council decision by the end of January or beginning of February of next year. It may be possible that the Scientific Committee will request more details or changes at the beginning of December."
       notified2_text: In all cases keep the lecturers informed. It's up to you to confirm their participation and to ask them to try to take care of their ticket with their own funding. This will allow CIMPA to allocate more funding to young people from neighbouring countries."
+      comment: Comments and/or remarks
+      course1: Course 1
+      course2: Course 2
+      course3: Course 3
+      course4: Course 4
+      course5: Course 5
+      course6: Course 6
     form:
       provisional_budget: Provisional Budget
       provisional_description: Description
@@ -177,3 +184,11 @@ en:
       confirmation_completely_read_html: "<strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the roadmap.<br>This is crucial and will avoid misunderstandings."
       notified_text: "You will be notified of the Scientific Committee's advice and the Steering Council decision by the end of January or beginning of February of next year. It may be possible that the Scientific Committee will request more details or changes at the beginning of December."
       notified2_text: In all cases keep the lecturers informed. It's up to you to confirm their participation and to ask them to try to take care of their ticket with their own funding. This will allow CIMPA to allocate more funding to young people from neighbouring countries."
+      comment: Comments and/or remarks
+      course1: Course 1
+      course2: Course 2
+      course3: Course 3
+      course4: Course 4
+      course5: Course 5
+      course6: Course 6
+      

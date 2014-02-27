@@ -125,9 +125,10 @@ class PresentationsController < ApplicationController
     def presentation_params
       params.require(:presentation).permit(:similar_project, :user_id, :completely_read, 
         :research_school_title, :project_type, :subject_clasification, :school_place, :school_date_a, 
-        :school_date_b, :scientific_content, :members_of_scientific_committee, 
+        :school_date_b, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 
-        :related_scientific_work, :infrastructure, :courses, :tentative_schedule, 
+        :related_scientific_work, :infrastructure, :tentative_schedule, 
+        :course1, :course2, :course3, :course4, :course5, :course6, 
         :women_percentage_scientific, :women_percentage_local, :women_percentage_course, 
         :how_much_cimpa, :how_much_cimpa_percentage, :young_people, :average_time_scientific, 
         :day_time_scientific, :confirmation_completely_read, :administration_name, :administration_place,
