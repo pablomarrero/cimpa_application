@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225173908) do
+ActiveRecord::Schema.define(version: 20140226160103) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -20,9 +20,18 @@ ActiveRecord::Schema.define(version: 20140225173908) do
     t.string   "anticipated_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "currency_id"
   end
 
+  add_index "anticipated_fundings", ["currency_id"], name: "index_anticipated_fundings_on_currency_id", using: :btree
   add_index "anticipated_fundings", ["presentation_id"], name: "index_anticipated_fundings_on_presentation_id", using: :btree
+
+  create_table "currencies", force: true do |t|
+    t.string   "name"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friends", force: true do |t|
     t.integer  "person_id"
@@ -106,8 +115,10 @@ ActiveRecord::Schema.define(version: 20140225173908) do
     t.string   "provisional_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "currency_id"
   end
 
+  add_index "provisional_budgets", ["currency_id"], name: "index_provisional_budgets_on_currency_id", using: :btree
   add_index "provisional_budgets", ["presentation_id"], name: "index_provisional_budgets_on_presentation_id", using: :btree
 
   create_table "roles", force: true do |t|

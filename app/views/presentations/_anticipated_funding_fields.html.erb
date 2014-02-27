@@ -2,8 +2,11 @@
   <table class="table table-condensed table-bottom without-margin-bottom" >
     <tbody>
       <tr>
-        <td class="span6">
+        <td class="span5">
           <%= f.text_area :description, :class => 'span12 text_area' %>
+        </td>
+        <td class="span1">
+          <%= f.select :currency_id, Currency.all.map {|data| [data.symbol,data.id]}, {:prompt => true}, {:class => 'combobox'} %>
         </td>
         <td class="span2">
           <%= f.number_field :amount, :class => 'input-small' %>
