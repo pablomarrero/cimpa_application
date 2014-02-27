@@ -1,7 +1,7 @@
 <div class="content-fluid">
   <%= render "shared/error_messages_presentation", :target => @presentation %>  
   <div class="alert alert-error">
-    <p><%= t('.please_read') %>:<a href='http://www.cimpa-icpam.org/spip.php?article153' target="_blank">http://www.cimpa-icpam.org/spip.php?article153</a> </p>
+    <p><%= t('.please_read_html') %></p>
   </div>
   <div class="alert alert-success">
     <p><%= t('.deadlines_html') %></p>
@@ -68,8 +68,8 @@
     </div>  
     <hr>
     <fieldset class="row-fluid">
-      <legend><%= raw t '.coordinators' %></legend>
-      <h5><%= t '.administration_coordinator' %></h5>
+      <p><blockquote><h5><%= t('.responsables_html') %></h5></blockquote></p>
+      <h5><%= t '.local_coordinator' %></h5>
       <div class="row-fluid">
         <div class="control-group span2">
           <%= f.label :administration_name, t('.administration_name'), :class => 'control-label' %>
@@ -106,7 +106,7 @@
         </div>
       </div>
       <hr>
-      <h5><%= t '.scientific_coordinator' %></h5>
+      <h5><%= t '.foreign_coordinator' %></h5>
       <div class="row-fluid">
         <div class="control-group span2">
           <%= f.label :scientific_name, t('.scientific_name'), :class => 'control-label' %>

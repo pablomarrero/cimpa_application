@@ -67,13 +67,16 @@ en:
       anticipated_type: Type
       add_provisional_budget: Add Provisional Budget
       add_anticipated_funding: Add Anticipated Funding
-      administration_coordinator: Administrative Mathematician Coordinator
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactly</strong> two administrative and scientific mathematician coordinators (one local and one working in France, Spain, Norway or Switzerland). They will be active, present during the Research School and responsible for everything, in particular with respect to CIMPA."
+      administration_coordinator: Administrative Mathematician Responsable
+      local_coordinator: Local Responsable
+      foreign_coordinator: Responsable working in France, Spain, Norway or Switzerland
       administration_name: Name
       administration_place: Place of work
       administration_email: Email
       administration_phone: Phone
       administration_cv: CV of at most two pages
-      scientific_coordinator: Scientific Mathematician Coordinator
+      scientific_coordinator: Scientific Mathematician Responsable
       scientific_name: Name
       scientific_place: Place of work
       scientific_email: Email
@@ -82,23 +85,23 @@ en:
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       title: CIMPA RESEARCH SCHOOL PROPOSAL
       proposal: Proposal
-      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15.<br><strong>Complete proposal:</strong> October 1."
-      please_read: "Please read carefully the asdf<a href='http://www.cimpa-icpam.org/spip.php?article153 target='_blank'>roadmap</a>."
-      similar_project: "A similar project has been submitted to CIMPA last year or the previous one?"
-      completely_read_html: "We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153 target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
-      research_school_title: "Title of the Research School (neither too general nor too long and without acronyms)"
+      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1."
+      please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
+      similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one? *"
+      completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
+      research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project."
-      school_place_html: "Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project."
+      school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_date_a: Dates A
       school_date_b: Dates B
-      scientific_content: "Short abstract of the scientific content."
+      scientific_content_html: "<em class='alert-error'>*</em> Short abstract of the scientific content."
       balance_woman: "Gender balance is an important point for the entire evaluation of your project."
-      members_of_scientific_committee_html: "Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
+      members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
       members_of_local_committee: "Who are the members of the local organizing committee? Normally they are between two and five; indicate the role of each one and their email."
       local_institution_description: "Describe in a few lines the local institution related to this project, provide its internet site and its main mathematical subjects. Describe the plan for the website for the Research School and/or give a temporary site."
-      motivation: "Give the motivation for this Research School proposal and the activities planned around it"
+      motivation: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
       related_scientific_work: "Describe the related scientific work and training already carried out locally. What impact is expected? How many young - see the Road Map - should participate (locally, from your country, and from neighbouring countries)?"
       infrastructure: "Describe briefly the infrastructure of the place where the Research School will take place and how you get there and ensure safety for participants. Will at least 25 accommodation places be available for young mathematicians from neighboring developing countries?"
       courses_html: "<strong>At most 6 courses</strong>, linked to the subject and the title of the Research School. Lecturers and abstracts (written by the lecturers) of 10 lines each. Members of the Scientific Committee must participate."
@@ -114,7 +117,8 @@ en:
       time_scientific_text: What is the average time per day of scientific activities and during how many days?
       average_time_scientific: "Average time"
       day_time_scientific: "Days"
-      confirmation_completely_read_html: "<strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the roadmap.<br>This is crucial and will avoid misunderstandings."
+      confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>.<p class='alert-error'><strong>This is crucial and will avoid misunderstandings.</strong></p>"
+      
       notified_text: "You will be notified of the Scientific Committee's advice and the Steering Council decision by the end of January or beginning of February of next year. It may be possible that the Scientific Committee will request more details or changes at the beginning of December."
       notified2_text: In all cases keep the lecturers informed. It's up to you to confirm their participation and to ask them to try to take care of their ticket with their own funding. This will allow CIMPA to allocate more funding to young people from neighbouring countries."
     form:
@@ -128,13 +132,16 @@ en:
       anticipated_type: Type
       add_provisional_budget: Add Provisional Budget
       add_anticipated_funding: Add Anticipated Funding
-      administration_coordinator: Administrative Mathematician Coordinator
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactly</strong> two administrative and scientific mathematician coordinators (one local and one working in France, Spain, Norway or Switzerland). They will be active, present during the Research School and responsible for everything, in particular with respect to CIMPA."
+      administration_coordinator: Administrative Mathematician Responsable
+      local_coordinator: Local Responsable
+      foreign_coordinator: Responsable working in France, Spain, Norway or Switzerland
       administration_name: Name
       administration_place: Place of work
       administration_email: Email
       administration_phone: Phone
       administration_cv: CV of at most two pages
-      scientific_coordinator: Scientific Mathematician Coordinator
+      scientific_coordinator: Scientific Mathematician Responsable
       scientific_name: Name
       scientific_place: Place of work
       scientific_email: Email
@@ -142,23 +149,23 @@ en:
       scientific_cv: CV of at most two pages
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       proposal: Proposal
-      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15.<br><strong>Complete proposal:</strong> October 1."
-      please_read: "Please read carefully the roadmap."
-      similar_project: "A similar project has been submitted to CIMPA last year or the previous one?"
-      completely_read_html: "We have completely read, we have understood and we will apply the points of the roadmap. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
-      research_school_title: "Title of the Research School (neither too general nor too long and without acronyms)"
+      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>).<br><strong>Complete proposal:</strong> October 1."
+      please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
+      similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one?"
+      completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
+      research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project."
-      school_place_html: "Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2011 Mathematics Subject Classification that mainly concern your project."
+      school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_date_a: Dates A
       school_date_b: Dates B
-      scientific_content: "Short abstract of the scientific content."
+      scientific_content_html: "<em class='alert-error'>*</em> Short abstract of the scientific content."
       balance_woman: "Gender balance is an important point for the entire evaluation of your project."
-      members_of_scientific_committee_html: "Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
+      members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
       members_of_local_committee: "Who are the members of the local organizing committee? Normally they are between two and five; indicate the role of each one and their email."
       local_institution_description: "Describe in a few lines the local institution related to this project, provide its internet site and its main mathematical subjects. Describe the plan for the website for the Research School and/or give a temporary site."
-      motivation: "Give the motivation for this Research School proposal and the activities planned around it"
+      motivation: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
       related_scientific_work: "Describe the related scientific work and training already carried out locally. What impact is expected? How many young - see the Road Map - should participate (locally, from your country, and from neighbouring countries)?"
       infrastructure: "Describe briefly the infrastructure of the place where the Research School will take place and how you get there and ensure safety for participants. Will at least 25 accommodation places be available for young mathematicians from neighboring developing countries?"
       courses_html: "<strong>At most 6 courses</strong>, linked to the subject and the title of the Research School. Lecturers and abstracts (written by the lecturers) of 10 lines each. Members of the Scientific Committee must participate."
@@ -174,6 +181,6 @@ en:
       time_scientific_text: What is the average time per day of scientific activities and during how many days?
       average_time_scientific: "Average time"
       day_time_scientific: "Days"
-      confirmation_completely_read_html: "<strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the roadmap.<br>This is crucial and will avoid misunderstandings."
+      confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>.<p class='alert-error'><strong>This is crucial and will avoid misunderstandings</strong></p>."
       notified_text: "You will be notified of the Scientific Committee's advice and the Steering Council decision by the end of January or beginning of February of next year. It may be possible that the Scientific Committee will request more details or changes at the beginning of December."
       notified2_text: In all cases keep the lecturers informed. It's up to you to confirm their participation and to ask them to try to take care of their ticket with their own funding. This will allow CIMPA to allocate more funding to young people from neighbouring countries."

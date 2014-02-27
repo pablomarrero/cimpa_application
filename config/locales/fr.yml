@@ -78,10 +78,10 @@ fr:
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
       proposal: Projet
-      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
-      please_read: "Merci de lire en détail la feuille de route."
+      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong>15 juin.<br><strong>Projet complet:</strong> 1er octobre."
+      please_read_html: "Merci de lire en détail a <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>."
       similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
-      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
       research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
       subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
@@ -95,7 +95,7 @@ fr:
       members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
       local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
       motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
-      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
       infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
       courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
       tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
@@ -110,7 +110,7 @@ fr:
       time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
       average_time_scientific: "Moyenne horaire"
       day_time_scientific: "Jours"
-      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <p class='alert-error'><strong>Ceci est crucial et évitera des malentendus</strong></p>."
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
     form:
@@ -137,9 +137,9 @@ fr:
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       proposal: Projet
       deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
-      please_read: "Merci de lire en détail la feuille de route."
+      please_read_html: "Merci de lire en détail la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>."
       similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
-      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
       research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
       subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
@@ -153,7 +153,7 @@ fr:
       members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
       local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
       motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
-      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
       infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
       courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
       tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
@@ -168,6 +168,6 @@ fr:
       time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
       average_time_scientific: "Moyenne horaire"
       day_time_scientific: "Jours"
-      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <p class='alert-error'><strong>Ceci est crucial et évitera des malentendus</strong></p>."
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
