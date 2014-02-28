@@ -11,7 +11,7 @@
     <h2><%= t('.proposal') %></h2>
     <hr>
     <div class="control-group">
-      <%= f.label :similar_project, t('.similar_project'), :class => 'control-label' %>
+      <%= f.label :similar_project, t('.similar_project_html'), :class => 'control-label' %>
       <div class="controls">
         <%= f.check_box :similar_project %>
       </div>
@@ -25,7 +25,7 @@
     </div>
     <hr>
     <div class="control-group">
-      <%= f.label :research_school_title, t('.research_school_title'), :class => 'control-label' %>
+      <%= f.label :research_school_title, t('.research_school_title_html'), :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :research_school_title, :class => 'input-xxlarge' %>
       </div>
@@ -153,7 +153,7 @@
     </fieldset>
     <hr>
     <div class="control-group">
-      <%= f.label :scientific_content, t('.scientific_content'), :class => 'control-label' %>
+      <%= f.label :scientific_content, t('.scientific_content_html'), :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :scientific_content, :class => 'span12 text_area' %>
       </div>
@@ -183,14 +183,14 @@
     </div>
     <hr>
     <div class="control-group">
-      <%= f.label :motivation, t('.motivation'), :class => 'control-label' %>
+      <%= f.label :motivation, t('.motivation_html'), :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :motivation , :class => 'span12 text_area'%>
       </div>
     </div>
     <hr>
     <div class="control-group">
-      <%= f.label :related_scientific_work, t('.related_scientific_work'), :class => 'control-label' %>
+      <%= f.label :related_scientific_work, t('.related_scientific_work_html'), :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :related_scientific_work, :class => 'span12 text_area' %>
       </div>

@@ -85,13 +85,13 @@ en:
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       title: CIMPA RESEARCH SCHOOL PROPOSAL
       proposal: Proposal
-      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1."
+      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1 (all fields required)."
       please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
       similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one? *"
       completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://www.ams.org/msc/msc2010.html' target='_blank'>ams clasification</a> )."
       school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_date_a: Dates A
@@ -101,7 +101,7 @@ en:
       members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
       members_of_local_committee: "Who are the members of the local organizing committee? Normally they are between two and five; indicate the role of each one and their email."
       local_institution_description: "Describe in a few lines the local institution related to this project, provide its internet site and its main mathematical subjects. Describe the plan for the website for the Research School and/or give a temporary site."
-      motivation: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
+      motivation_html: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
       related_scientific_work: "Describe the related scientific work and training already carried out locally. What impact is expected? How many young - see the Road Map - should participate (locally, from your country, and from neighbouring countries)?"
       infrastructure: "Describe briefly the infrastructure of the place where the Research School will take place and how you get there and ensure safety for participants. Will at least 25 accommodation places be available for young mathematicians from neighboring developing countries?"
       courses_html: "<strong>At most 6 courses</strong>, linked to the subject and the title of the Research School. Lecturers and abstracts (written by the lecturers) of 10 lines each. Members of the Scientific Committee must participate."
@@ -162,7 +162,7 @@ en:
       completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2011 Mathematics Subject Classification that mainly concern your project."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://www.ams.org/msc/msc2010.html' target='_blank'>ams clasification</a> )."
       school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_date_a: Dates A
@@ -172,7 +172,7 @@ en:
       members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
       members_of_local_committee: "Who are the members of the local organizing committee? Normally they are between two and five; indicate the role of each one and their email."
       local_institution_description: "Describe in a few lines the local institution related to this project, provide its internet site and its main mathematical subjects. Describe the plan for the website for the Research School and/or give a temporary site."
-      motivation: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
+      motivation_html: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
       related_scientific_work: "Describe the related scientific work and training already carried out locally. What impact is expected? How many young - see the Road Map - should participate (locally, from your country, and from neighbouring countries)?"
       infrastructure: "Describe briefly the infrastructure of the place where the Research School will take place and how you get there and ensure safety for participants. Will at least 25 accommodation places be available for young mathematicians from neighboring developing countries?"
       courses_html: "<strong>At most 6 courses</strong>, linked to the subject and the title of the Research School. Lecturers and abstracts (written by the lecturers) of 10 lines each. Members of the Scientific Committee must participate."

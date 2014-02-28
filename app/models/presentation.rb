@@ -81,7 +81,6 @@ class Presentation < ActiveRecord::Base
   validates :local_institution_description, presence: true, if: :final_proposal?
   validates :related_scientific_work, presence: true, if: :final_proposal?
   validates :infrastructure, presence: true, if: :final_proposal?
-  validates :courses, presence: true, if: :final_proposal?
   validates :tentative_schedule, presence: true, if: :final_proposal?
   validates :women_percentage_scientific, presence: true, if: :final_proposal?
   validates :women_percentage_local, presence: true, if: :final_proposal?
