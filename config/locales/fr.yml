@@ -180,3 +180,7 @@ fr:
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
       comment: Commentaires ou remarques
+  devise:
+    sessions:
+      new:
+        login: Login

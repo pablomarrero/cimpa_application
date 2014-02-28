@@ -198,4 +198,7 @@ en:
       course4: Course 4
       course5: Course 5
       course6: Course 6
-      
+  devise:
+    sessions:
+      new:
+        login: Login
