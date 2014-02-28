@@ -202,3 +202,8 @@ en:
     sessions:
       new:
         login: Login
+        sign_in: Sign in
+    registrations:
+      new:
+        sign_up: Sign up
+        sign_in: Sign in
