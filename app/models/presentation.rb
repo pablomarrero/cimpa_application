@@ -5,12 +5,7 @@ class Presentation < ActiveRecord::Base
   belongs_to :user
   enumerize :project_type, in: [:fundamental, :applied, :mixed]
   enumerize :proposal_state, in: [:primary_fill, :pre_proposal, :final_proposal]
-  enumerize :subject_clasification, in: ['00','01','02','03','04','05','06','07','08','09','10','11','12',
-    '13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33',
-    '34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55',
-    '56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76',
-    '77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97',
-    '98','99']
+  enumerize :subject_clasification, in: ['00','01','03','05','06','08','11','12', '13','14','15','16','17','18','19','20','22','26','28','30','31','32','33', '34','35','37','39','40','41','42','43','44','45','46','47','49','51','52','53','54','55','57','58','60','62','65','68','70','74','76', '78','80','81','82','83','85','86','90','91','92','93','94','97']
 
   countries = ['Afghanistan','Akrotiri','Albania','Algeria','American Samoa','Andorra','Angola',
     'Anguilla','Antarctica','Antigua and Barbuda','Argentina','Armenia','Aruba','Ashmore and Cartier Islands',
@@ -47,7 +42,7 @@ class Presentation < ActiveRecord::Base
     'West Bank','Western Sahara','Yemen','Zambia','Zimbabwe']
   enumerize :administration_place, in: countries
   enumerize :scientific_place, in: countries
-  enumerize :school_place, in: countries 
+  enumerize :school_country, in: countries 
   has_attached_file :administration_cv, 
                     :url => "/assets/presentation/:id/administration_cv/:basename.:extension",
                     :path => ":rails_root/public/assets/presentation/:id/administration_cv/:basename.:extension"
@@ -70,8 +65,11 @@ class Presentation < ActiveRecord::Base
   validates :project_type, presence: true, if: :pre_proposal? || :final_proposal?
   validates :subject_clasification, presence: true, if: :pre_proposal? || :final_proposal?
   validates :school_place, presence: true, if: :pre_proposal? || :final_proposal?
-  validates :school_date_a, presence: true, if: :pre_proposal? || :final_proposal?
-  validates :school_date_b, presence: true, if: :pre_proposal? || :final_proposal?
+  validates :school_country, presence: true, if: :pre_proposal? || :final_proposal?
+  validates :school_date_a_start, presence: true, if: :pre_proposal? || :final_proposal?
+  validates :school_date_a_finish, presence: true, if: :pre_proposal? || :final_proposal?
+  validates :school_date_b_start, presence: true, if: :pre_proposal? || :final_proposal?
+  validates :school_date_b_finish, presence: true, if: :pre_proposal? || :final_proposal?
   validates :scientific_content, presence: true, if: :pre_proposal? || :final_proposal?
   validates :members_of_scientific_committee, presence: true, if: :pre_proposal? || :final_proposal?
   validates :motivation, presence: true, if: :pre_proposal? || :final_proposal?

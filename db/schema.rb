@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227191926) do
+ActiveRecord::Schema.define(version: 20140301001359) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount"
+    t.decimal  "amount",           precision: 10, scale: 0
     t.string   "anticipated_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,10 +61,8 @@ ActiveRecord::Schema.define(version: 20140227191926) do
     t.boolean  "completely_read"
     t.string   "research_school_title"
     t.string   "project_type"
-    t.integer  "subject_clasification"
+    t.string   "subject_clasification"
     t.string   "school_place"
-    t.string   "school_date_a"
-    t.string   "school_date_b"
     t.text     "scientific_content"
     t.text     "members_of_scientific_committee"
     t.text     "members_of_local_committee"
@@ -110,6 +108,11 @@ ActiveRecord::Schema.define(version: 20140227191926) do
     t.text     "course4"
     t.text     "course5"
     t.text     "course6"
+    t.date     "school_date_a_start"
+    t.date     "school_date_a_finish"
+    t.date     "school_date_b_start"
+    t.date     "school_date_b_finish"
+    t.string   "school_country"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
@@ -117,7 +120,7 @@ ActiveRecord::Schema.define(version: 20140227191926) do
   create_table "provisional_budgets", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount"
+    t.decimal  "amount",           precision: 10, scale: 0
     t.string   "provisional_type"
     t.datetime "created_at"
     t.datetime "updated_at"

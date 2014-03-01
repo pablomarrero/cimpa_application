@@ -67,8 +67,8 @@ fr:
       add_provisional_budget: Ajouter Budget Prévisionnel
       add_anticipated_funding: Ajouter Financements Prévus
       responsables_html: "<em class='alert-error'>*</em><strong>Exactement</strong> deux mathématiciens responsables, administratifs et scientifiques (dont un local et un travaillant en France, en Espagne, en Norvège ou en Suisse). Ils seront actifs, présents lors de l’école de recherche et seront les responsables de tout, en particulier face au CIMPA."
-      local_coordinator: Local Responsable 
-      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suises
+      local_coordinator: Responsable local
+      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
       administration_email: Courriel
@@ -88,9 +88,10 @@ fr:
       completely_read_html: "<em class='alert-error'>*</em> Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://www.ams.org/msc/msc2010.html' target='_blank'>classification ams</a>)."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://zbmath.org/classification' target='_blank'>2010 MSC</a>)."
       school_place_html: "<em class='alert-error'>*</em> Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
       school_place_text: Lieu
+      school_country_text: Lieu
       school_date_a: Dates A
       school_date_b: Dates B
       scientific_content_html: "<em class='alert-error'>*</em> Court résumé du contenu scientifique."
@@ -129,8 +130,8 @@ fr:
       add_provisional_budget: Ajouter Budget Prévisionnel
       add_anticipated_funding: Ajouter Financements Prévus
       responsables_html: "<em class='alert-error'>*</em><strong>Exactement</strong> deux mathématiciens responsables, administratifs et scientifiques (dont un local et un travaillant en France, en Espagne, en Norvège ou en Suisse). Ils seront actifs, présents lors de l’école de recherche et seront les responsables de tout, en particulier face au CIMPA."
-      local_coordinator: Local Responsable 
-      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suises
+      local_coordinator: Responsable local
+      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
       administration_email: Courriel
@@ -150,9 +151,10 @@ fr:
       completely_read_html: "<em class='alert-error'>*</em> Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://www.ams.org/msc/msc2010.html' target='_blank'>classification ams</a>)."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://zbmath.org/classification' target='_blank'>2010 MSC</a>)."
       school_place_html: "<em class='alert-error'>*</em> Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
       school_place_text: Lieu
+      school_country_text: Lieu
       school_date_a: Dates A
       school_date_b: Dates B
       scientific_content_html: "<em class='alert-error'>*</em> Court résumé du contenu scientifique."
@@ -161,7 +163,7 @@ fr:
       members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
       local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
       motivation_html: "<em class='alert-error'>*</em> Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
-      related_scientific_work_html: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
       infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
       courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
       tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
@@ -189,3 +191,67 @@ fr:
       new:
         sign_up: Sign up
         sign_in: Sign in
+  msc:
+    "00": "00 general                                                  "
+    "01": "01 history and biography                                    "
+    "03": "03 mathematical logic and foundations                       "
+    "05": "05 combinatorics                                            "
+    "06": "06 order, lattices, ordered algebraic structures            "
+    "08": "08 general algebraic systems                                "
+    "11": "11 number theory                                            "
+    "12": "12 field theory and polynomials                             "
+    "13": "13 commutative algebra                                      "
+    "14": "14 algebraic geometry                                       "
+    "15": "15 linear and multilinear algebra; matrix theory            "
+    "16": "16 associative rings and algebras                           "
+    "17": "17 nonassociative rings and algebras                        "
+    "18": "18 category theory; homological algebra                     "
+    "19": "19 $k$-theory                                               "
+    "20": "20 group theory and generalizations                         "
+    "22": "22 topological groups, Lie groups                           "
+    "26": "26 real functions                                           "
+    "28": "28 measure and integration                                  "
+    "30": "30 functions of a complex variable                          "
+    "31": "31 potential theory                                         "
+    "32": "32 several complex variables and analytic spaces            "
+    "33": "33 special functions                                        "
+    "34": "34 ordinary differential equations                          "
+    "35": "35 partial differential equations                           "
+    "37": "37 dynamical systems and ergodic theory                     "
+    "39": "39 difference and functional equations                      "
+    "40": "40 sequences, series, summability                           "
+    "41": "41 approximations and expansions                            "
+    "42": "42 harmonic analysis on Euclidean spaces                    "
+    "43": "43 abstract harmonic analysis                               "
+    "44": "44 integral transforms, operational calculus                "
+    "45": "45 integral equations                                       "
+    "46": "46 functional analysis                                      "
+    "47": "47 operator theory                                          "
+    "49": "49 calculus of variations and optimal control; optimization "
+    "51": "51 geometry                                                 "
+    "52": "52 convex and discrete geometry                             "
+    "53": "53 differential geometry                                    "
+    "54": "54 general topology                                         "
+    "55": "55 algebraic topology                                       "
+    "57": "57 manifolds and cell complexes                             "
+    "58": "58 global analysis, analysis on manifolds                   "
+    "60": "60 probability theory and stochastic processes              "
+    "62": "62 statistics                                               "
+    "65": "65 numerical analysis                                       "
+    "68": "68 computer science                                         "
+    "70": "70 mechanics of particles and systems                       "
+    "74": "74 mechanics of deformable solids                           "
+    "76": "76 fluid mechanics                                          "
+    "78": "78 optics, electromagnetic theory                           "
+    "80": "80 classical thermodynamics, heat transfer                  "
+    "81": "81 quantum theory                                           "
+    "82": "82 statistical mechanics, structure of matter               "
+    "83": "83 relativity and gravitational theory                      "
+    "85": "85 astronomy and astrophysics                               "
+    "86": "86 geophysics                                               "
+    "90": "90 operations research, mathematical programming            "
+    "91": "91 game theory, economics, social and behavioral sciences   "
+    "92": "92 biology and other natural sciences                       "
+    "93": "93 systems theory; control                                  "
+    "94": "94 information and communication, circuits                  "
+    "97": "97 mathematics education                                    "

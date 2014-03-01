@@ -124,8 +124,8 @@ class PresentationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
       params.require(:presentation).permit(:similar_project, :user_id, :completely_read, 
-        :research_school_title, :project_type, :subject_clasification, :school_place, :school_date_a, 
-        :school_date_b, :scientific_content, :members_of_scientific_committee, :comment, 
+        :research_school_title, :project_type, :subject_clasification, :school_place, :school_country, :school_date_a_start, :school_date_a_finish, 
+        :school_date_b_start, :school_date_b_finish, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 
         :related_scientific_work, :infrastructure, :tentative_schedule, 
         :course1, :course2, :course3, :course4, :course5, :course6, 

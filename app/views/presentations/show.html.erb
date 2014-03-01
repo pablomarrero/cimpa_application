@@ -36,28 +36,48 @@
   <div class="control-group">
     <%= t('.subject_clasification_html') %>
     <div class="controls">
-      <pre><%= @presentation.subject_clasification %></pre>
+      <pre><%= t("msc.#{@presentation.subject_clasification}")%></pre>
     </div>
   </div>
   <hr>
   <p><h6><%= t('.school_place_html') %></h6></p>
-  <div class="row-fluid">
-    <div class="control-group span3">
+  <div class="row-fluid span8">
+    <div class="control-group">
       <%= t('.school_place_text') %>
       <div class="controls">
         <pre><%= @presentation.school_place %></pre>
       </div>
     </div>
-    <div class="control-group span3">
-      <%= t('.school_date_a') %>
+    <div class="control-group">
+      <%= t('.school_country_text') %>
       <div class="controls">
-        <pre><%= @presentation.school_date_a %></pre>
+        <pre><%= @presentation.school_country %></pre>
       </div>
     </div>
-    <div class="control-group span3">
-      <%= t('.school_date_b') %>
+  </div>
+  <div class="row-fluid">
+    <div class="control-group span2">
+      <%= t('.school_date_a_start') %>
       <div class="controls">
-        <pre><%= @presentation.school_date_b %></pre>
+        <pre><%= @presentation.school_date_a_start %></pre>
+      </div>
+    </div>
+    <div class="control-group span2">
+      <%= t('.school_date_a_finish') %>
+      <div class="controls">
+        <pre><%= @presentation.school_date_a_finish %></pre>
+      </div>
+    </div>
+    <div class="control-group span2">
+      <%= t('.school_date_b_start') %>
+      <div class="controls">
+        <pre><%= @presentation.school_date_b_start %></pre>
+      </div>
+    </div>
+    <div class="control-group span2">
+      <%= t('.school_date_b_finish') %>
+      <div class="controls">
+        <pre><%= @presentation.school_date_b_finish %></pre>
       </div>
     </div>
   </div>  
