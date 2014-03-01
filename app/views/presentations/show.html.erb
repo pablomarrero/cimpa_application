@@ -29,14 +29,14 @@
   <div class="control-group">
     <%= t('.project_type') %>
     <div class="controls">
-      <pre><%= t("enumerize.presentation.#{@presentation.project_type}") %></pre>
+      <pre><%= @presentation.project_type && t("enumerize.presentation.#{@presentation.project_type}") %></pre>
     </div>
   </div>
   <hr>
   <div class="control-group">
     <%= t('.subject_clasification_html') %>
     <div class="controls">
-      <pre><%= t("msc.#{@presentation.subject_clasification}")%></pre>
+      <pre><%= @presentation.subject_clasification && t("msc.#{@presentation.subject_clasification}")%></pre>
     </div>
   </div>
   <hr>
