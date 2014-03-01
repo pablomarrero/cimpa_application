@@ -71,11 +71,13 @@ fr:
       foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
+      administration_country: Pays de travail
       administration_email: Courriel
       administration_phone: Téléphone
       administration_cv: CV de deux pages au plus
       scientific_name: Nom
       scientific_place: Lieu de travail
+      scientific_country: Pays de travail
       scientific_email: Courriel
       scientific_phone: Téléphone
       scientific_cv: CV de deux pages au plus
@@ -91,7 +93,7 @@ fr:
       subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://zbmath.org/classification' target='_blank'>2010 MSC</a>)."
       school_place_html: "<em class='alert-error'>*</em> Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
       school_place_text: Lieu
-      school_country_text: Lieu
+      school_country_text: Pays
       school_date_a: Dates A
       school_date_b: Dates B
       scientific_content_html: "<em class='alert-error'>*</em> Court résumé du contenu scientifique."
@@ -134,11 +136,13 @@ fr:
       foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
+      administration_country: Pays de travail
       administration_email: Courriel
       administration_phone: Téléphone
       administration_cv: CV de deux pages au plus
       scientific_name: Nom
       scientific_place: Lieu de travail
+      scientific_country: Pays de travail
       scientific_email: Courriel
       scientific_phone: Téléphone
       scientific_cv: CV de deux pages au plus

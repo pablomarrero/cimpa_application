@@ -40,8 +40,8 @@ class Presentation < ActiveRecord::Base
     'Turks and Caicos Islands','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States',
     'Uruguay','Uzbekistan','Vanuatu','Venezuela','Vietnam','Virgin Islands','Wake Island','Wallis and Futuna',
     'West Bank','Western Sahara','Yemen','Zambia','Zimbabwe']
-  enumerize :administration_place, in: countries
-  enumerize :scientific_place, in: countries
+  enumerize :administration_country, in: countries
+  enumerize :scientific_country, in: countries
   enumerize :school_country, in: countries 
   has_attached_file :administration_cv, 
                     :url => "/assets/presentation/:id/administration_cv/:basename.:extension",

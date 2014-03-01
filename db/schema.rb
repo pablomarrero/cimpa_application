@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301001359) do
+ActiveRecord::Schema.define(version: 20140301003708) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 20140301001359) do
     t.date     "school_date_b_start"
     t.date     "school_date_b_finish"
     t.string   "school_country"
+    t.string   "administration_country"
+    t.string   "scientific_country"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree

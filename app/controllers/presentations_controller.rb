@@ -131,8 +131,8 @@ class PresentationsController < ApplicationController
         :course1, :course2, :course3, :course4, :course5, :course6, 
         :women_percentage_scientific, :women_percentage_local, :women_percentage_course, 
         :how_much_cimpa, :how_much_cimpa_percentage, :young_people, :average_time_scientific, 
-        :day_time_scientific, :confirmation_completely_read, :administration_name, :administration_place,
-        :administration_email, :administration_phone, :administration_cv, :scientific_name, :scientific_place,
+        :day_time_scientific, :confirmation_completely_read, :administration_name, :administration_place, :administration_country,
+        :administration_email, :administration_phone, :administration_cv, :scientific_name, :scientific_place, :scientific_country,
         :scientific_email, :scientific_phone, :scientific_cv, 
         provisional_budgets_attributes: [:_destroy, :id, :description, :currency_id, :amount, :provisional_type, :presentation_id],
         anticipated_fundings_attributes: [:_destroy, :id, :description, :currency_id, :amount, :anticipated_type, :presentation_id])

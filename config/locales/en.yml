@@ -72,12 +72,14 @@ en:
       foreign_coordinator: Officer working in France, Spain, Norway or Switzerland
       administration_name: Name
       administration_place: Place of work
+      administration_country: Country of work
       administration_email: Email
       administration_phone: Phone
       administration_cv: CV of at most two pages
       scientific_coordinator: Scientific Mathematician Responsable
       scientific_name: Name
       scientific_place: Place of work
+      scientific_country: Country of work
       scientific_email: Email
       scientific_phone: Phone
       scientific_cv: CV of at most two pages
@@ -147,12 +149,14 @@ en:
       foreign_coordinator: Officer working in France, Spain, Norway or Switzerland
       administration_name: Name
       administration_place: Place of work
+      administration_country: Country of work
       administration_email: Email
       administration_phone: Phone
       administration_cv: CV of at most two pages
       scientific_coordinator: Scientific Mathematician Responsable
       scientific_name: Name
       scientific_place: Place of work
+      scientific_country: Country of work
       scientific_email: Email
       scientific_phone: Phone
       scientific_cv: CV of at most two pages
