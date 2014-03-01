@@ -65,7 +65,9 @@
         <div class="control-group">
           <%= f.label t('.school_date_a_start'), :class => 'control-label' %>
           <div class="controls input-append date datepicker_future">
-            <%= f.text_field :school_date_a_start, :value => f.object.school_date_a_start.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            <%= f.text_field :school_date_a_start,
+              :value => (f.object.school_date_a_start ? f.object.school_date_a_start : Date.today + 2.years).strftime('%d-%m-%Y'),
+              :readonly => true, 
               :class => 'text_field input-small' %>
             <span class="add-on">
               <i class="icon-calendar"></i>
@@ -75,7 +77,9 @@
         <div class="control-group">
           <%= f.label t('.school_date_a_finish'), :class => 'control-label' %>
           <div class="controls input-append date datepicker_future">
-            <%= f.text_field :school_date_a_finish, :value => f.object.school_date_a_finish.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            <%= f.text_field :school_date_a_finish, 
+              :value => (f.object.school_date_a_finish ? f.object.school_date_a_finish : Date.today + 2.years + 2.weeks).strftime('%d-%m-%Y'),
+              :readonly => true, 
               :class => 'text_field input-small' %>
             <span class="add-on">
               <i class="icon-calendar"></i>
@@ -87,7 +91,9 @@
         <div class="control-group">
           <%= f.label t('.school_date_b_start'), :class => 'control-label' %>
           <div class="controls input-append date datepicker_future">
-            <%= f.text_field :school_date_b_start, :value => f.object.school_date_b_start.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            <%= f.text_field :school_date_b_start,
+              :value => (f.object.school_date_b_start ? f.object.school_date_b_start : Date.today + 2.years).strftime('%d-%m-%Y'),
+              :readonly => true, 
               :class => 'text_field input-small' %>
             <span class="add-on">
               <i class="icon-calendar"></i>
@@ -97,7 +103,9 @@
         <div class="control-group">
           <%= f.label t('.school_date_b_finish'), :class => 'control-label' %>
           <div class="controls input-append date datepicker_future">
-            <%= f.text_field :school_date_b_finish, :value => f.object.school_date_b_finish.try(:strftime,'%d-%m-%Y'),:readonly => true, 
+            <%= f.text_field :school_date_b_finish,
+              :value => (f.object.school_date_b_finish ? f.object.school_date_b_finish : Date.today + 2.years + 2.weeks).strftime('%d-%m-%Y'),
+              :readonly => true, 
               :class => 'text_field input-small' %>
             <span class="add-on">
               <i class="icon-calendar"></i>

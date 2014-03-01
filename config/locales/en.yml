@@ -92,14 +92,14 @@ en:
       completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://zbmath.org/classification' target='_blank'>2010 MSC</a> )."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://zbmath.org/classification/' target='_blank'>2010 MSC</a> )."
       school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_country_text: Country
       school_date_a_start: Start date for option A
-      school_date_a_finish: Finish date for option A
+      school_date_a_finish: End date for option A
       school_date_b_start: Start date for option B
-      school_date_b_finish: Finish date for B
+      school_date_b_finish: End date for B
       scientific_content_html: "<em class='alert-error'>*</em> Short abstract of the scientific content."
       balance_woman: "Gender balance is an important point for the entire evaluation of your project."
       members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
@@ -168,7 +168,7 @@ en:
       completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
       research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
       project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
-      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://zbmath.org/classification' target='_blank'>2010 MSC</a> )."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://zbmath.org/classification/' target='_blank'>2010 MSC</a> )."
       school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
       school_place_text: Place
       school_country_text: Country
