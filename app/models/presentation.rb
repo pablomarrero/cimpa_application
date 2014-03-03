@@ -59,7 +59,7 @@ class Presentation < ActiveRecord::Base
   accepts_nested_attributes_for :anticipated_fundings, :reject_if => :all_blank, :allow_destroy => true
 
 
-  validates :similar_project, presence: true, if: :pre_proposal? || :final_proposal?
+#  validates :similar_project, presence: true, if: :pre_proposal? || :final_proposal?
   validates :completely_read, presence: true, if: :pre_proposal? || :final_proposal?
   validates :research_school_title, presence: true, if: :pre_proposal? || :final_proposal?
   validates :project_type, presence: true, if: :pre_proposal? || :final_proposal?
