@@ -143,7 +143,7 @@ en:
       anticipated_type: Type
       add_provisional_budget: Add Provisional Budget
       add_anticipated_funding: Add Anticipated Funding
-      responsables_html: "<em class='alert-error'>*</em><strong>Exactly</strong> two administrative and scientific mathematician coordinators (one local and one working in France, Spain, Norway or Switzerland). They will be active, present during the Research School and responsible for everything, in particular with respect to CIMPA."
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactly</strong> two administrative and scientific mathematician officers (one local and one working in France, Spain, Norway or Switzerland). They will be active, present during the Research School and responsible for everything, in particular with respect to CIMPA."
       administration_coordinator: Administrative Mathematician Responsable
       local_coordinator: Local Officer
       foreign_coordinator: Officer working in France, Spain, Norway or Switzerland
@@ -162,6 +162,8 @@ en:
       scientific_cv: CV of at most two pages
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       proposal: Proposal
+      notice_text: Notice
+      notice_html: <p>Once you save this form you can later on modify it as much as you want, up to the deadlines. This is no longer possible once you submit the form as a definitive pre-proposal or proposal.<br/>If you submit it as a pre-proposal, required fields are checked; if any is missing, you will be redirected and fields offending will be highlighted. If you submit it as a final proposal all fields are required and this checked as well.</p><p>It will be possible to re-edit a pre-proposal for turning it into a definitive proposal.</p><p>For technical assistance, please contact webmaster@cimpa.info<br/>For other kind of assistance, please contact cimpa@unice.fr</p>
       deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>).<br><strong>Complete proposal:</strong> October 1."
       please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
       similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one?"

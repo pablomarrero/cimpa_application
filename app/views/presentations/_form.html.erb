@@ -6,7 +6,10 @@
   <div class="alert alert-success">
     <p><%= t('.deadlines_html') %></p>
   </div>
-
+  <div class="well">
+    <h3><%= t('.notice_text') %></h3>
+    <p><%= t('.notice_html') %></p>
+  </div>
   <%= form_for @presentation, :html => { :class => 'hand_writer well' } do |f| %>
     <h2><%= t('.proposal') %></h2>
     <hr>
