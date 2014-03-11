@@ -46,12 +46,16 @@ class Presentation < ActiveRecord::Base
   has_attached_file :administration_cv, 
                     :url => "/assets/presentation/:id/administration_cv/:basename.:extension",
                     :path => ":rails_root/public/assets/presentation/:id/administration_cv/:basename.:extension"
-  validates_attachment :administration_cv, :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'}
+  validates_attachment  :administration_cv, 
+                        :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
+                        :size => { :in => 0..10.megabytes }
 
   has_attached_file :scientific_cv, 
                     :url => "/assets/presentation/:id/scientific_cv/:basename.:extension",
                     :path => ":rails_root/public/assets/presentation/:id/scientific_cv/:basename.:extension"
-  validates_attachment :scientific_cv, :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'}
+  validates_attachment  :scientific_cv, 
+                        :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
+                        :size => { :in => 0..10.megabytes }
 
   has_many :provisional_budgets
   accepts_nested_attributes_for :provisional_budgets, :reject_if => :all_blank, :allow_destroy => true
@@ -61,7 +65,9 @@ class Presentation < ActiveRecord::Base
   has_attached_file :tentative_schedule_file, 
                     :url => "/assets/presentation/:id/tentative_schedule_file/:basename.:extension",
                     :path => ":rails_root/public/assets/presentation/:id/tentative_schedule_file/:basename.:extension"
-  validates_attachment :tentative_schedule_file, :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'}
+  validates_attachment  :tentative_schedule_file, 
+                        :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
+                        :size => { :in => 0..10.megabytes }
 
 #  validates :similar_project, presence: true, if: :pre_proposal? || :final_proposal?
   validates :completely_read, presence: true, if: :pre_proposal? || :final_proposal?
