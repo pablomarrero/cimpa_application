@@ -66,37 +66,45 @@ fr:
       anticipated_type: Type
       add_provisional_budget: Ajouter Budget Prévisionnel
       add_anticipated_funding: Ajouter Financements Prévus
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactement</strong> deux mathématiciens responsables, administratifs et scientifiques (dont un local et un travaillant en France, en Espagne, en Norvège ou en Suisse). Ils seront actifs, présents lors de l’école de recherche et seront les responsables de tout, en particulier face au CIMPA."
+      local_coordinator: Responsable local
+      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
+      administration_country: Pays de travail
       administration_email: Courriel
       administration_phone: Téléphone
       administration_cv: CV de deux pages au plus
       scientific_name: Nom
       scientific_place: Lieu de travail
+      scientific_country: Pays de travail
       scientific_email: Courriel
       scientific_phone: Téléphone
       scientific_cv: CV de deux pages au plus
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
       proposal: Projet
-      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
-      please_read: "Merci de lire en détail la feuille de route."
-      similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
-      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
-      research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
+      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-proje: </strong>15 juin (champs avec <em class='alert-error'>*</em>).<br><strong>Projet complet:</strong> 1er octobre."
+      please_read_html: "Merci de lire en détail a <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>."
+      similar_project_html: "<em class='alert-error'>*</em> Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
+      completely_read_html: "<em class='alert-error'>*</em> Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      research_school_title_html: "<em class='alert-error'>*</em> Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
-      subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
-      school_place_html: "Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://zbmath.org/classification/' target='_blank'>2010 MSC</a>)."
+      school_place_html: "<em class='alert-error'>*</em> Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
       school_place_text: Lieu
-      school_date_a: Dates A
-      school_date_b: Dates B
-      scientific_content: "Court résumé du contenu scientifique."
+      school_country_text: Pays
+      school_date_a_start: Date de début, option A
+      school_date_a_finish: Date de fin, option A
+      school_date_b_start: Date de début, option A
+      school_date_b_finish: Date de fin, option A
+      scientific_content_html: "<em class='alert-error'>*</em> Court résumé du contenu scientifique."
       balance_woman: "L’équilibre entre les femmes et les hommes est un point important tout au long de l'évaluation de votre projet."
-      members_of_scientific_committee_html: "Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
+      members_of_scientific_committee_html: "<em class='alert-error'>*</em> Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
       members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
       local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
-      motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
-      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      motivation_html: "<em class='alert-error'>*</em> Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
       infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
       courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
       tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
@@ -111,7 +119,7 @@ fr:
       time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
       average_time_scientific: "Moyenne horaire"
       day_time_scientific: "Jours"
-      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <p class='alert-error'><strong>Ceci est crucial et évitera des malentendus</strong></p>."
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
     form:
@@ -125,36 +133,47 @@ fr:
       anticipated_type: Type
       add_provisional_budget: Ajouter Budget Prévisionnel
       add_anticipated_funding: Ajouter Financements Prévus
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactement</strong> deux mathématiciens responsables, administratifs et scientifiques (dont un local et un travaillant en France, en Espagne, en Norvège ou en Suisse). Ils seront actifs, présents lors de l’école de recherche et seront les responsables de tout, en particulier face au CIMPA."
+      local_coordinator: Responsable local
+      foreign_coordinator: Responsable travaillant en France, en Espagne, en Norvège ou en Suisse
       administration_name: Nom
       administration_place: Lieu de travail
+      administration_country: Pays de travail
       administration_email: Courriel
       administration_phone: Téléphone
       administration_cv: CV de deux pages au plus
       scientific_name: Nom
       scientific_place: Lieu de travail
+      scientific_country: Pays de travail
       scientific_email: Courriel
       scientific_phone: Téléphone
       scientific_cv: CV de deux pages au plus
       sumary_point: "<strong>POINTS DE SYNTHESE</strong> à remplir par vous-mêmes."
+      title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
       proposal: Projet
-      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-projet:</strong> Juin 15.<br><strong>Projet complet:</strong> Octobre 1."
-      please_read: "Merci de lire en détail la feuille de route."
-      similar_project: "Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
-      completely_read_html: "Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la feuille de route. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
-      research_school_title: "Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
+      deadlines_html: "<h4>Dates limites:</h4><br><strong>Pré-proje: </strong>15 juin (champs avec <em class='alert-error'>*</em>).<br><strong>Projet complet:</strong> 1er octobre."
+      notice_text: Notice
+      notice_html: "<p>Une fois que vous enregistrez ce formulaire, vous pouvez par la suite le modifier autant que vous le voudrez, avant les délais. Ceci n'est plus possible une fois que vous soumettez ce formulaire comme un pré-projet ou un projet définitif.<br/> Si vous le soumettez comme pré-projet, les champs obligatoires sont vérifiés. Si l'un d'eux manque vous serez redirigé et les champs incriminés seront mis en évidence. Si vous soumettez comme projet final tous les champs sont obligatoires et cela est vérifié également.</p><p>Il sera possible de re-éditer une pré-proposition pour en faire une proposition définitive.</p><p>Pour une assistance technique, s'il vous plaît contacter webmaster@cimpa.info<br/>Pour d'autres types d'aide, s'il vous plaît contacter cimpa@unice.fr</p>"
+      please_read_html: "Merci de lire en détail la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>."
+      similar_project_html: "<em class='alert-error'>*</em> Un projet analogue a été soumis au CIMPA l'année dernière ou la précédente?"
+      completely_read_html: "<em class='alert-error'>*</em> Nous avons entièrement lu, nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <br><strong>Son non-respect peut entrainer le désengagement du CIMPA.</strong>"
+      research_school_title_html: "<em class='alert-error'>*</em> Titre de l’école de recherche (ni trop général ni trop long et sans acronymes)"
       project_type: "Le projet est plutôt en mathématiques fondamentales, mathématiques appliqués ou MIxte (composé de fondamental, appliqué ou interactions)"
-      subject_clasification_html: "<strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet."
-      school_place_html: "Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Seulement</strong> les deux chiffres de la classification par sujets mathématiques 2010 qui concernent principalement votre projet (<a href='http://zbmath.org/classification/' target='_blank'>2010 MSC</a>)."
+      school_place_html: "<em class='alert-error'>*</em> Lieu et dates : deux périodes précises et également possibles.<br><strong>Attention:</strong> les dates réelles seront décidées par le CIMPA en février ou mars de l’année prochaine."
       school_place_text: Lieu
-      school_date_a: Dates A
-      school_date_b: Dates B
-      scientific_content: "Court résumé du contenu scientifique."
+      school_country_text: Pays
+      school_date_a_start: Date de début, option A
+      school_date_a_finish: Date de fin, option A
+      school_date_b_start: Date de début, option A
+      school_date_b_finish: Date de fin, option A
+      scientific_content_html: "<em class='alert-error'>*</em> Court résumé du contenu scientifique."
       balance_woman: "L’équilibre entre les femmes et les hommes est un point important tout au long de l'évaluation de votre projet."
-      members_of_scientific_committee_html: "Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
+      members_of_scientific_committee_html: "<em class='alert-error'>*</em> Quels seront les membres du comité scientifique? <br>Ils devront participer à l’école de recherche et faire au moins un exposé. Au plus cinq personnes d’au moins trois pays différents.<br><strong>Ce comité doit explicitement approuver ce projet avant son envoi au CIMPA.</strong>"
       members_of_local_committee: "Quels seront les membres du comité d’organisation local? Ils sont normalement entre deux et cinq, précisez le rôle de chacun et leur courriel."
       local_institution_description: "Décrivez en quelques lignes l’institution locale liée à ce projet, indiquez son site internet et ses principaux intérêts mathématiques. Décrivez le plan du site web prévu de l’école de recherche et/ou donnez un site provisoire."
-      motivation: "Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
-      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la feuille de route - devraient participer (localement, de votre pays, et de pays voisins)?"
+      motivation_html: "<em class='alert-error'>*</em> Indiquez les motivations pour organiser ce projet d’école de recherche et les activités prévues autour de celle-ci"
+      related_scientific_work: "Décrire le travail scientifique et les formations déjà réalisés sur place. Quel impact est prévu? Combien de jeunes - voir la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a> - devraient participer (localement, de votre pays, et de pays voisins)?"
       infrastructure: "Décrire en quelques mots l’infrastructure de l’endroit où se tiendrait l’école de recherche, comment on y arrive et la sécurité des participants. Est-ce qu’au moins 25 places d'hébergement seront disponibles pour des jeunes mathématiciens de pays en développement voisins?"
       courses_html: "<strong>Au maximum 6 cours</strong>, liés au sujet et au titre de l’école de recherche. Conférenciers et résumés (rédigés par les conférenciers) de 10 lignes chacun. Les membres du Comité scientifique doivent participer."
       tentative_schedule_html: "Indiquez un emploi du temps provisoire (<strong>six heures au plus par jour</strong>, le mercredi après-midi est normalement libre)"
@@ -169,7 +188,80 @@ fr:
       time_scientific_text: Quelle est la moyenne horaire d’activités scientifiques par jour et pendant combien de jours?
       average_time_scientific: "Moyenne horaire"
       day_time_scientific: "Jours"
-      confirmation_completely_read_html: "<strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la feuille de route. Ceci est crucial et évitera des malentendus."
+      confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <p class='alert-error'><strong>Ceci est crucial et évitera des malentendus</strong></p>."
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
       comment: Commentaires ou remarques
+  devise:
+    sessions:
+      new:
+        login: Login
+        sign_in: Sign in
+    registrations:
+      new:
+        sign_up: Sign up
+        sign_in: Sign in
+  msc:
+    "00": "00 general                                                  "
+    "01": "01 history and biography                                    "
+    "03": "03 mathematical logic and foundations                       "
+    "05": "05 combinatorics                                            "
+    "06": "06 order, lattices, ordered algebraic structures            "
+    "08": "08 general algebraic systems                                "
+    "11": "11 number theory                                            "
+    "12": "12 field theory and polynomials                             "
+    "13": "13 commutative algebra                                      "
+    "14": "14 algebraic geometry                                       "
+    "15": "15 linear and multilinear algebra; matrix theory            "
+    "16": "16 associative rings and algebras                           "
+    "17": "17 nonassociative rings and algebras                        "
+    "18": "18 category theory; homological algebra                     "
+    "19": "19 $k$-theory                                               "
+    "20": "20 group theory and generalizations                         "
+    "22": "22 topological groups, Lie groups                           "
+    "26": "26 real functions                                           "
+    "28": "28 measure and integration                                  "
+    "30": "30 functions of a complex variable                          "
+    "31": "31 potential theory                                         "
+    "32": "32 several complex variables and analytic spaces            "
+    "33": "33 special functions                                        "
+    "34": "34 ordinary differential equations                          "
+    "35": "35 partial differential equations                           "
+    "37": "37 dynamical systems and ergodic theory                     "
+    "39": "39 difference and functional equations                      "
+    "40": "40 sequences, series, summability                           "
+    "41": "41 approximations and expansions                            "
+    "42": "42 harmonic analysis on Euclidean spaces                    "
+    "43": "43 abstract harmonic analysis                               "
+    "44": "44 integral transforms, operational calculus                "
+    "45": "45 integral equations                                       "
+    "46": "46 functional analysis                                      "
+    "47": "47 operator theory                                          "
+    "49": "49 calculus of variations and optimal control; optimization "
+    "51": "51 geometry                                                 "
+    "52": "52 convex and discrete geometry                             "
+    "53": "53 differential geometry                                    "
+    "54": "54 general topology                                         "
+    "55": "55 algebraic topology                                       "
+    "57": "57 manifolds and cell complexes                             "
+    "58": "58 global analysis, analysis on manifolds                   "
+    "60": "60 probability theory and stochastic processes              "
+    "62": "62 statistics                                               "
+    "65": "65 numerical analysis                                       "
+    "68": "68 computer science                                         "
+    "70": "70 mechanics of particles and systems                       "
+    "74": "74 mechanics of deformable solids                           "
+    "76": "76 fluid mechanics                                          "
+    "78": "78 optics, electromagnetic theory                           "
+    "80": "80 classical thermodynamics, heat transfer                  "
+    "81": "81 quantum theory                                           "
+    "82": "82 statistical mechanics, structure of matter               "
+    "83": "83 relativity and gravitational theory                      "
+    "85": "85 astronomy and astrophysics                               "
+    "86": "86 geophysics                                               "
+    "90": "90 operations research, mathematical programming            "
+    "91": "91 game theory, economics, social and behavioral sciences   "
+    "92": "92 biology and other natural sciences                       "
+    "93": "93 systems theory; control                                  "
+    "94": "94 information and communication, circuits                  "
+    "97": "97 mathematics education                                    "
