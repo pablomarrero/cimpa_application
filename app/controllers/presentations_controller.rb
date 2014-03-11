@@ -1,6 +1,6 @@
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
-    :download_administration_cv, :download_scientific_cv]
+    :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file]
 
   # GET /presentations
   # GET /presentations.json
@@ -80,6 +80,12 @@ class PresentationsController < ApplicationController
       :type => @presentation.scientific_cv_content_type,
       :disposition => 'attachment'
   end
+  def download_tentative_schedule_file
+    send_file @presentation.tentative_schedule_file.path,
+      :filename => @presentation.tentative_schedule_file_file_name,
+      :type => @presentation.tentative_schedule_file_content_type,
+      :disposition => 'attachment'
+  end
 
   def pre_proposal
     @presentation.pre_proposal_date = DateTime.now
@@ -123,7 +129,7 @@ class PresentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
-      params.require(:presentation).permit(:similar_project, :user_id, :completely_read, 
+      params.require(:presentation).permit(:similar_project, :user_id, :completely_read, :tentative_schedule_file, 
         :research_school_title, :project_type, :subject_clasification, :school_place, :school_country, :school_date_a_start, :school_date_a_finish, 
         :school_date_b_start, :school_date_b_finish, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 

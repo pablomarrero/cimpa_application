@@ -319,6 +319,16 @@
         <%= f.text_area :tentative_schedule, :class => 'span12 text_area' %>
       </div>
     </div>
+    <div class="control-group">
+      <%= f.label :tentative_shedule_file, t('.tentative_schedule_file'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :tentative_schedule_file, :class => 'filestyle' %>
+        <% if f.object.tentative_schedule_file.present? %>
+          <%= link_to t('download'), download_tentative_schedule_file_path(f.object.id), :class => 'btn' %>
+        <% end %>
+      </div>
+    </div>
+
     <hr>
 
     <div id="provisional_budget" class="row-fluid">

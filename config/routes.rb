@@ -1,5 +1,6 @@
 CimpaApplication::Application.routes.draw do
   resources :currencies
+  get 'presentations/:id/download_tentative_schedule_file' => 'presentations#download_tentative_schedule_file', :as => :download_tentative_schedule_file
 
   get 'presentations/:id/download_administration_cv' => 'presentations#download_administration_cv', :as => :download_administration_cv
   get 'presentations/:id/download_scientific_cv' => 'presentations#download_scientific_cv', :as => :download_scientific_cv

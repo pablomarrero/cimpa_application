@@ -58,6 +58,10 @@ class Presentation < ActiveRecord::Base
   has_many :anticipated_fundings
   accepts_nested_attributes_for :anticipated_fundings, :reject_if => :all_blank, :allow_destroy => true
 
+  has_attached_file :tentative_schedule_file, 
+                    :url => "/assets/presentation/:id/tentative_schedule_file/:basename.:extension",
+                    :path => ":rails_root/public/assets/presentation/:id/tentative_schedule_file/:basename.:extension"
+  validates_attachment :tentative_schedule_file, :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'}
 
 #  validates :similar_project, presence: true, if: :pre_proposal? || :final_proposal?
   validates :completely_read, presence: true, if: :pre_proposal? || :final_proposal?
@@ -98,8 +102,6 @@ class Presentation < ActiveRecord::Base
   validates :scientific_email, presence: true, if: :final_proposal?
   validates :scientific_phone, presence: true, if: :final_proposal?
   validates :scientific_cv, presence: true, if: :final_proposal?
-  validates :tentative_schedule, presence: true, if: :final_proposal?
-  validates :tentative_schedule, presence: true, if: :final_proposal?
 
   def final_proposal?
     self.proposal_state == 'final_proposal'

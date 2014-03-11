@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301003708) do
+ActiveRecord::Schema.define(version: 20140311190724) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount",           precision: 10, scale: 0
+    t.decimal  "amount"
     t.string   "anticipated_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,6 +115,10 @@ ActiveRecord::Schema.define(version: 20140301003708) do
     t.string   "school_country"
     t.string   "administration_country"
     t.string   "scientific_country"
+    t.string   "tentative_schedule_file_file_name"
+    t.string   "tentative_schedule_file_content_type"
+    t.integer  "tentative_schedule_file_file_size"
+    t.datetime "tentative_schedule_file_updated_at"
   end
 
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
@@ -122,7 +126,7 @@ ActiveRecord::Schema.define(version: 20140301003708) do
   create_table "provisional_budgets", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount",           precision: 10, scale: 0
+    t.decimal  "amount"
     t.string   "provisional_type"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -284,6 +284,15 @@
       <pre><%= @presentation.tentative_schedule %></pre>
     </div>
   </div>
+  <% if @presentation.tentative_schedule_file.present? %>
+    <div class="control-group">
+      <%= t('.tentative_schedule_file') %>
+      <div class="controls">
+          <%= link_to t('download'), download_tentative_schedule_file_path(@presentation), :class => 'btn' %>
+      </div>
+    </div>
+  <% end %> 
+
   <hr>
   <div id="provisional_budget" class="row-fluid">
     <div >
