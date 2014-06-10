@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311190724) do
+ActiveRecord::Schema.define(version: 20140610143147) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount"
+    t.decimal  "amount",           precision: 10, scale: 0
     t.string   "anticipated_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 20140311190724) do
 
   add_index "friends", ["friend_id"], name: "index_friends_on_friend_id", using: :btree
   add_index "friends", ["person_id"], name: "index_friends_on_person_id", using: :btree
+
+  create_table "local_contacts", force: true do |t|
+    t.string   "administration_name"
+    t.string   "administration_place"
+    t.string   "administration_email"
+    t.string   "administration_phone"
+    t.string   "administration_cv_file_name"
+    t.string   "administration_cv_content_type"
+    t.integer  "administration_cv_file_size"
+    t.datetime "administration_cv_updated_at"
+    t.integer  "presentation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "administration_country"
+  end
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -83,22 +98,6 @@ ActiveRecord::Schema.define(version: 20140311190724) do
     t.boolean  "confirmation_completely_read"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "administration_name"
-    t.string   "administration_place"
-    t.string   "administration_email"
-    t.string   "administration_phone"
-    t.string   "administration_cv_file_name"
-    t.string   "administration_cv_content_type"
-    t.integer  "administration_cv_file_size"
-    t.datetime "administration_cv_updated_at"
-    t.string   "scientific_name"
-    t.string   "scientific_place"
-    t.string   "scientific_email"
-    t.string   "scientific_phone"
-    t.string   "scientific_cv_file_name"
-    t.string   "scientific_cv_content_type"
-    t.integer  "scientific_cv_file_size"
-    t.datetime "scientific_cv_updated_at"
     t.string   "proposal_state"
     t.datetime "pre_proposal_date"
     t.datetime "final_proposal_date"
@@ -113,7 +112,6 @@ ActiveRecord::Schema.define(version: 20140311190724) do
     t.date     "school_date_b_start"
     t.date     "school_date_b_finish"
     t.string   "school_country"
-    t.string   "administration_country"
     t.string   "scientific_country"
     t.string   "tentative_schedule_file_file_name"
     t.string   "tentative_schedule_file_content_type"
@@ -126,7 +124,7 @@ ActiveRecord::Schema.define(version: 20140311190724) do
   create_table "provisional_budgets", force: true do |t|
     t.integer  "presentation_id"
     t.string   "description"
-    t.decimal  "amount"
+    t.decimal  "amount",           precision: 10, scale: 0
     t.string   "provisional_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -146,6 +144,22 @@ ActiveRecord::Schema.define(version: 20140311190724) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "scientific_contacts", force: true do |t|
+    t.string   "scientific_name"
+    t.string   "scientific_place"
+    t.string   "scientific_email"
+    t.string   "scientific_phone"
+    t.string   "string"
+    t.string   "scientific_cv_file_name"
+    t.string   "scientific_cv_content_type"
+    t.integer  "scientific_cv_file_size"
+    t.datetime "scientific_cv_updated_at"
+    t.integer  "presentation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "scientific_country"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

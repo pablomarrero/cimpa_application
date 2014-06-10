@@ -94,37 +94,37 @@
         <div class="control-group">
           <%= t('.administration_name') %>
           <div class="controls">
-            <pre><%= @presentation.administration_name %></pre>
+            <pre><%= @presentation.local_contact.administration_name %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.administration_place') %>
           <div class="controls">
-            <pre><%= @presentation.administration_place %></pre>
+            <pre><%= @presentation.local_contact.administration_place %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.administration_country') %>
           <div class="controls">
-            <pre><%= @presentation.administration_country%></pre>
+            <pre><%= @presentation.local_contact.administration_country%></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.administration_email') %>
           <div class="controls">
-            <pre><%= @presentation.administration_email %></pre>
+            <pre><%= @presentation.local_contact.administration_email %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.administration_phone') %>
           <div class="controls">
-            <pre><%= @presentation.administration_phone %></pre>
+            <pre><%= @presentation.local_contact.administration_phone %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.administration_cv') %>
           <div class="controls">
-            <% if @presentation.administration_cv.present? %>
+            <% if @presentation.local_contact.administration_cv.present? %>
               <%= link_to t('download'), download_administration_cv_path(@presentation), :class => 'btn' %>
             <% end %>
           </div>
@@ -135,37 +135,37 @@
         <div class="control-group">
           <%= t('.scientific_name') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_name %></pre>
+            <pre><%= @presentation.scientific_contact.scientific_name %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.scientific_place') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_place %></pre>
+            <pre><%= @presentation.scientific_contact.scientific_place %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.scientific_country') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_country%></pre>
+            <pre><%= @presentation.scientific_contact.scientific_country%></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.scientific_email') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_email %></pre>
+            <pre><%= @presentation.scientific_contact.scientific_email %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.scientific_phone') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_phone %></pre>
+            <pre><%= @presentation.scientific_contact.scientific_phone %></pre>
           </div>
         </div>
         <div class="control-group">
           <%= t('.scientific_cv') %>
           <div class="controls">
-            <% if @presentation.scientific_cv.present? %>
+            <% if @presentation.scientific_contact.scientific_cv.present? %>
               <%= link_to t('download'), download_scientific_cv_path(@presentation), :class => 'btn' %>
             <% end %>
           </div>

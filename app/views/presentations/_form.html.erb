@@ -124,87 +124,91 @@
     <div class="row-fluid">
       <div class="alert alert-info span6">
         <h5><%= t '.local_coordinator' %></h5>
-        <div class="control-group">
-          <%= f.label :administration_name, t('.administration_name'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :administration_name %>
+        <%= f.fields_for :local_contact do |exp| %>
+          <div class="control-group">
+            <%= exp.label :administration_name, t('.administration_name'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :administration_name %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :administration_place, t('.administration_place'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :administration_place %>
+          <div class="control-group">
+            <%= exp.label :administration_place, t('.administration_place'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :administration_place %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :administration_country, t('.administration_country'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.select :administration_country, Presentation.administration_country.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
+          <div class="control-group">
+            <%= exp.label :administration_country, t('.administration_country'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.select :administration_country, LocalContact.administration_country.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :administration_email, t('.administration_email'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :administration_email %>
+          <div class="control-group">
+            <%= exp.label :administration_email, t('.administration_email'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :administration_email %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :administration_phone, t('.administration_phone'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :administration_phone %>
+          <div class="control-group">
+            <%= exp.label :administration_phone, t('.administration_phone'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :administration_phone %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :administration_cv, t('.administration_cv'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.file_field :administration_cv, :class => 'filestyle' %>
-            <% if f.object.administration_cv.present? %>
-              <%= link_to t('download'), download_administration_cv_path(f.object.id), :class => 'btn' %>
-            <% end %>
+          <div class="control-group">
+            <%= exp.label :administration_cv, t('.administration_cv'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.file_field :administration_cv, :class => 'filestyle' %>
+              <% if exp.object.administration_cv.present? %>
+                <%= link_to t('download'), download_administration_cv_path(exp.object.id), :class => 'btn' %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="alert alert-info span6">
         <h5><%= t '.foreign_coordinator' %></h5>
-        <div class="control-group">
-          <%= f.label :scientific_name, t('.scientific_name'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :scientific_name %>
+        <%= f.fields_for :scientific_contact  do |exp| %>
+          <div class="control-group">
+            <%= exp.label :scientific_name, t('.scientific_name'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :scientific_name %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :scientific_place, t('.scientific_place'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :scientific_place%>
+          <div class="control-group">
+            <%= exp.label :scientific_place, t('.scientific_place'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :scientific_place%>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :scientific_country, t('.scientific_country'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.select :scientific_country, Presentation.scientific_country.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
+          <div class="control-group">
+            <%= exp.label :scientific_country, t('.scientific_country'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.select :scientific_country, ScientificContact.scientific_country.values.map {|data| [data,data]}, {:prompt => true}, {:class => 'combobox'} %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :scientific_email, t('.scientific_email'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :scientific_email %>
+          <div class="control-group">
+            <%= exp.label :scientific_email, t('.scientific_email'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :scientific_email %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :scientific_phone, t('.scientific_phone'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :scientific_phone %>
+          <div class="control-group">
+            <%= exp.label :scientific_phone, t('.scientific_phone'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.text_field :scientific_phone %>
+            </div>
           </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :scientific_cv, t('.scientific_cv'), :class => 'control-label' %>
-          <div class="controls">
-            <%= f.file_field :scientific_cv, :class => 'filestyle' %>
-            <% if f.object.scientific_cv.present? %>
-              <%= link_to t('download'), download_scientific_cv_path(f.object.id), :class => 'btn' %>
-            <% end %>
+          <div class="control-group">
+            <%= exp.label :scientific_cv, t('.scientific_cv'), :class => 'control-label' %>
+            <div class="controls">
+              <%= exp.file_field :scientific_cv, :class => 'filestyle' %>
+              <% if exp.object.scientific_cv.present? %>
+                <%= link_to t('download'), download_scientific_cv_path(exp.object.id), :class => 'btn' %>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
     <hr>

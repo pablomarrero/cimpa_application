@@ -3,6 +3,13 @@ class Presentation < ActiveRecord::Base
   has_paper_trail
 
   belongs_to :user
+
+  has_one :local_contact
+  accepts_nested_attributes_for :local_contact, :reject_if => :all_blank, :allow_destroy => true
+  
+  has_one :scientific_contact
+  accepts_nested_attributes_for :scientific_contact, :reject_if => :all_blank, :allow_destroy => true
+
   enumerize :project_type, in: [:fundamental, :applied, :mixed]
   enumerize :proposal_state, in: [:primary_fill, :pre_proposal, :final_proposal]
   enumerize :subject_clasification, in: ['00','01','03','05','06','08','11','12', '13','14','15','16','17','18','19','20','22','26','28','30','31','32','33', '34','35','37','39','40','41','42','43','44','45','46','47','49','51','52','53','54','55','57','58','60','62','65','68','70','74','76', '78','80','81','82','83','85','86','90','91','92','93','94','97']
@@ -40,25 +47,11 @@ class Presentation < ActiveRecord::Base
     'Turks and Caicos Islands','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States',
     'Uruguay','Uzbekistan','Vanuatu','Venezuela','Vietnam','Virgin Islands','Wake Island','Wallis and Futuna',
     'West Bank','Western Sahara','Yemen','Zambia','Zimbabwe']
-  enumerize :administration_country, in: countries
-  enumerize :scientific_country, in: countries
   enumerize :school_country, in: countries 
-  has_attached_file :administration_cv, 
-                    :url => "/assets/presentation/:id/administration_cv/:basename.:extension",
-                    :path => ":rails_root/public/assets/presentation/:id/administration_cv/:basename.:extension"
-  validates_attachment  :administration_cv, 
-                        :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
-                        :size => { :in => 0..10.megabytes }
-
-  has_attached_file :scientific_cv, 
-                    :url => "/assets/presentation/:id/scientific_cv/:basename.:extension",
-                    :path => ":rails_root/public/assets/presentation/:id/scientific_cv/:basename.:extension"
-  validates_attachment  :scientific_cv, 
-                        :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
-                        :size => { :in => 0..10.megabytes }
 
   has_many :provisional_budgets
   accepts_nested_attributes_for :provisional_budgets, :reject_if => :all_blank, :allow_destroy => true
+
   has_many :anticipated_fundings
   accepts_nested_attributes_for :anticipated_fundings, :reject_if => :all_blank, :allow_destroy => true
 
@@ -98,16 +91,6 @@ class Presentation < ActiveRecord::Base
   validates :young_people, presence: true, if: :final_proposal?
   validates :average_time_scientific, presence: true, if: :final_proposal?
   validates :day_time_scientific, presence: true, if: :final_proposal?
-  validates :administration_name, presence: true, if: :final_proposal?
-  validates :administration_place, presence: true, if: :final_proposal?
-  validates :administration_email, presence: true, if: :final_proposal?
-  validates :administration_phone, presence: true, if: :final_proposal?
-  validates :administration_cv, presence: true, if: :final_proposal?
-  validates :scientific_name, presence: true, if: :final_proposal?
-  validates :scientific_place, presence: true, if: :final_proposal?
-  validates :scientific_email, presence: true, if: :final_proposal?
-  validates :scientific_phone, presence: true, if: :final_proposal?
-  validates :scientific_cv, presence: true, if: :final_proposal?
 
   def final_proposal?
     self.proposal_state == 'final_proposal'

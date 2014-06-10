@@ -1,23 +1,20 @@
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   database: cimpa_development
-  username: postgres
-  password: postgres
-  host: localhost
+  username: root
+  password: 
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   database: cimpa_test
-  username: postgres
-  password: postgres
-  host: localhost
+  username: root
+  password: 
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   database: cimpa_production
-  username: postgres
-  password: postgres
-  host: localhost
+  username: root
+  password: 

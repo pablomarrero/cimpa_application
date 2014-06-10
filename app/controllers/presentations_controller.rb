@@ -20,6 +20,8 @@ class PresentationsController < ApplicationController
   # GET /presentations/new
   def new
     @presentation = Presentation.new
+    @presentation.build_local_contact
+    @presentation.build_scientific_contact
     @presentation.proposal_state = :proposal_fill
   end
 
@@ -69,15 +71,15 @@ class PresentationsController < ApplicationController
   end
 
   def download_administration_cv
-    send_file @presentation.administration_cv.path,
-      :filename => @presentation.administration_cv_file_name,
-      :type => @presentation.administration_cv_content_type,
+    send_file @presentation.local_contact.administration_cv.path,
+      :filename => @presentation.local_contact.administration_cv_file_name,
+      :type => @presentation.local_contact.administration_cv_content_type,
       :disposition => 'attachment'
   end
   def download_scientific_cv
-    send_file @presentation.scientific_cv.path,
-      :filename => @presentation.scientific_cv_file_name,
-      :type => @presentation.scientific_cv_content_type,
+    send_file @presentation.scientific_contact.scientific_cv.path,
+      :filename => @presentation.scientific_contact.scientific_cv_file_name,
+      :type => @presentation.scientific_contact.scientific_cv_content_type,
       :disposition => 'attachment'
   end
   def download_tentative_schedule_file
@@ -137,9 +139,11 @@ class PresentationsController < ApplicationController
         :course1, :course2, :course3, :course4, :course5, :course6, 
         :women_percentage_scientific, :women_percentage_local, :women_percentage_course, 
         :how_much_cimpa, :how_much_cimpa_percentage, :young_people, :average_time_scientific, 
-        :day_time_scientific, :confirmation_completely_read, :administration_name, :administration_place, :administration_country,
-        :administration_email, :administration_phone, :administration_cv, :scientific_name, :scientific_place, :scientific_country,
-        :scientific_email, :scientific_phone, :scientific_cv, 
+        :day_time_scientific, :confirmation_completely_read,   
+        scientific_contact_attributes: [:id, :scientific_name, :scientific_place, :scientific_country,
+        :scientific_email, :scientific_phone, :scientific_cv],
+        local_contact_attributes: [:id, :administration_name, :administration_place, :administration_country,
+        :administration_email, :administration_phone, :administration_cv],
         provisional_budgets_attributes: [:_destroy, :id, :description, :currency_id, :amount, :provisional_type, :presentation_id],
         anticipated_fundings_attributes: [:_destroy, :id, :description, :currency_id, :amount, :anticipated_type, :presentation_id])
     end
