@@ -5,8 +5,10 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    if current_user.has_role?(:admin) || current_user.has_role?(:scientific_officer)
+    if current_user.has_role?(:admin)
       @presentations = Presentation.page params[:page]
+    elsif  current_user.has_role?(:scientific_officer)
+      @presentations = Presentation.where(proposal_state: :pre_proposal).page params[:page]
     else
       @presentations = Presentation.where( user_id: current_user.id).page params[:page]
     end
@@ -17,58 +19,59 @@ class PresentationsController < ApplicationController
   def show
   end
 
-  # GET /presentations/new
-  def new
-    @presentation = Presentation.new
-    @presentation.build_local_contact
-    @presentation.build_scientific_contact
-    @presentation.proposal_state = :proposal_fill
-  end
+#  # GET /presentations/new
+#  def new
+#    @presentation = Presentation.new
+#    @presentation.build_local_contact
+#    @presentation.build_scientific_contact
+#    @presentation.proposal_state = :proposal_fill
+#  end
 
   # GET /presentations/1/edit
   def edit
+    redirect_to @presentation, notice: 'Edition temporarily disabled.'
   end
 
-  # POST /presentations
-  # POST /presentations.json
-  def create
-    @presentation = Presentation.new(presentation_params)
-    @presentation.proposal_state = :primary_fill
+#  # POST /presentations
+#  # POST /presentations.json
+#  def create
+#    @presentation = Presentation.new(presentation_params)
+#    @presentation.proposal_state = :primary_fill
+#
+#    respond_to do |format|
+#      if @presentation.save
+#        format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @presentation }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
-    respond_to do |format|
-      if @presentation.save
-        format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @presentation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#  # PATCH/PUT /presentations/1
+#  # PATCH/PUT /presentations/1.json
+#  def update
+#    respond_to do |format|
+#      if @presentation.update(presentation_params)
+#        format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
+#        format.json { head :no_content }
+#      else
+#        format.html { render action: 'edit' }
+#        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
-  # PATCH/PUT /presentations/1
-  # PATCH/PUT /presentations/1.json
-  def update
-    respond_to do |format|
-      if @presentation.update(presentation_params)
-        format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /presentations/1
-  # DELETE /presentations/1.json
-  def destroy
-    @presentation.destroy
-    respond_to do |format|
-      format.html { redirect_to presentations_url }
-      format.json { head :no_content }
-    end
-  end
+#  # DELETE /presentations/1
+#  # DELETE /presentations/1.json
+#  def destroy
+#    @presentation.destroy
+#    respond_to do |format|
+#      format.html { redirect_to presentations_url }
+#      format.json { head :no_content }
+#    end
+#  end
 
   def download_administration_cv
     send_file @presentation.local_contact.administration_cv.path,
@@ -89,33 +92,33 @@ class PresentationsController < ApplicationController
       :disposition => 'attachment'
   end
 
-  def pre_proposal
-    @presentation.pre_proposal_date = DateTime.now
-    @presentation.proposal_state = :pre_proposal 
-    respond_to do |format|
-      if @presentation.save
-        format.html { redirect_to @presentation, notice: 'OK.' }
-        format.json { render action: 'show', status: :created, location: @presentation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-  
-  def final_proposal
-    @presentation.final_proposal_date = DateTime.now
-    @presentation.proposal_state = :final_proposal 
-    respond_to do |format|
-      if @presentation.save
-        format.html { redirect_to @presentation, notice: 'OK.' }
-        format.json { render action: 'show', status: :created, location: @presentation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#  def pre_proposal
+#    @presentation.pre_proposal_date = DateTime.now
+#    @presentation.proposal_state = :pre_proposal 
+#    respond_to do |format|
+#      if @presentation.save
+#        format.html { redirect_to @presentation, notice: 'OK.' }
+#        format.json { render action: 'show', status: :created, location: @presentation }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
+#  
+#  def final_proposal
+#    @presentation.final_proposal_date = DateTime.now
+#    @presentation.proposal_state = :final_proposal 
+#    respond_to do |format|
+#      if @presentation.save
+#        format.html { redirect_to @presentation, notice: 'OK.' }
+#        format.json { render action: 'show', status: :created, location: @presentation }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   private
     def verify_pre_proposal_fields
