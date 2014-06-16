@@ -8,7 +8,7 @@ class PresentationsController < ApplicationController
     if current_user.has_role?(:admin)
       @presentations = Presentation.page params[:page]
     elsif  current_user.has_role?(:scientific_officer)
-      @presentations = Presentation.where(proposal_state: :pre_proposal).page params[:page]
+      @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
     else
       @presentations = Presentation.where( user_id: current_user.id).page params[:page]
     end
