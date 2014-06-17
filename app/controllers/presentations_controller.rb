@@ -5,16 +5,24 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    if current_user.has_role?(:admin)
-      @presentations = Presentation.page params[:page]
-    elsif  current_user.has_role?(:scientific_officer)
-      @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
-    else
-      @presentations = Presentation.where( user_id: current_user.id).page params[:page]
-    end
     respond_to do |format|
-      format.html
+      format.html do
+        if current_user.has_role?(:admin)
+          @presentations = Presentation.all.page params[:page]
+        elsif  current_user.has_role?(:scientific_officer)
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
+        else
+          @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+        end
+      end
       format.xls do
+        if current_user.has_role?(:admin)
+          @presentations = Presentation.all
+        elsif  current_user.has_role?(:scientific_officer)
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal])
+        else
+          @presentations = Presentation.where( user_id: current_user.id)
+        end
         render :xls => @presentations,
                        :columns => [  {:user => [:email]}, :id, :research_school_title, {:country => [:region, :name_fr]}, :school_place, 
                                       {:local_contact => [:administration_name]}, {:scientific_contact => [:scientific_name]},
