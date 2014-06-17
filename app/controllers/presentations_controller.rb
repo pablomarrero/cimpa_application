@@ -10,6 +10,19 @@ class PresentationsController < ApplicationController
     else
       @presentations = Presentation.where( user_id: current_user.id).page params[:page]
     end
+    respond_to do |format|
+      format.html
+      format.xls do
+        render :xls => @presentations,
+                       :columns => [  {:user => [:email]}, :id, :research_school_title, {:country => [:region, :name_fr]}, :school_place, 
+                                      {:local_contact => [:administration_name]}, {:scientific_contact => [:scientific_name]},
+                                      :school_date_a_start_str, :school_date_a_finish_str, :school_date_b_start_str, :school_date_b_finish_str, 
+                                      :comment],
+                       :headers => [  'Nom du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
+                                        'Date de début, option A', 'Date de fin, option A', 'Date de début, option B', 'Date de fin, option B',
+                                        'Commentaires ou remarques']
+      end
+    end
   end
 
   # GET /presentations/1
@@ -34,9 +47,11 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(presentation_params)
     @presentation.proposal_state = :primary_fill
-
     respond_to do |format|
       if @presentation.save
+        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
+                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+        @presentation.save
         format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @presentation }
       else
@@ -51,6 +66,9 @@ class PresentationsController < ApplicationController
   def update
     respond_to do |format|
       if @presentation.update(presentation_params)
+        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
+                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+        @presentation.save
         format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
         format.json { head :no_content }
       else
@@ -131,7 +149,7 @@ class PresentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
-      params.require(:presentation).permit(:similar_project, :user_id, :completely_read, :tentative_schedule_file, 
+      params.require(:presentation).permit(:country_id, :similar_project, :user_id, :completely_read, :tentative_schedule_file, 
         :research_school_title, :project_type, :subject_clasification, :school_place, :school_country, :school_date_a_start, :school_date_a_finish, 
         :school_date_b_start, :school_date_b_finish, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 

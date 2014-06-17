@@ -55,6 +55,8 @@ en:
       school_country: Country
       project_type: Project Type
       title: List of CIMPA RESEARCH SCHOOL PROPOSALS
+      region: Region
+      acronym: Acronym
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
     show:
@@ -134,7 +136,11 @@ en:
       course4: Course 4
       course5: Course 5
       course6: Course 6
+      acronym: Acronym
+      region: Region
     form:
+      acronym: Acronym
+      region: Region
       provisional_budget: Provisional Budget
       provisional_description: Description
       provisional_amount: Amount

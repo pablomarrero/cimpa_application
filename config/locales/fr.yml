@@ -53,6 +53,8 @@ fr:
       school_country: Pays
       project_type: Type de Projet
       title: Liste des PROJET D’ÉCOLE DE RECHERCHE CIMPA
+      region: Region
+      acronym: Acronym
     new:
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
     show:
@@ -124,7 +126,10 @@ fr:
       confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Merci de confirmer:</strong><br>nous avons compris et nous appliquerons les points de la <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>feuille de route</a>. <p class='alert-error'><strong>Ceci est crucial et évitera des malentendus</strong></p>."
       notified_text: "Vous serez notifié de l'avis du Conseil scientifique et de la décision du Conseil d'orientation et de pilotage fin janvier ou début février de l’année prochaine. Il est possible que le Conseil scientifique vous demande des précisions ou des modifications début décembre."
       notified2_text: Dans tous les cas maintenez  informés les  conférenciers. C’est à vous de leur confirmer ou pas leur participation et de leur demander d’essayer de prendre en charge leur billet d’avion avec leurs financements propres. Cela permettra au CIMPA de destiner plus de  financement pour les jeunes de pays voisins."
+      acronym: Acronym
     form:
+      acronym: Acronym
+      region: Region
       provisional_budget: Budget Prévisionnel
       provisional_description: Description
       provisional_amount: Montant

@@ -47,7 +47,6 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', "~> 2.12"
-  gem "spork-rails"
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
@@ -103,3 +102,5 @@ gem 'kaminari'
 gem 'paper_trail', '>= 3.0.0.beta1'
 
 gem 'enumerize'
+
+gem 'to_xls'

@@ -20,6 +20,12 @@
   </div>
   <hr>
   <div class="control-group">
+    <%= t('.acronym') %>
+    <div class="controls">
+      <pre><%= @presentation.acronym %></pre>
+    </div>
+  </div>
+  <div class="control-group">
     <%= t('.research_school_title') %>
     <div class="controls">
       <pre><%= @presentation.research_school_title %></pre>
@@ -51,7 +57,7 @@
     <div class="control-group">
       <%= t('.school_country_text') %>
       <div class="controls">
-        <pre><%= @presentation.school_country %></pre>
+        <pre><%= @presentation.country.try(:name_fr) %></pre>
       </div>
     </div>
   </div>
@@ -106,7 +112,7 @@
         <div class="control-group">
           <%= t('.administration_country') %>
           <div class="controls">
-            <pre><%= @presentation.local_contact.administration_country%></pre>
+            <pre><%= @presentation.local_contact.country.try(:name_fr)%></pre>
           </div>
         </div>
         <div class="control-group">
@@ -147,7 +153,7 @@
         <div class="control-group">
           <%= t('.scientific_country') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_contact.scientific_country%></pre>
+            <pre><%= @presentation.scientific_contact.country.try(:name_fr)%></pre>
           </div>
         </div>
         <div class="control-group">
