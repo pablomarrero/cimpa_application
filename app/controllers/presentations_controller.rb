@@ -5,8 +5,10 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    if current_user.has_role?(:admin) || current_user.has_role?(:scientific_officer)
+    if current_user.has_role?(:admin)
       @presentations = Presentation.page params[:page]
+    elsif  current_user.has_role?(:scientific_officer)
+      @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
     else
       @presentations = Presentation.where( user_id: current_user.id).page params[:page]
     end
@@ -40,6 +42,7 @@ class PresentationsController < ApplicationController
 
   # GET /presentations/1/edit
   def edit
+    redirect_to @presentation, notice: 'Edition temporarily disabled.'
   end
 
   # POST /presentations

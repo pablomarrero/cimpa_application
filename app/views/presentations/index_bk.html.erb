@@ -10,9 +10,7 @@
     <tr>
       <th><%= t('.proposal_state') %></th>
       <th><%= t('.user') %></th>
-      <th><%= t('.region') %></th>
       <th><%= t('.school_country') %></th>
-      <th><%= t('.acronym') %></th>
       <th><%= t('.research_school_title') %></th>
       <th><%= t('.project_type') %></th>
       <th><%=t 'actions' %></th>
@@ -23,19 +21,25 @@
       <tr>
         <td><%= presentation.proposal_state %></td>
         <td><%= presentation.user.email %></td>
-        <td><%= presentation.country.try(:region) %></td>
-        <td><%= presentation.country.try(:name_fr) %></td>
-        <td><%= presentation.acronym %></td>
+        <td><%= presentation.school_country %></td>
         <td><%= presentation.research_school_title %></td>
         <td><%= presentation.project_type %></td>
         <td>
           <%= link_to t('view', :default => t('helpers.links.show')), 
                       presentation_path(presentation), :class => 'btn btn-mini' %>
+          <%= link_to t('edit', :default => t("helpers.links.edit")),
+                      edit_presentation_path(presentation), :class => 'btn btn-mini' unless current_user.has_role? :scientific_officer%>
+          <%= link_to t('destroy', :default => t("helpers.links.destroy")),
+                      presentation_path(presentation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger'  unless current_user.has_role? :scientific_officer%>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= paginate @presentations %>
-<%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
-<%= link_to 'Export to Excel', url_for(:format => 'xls'), :class => 'btn btn-default' %>
+<%= link_to t('new'),
+            new_presentation_path,
+            :class => 'btn btn-primary' %>

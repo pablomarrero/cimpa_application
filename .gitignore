@@ -19,3 +19,9 @@
 
 # Ignore coverage data
 /coverage
+
+
+Gemfile.lock
+/config/database.yml
+/public/assets/presentation/*
+/.ruby-version

@@ -25,6 +25,19 @@ fr:
   update: Réviser
 
   cimpa_name: Centre International de Mathématiques Pures et Appliquées
+  homepage_introduction_html: "<p>
+Pas encore de compte? <br>
+Crééz en un: <a href='http://proposals.cimpa.info/users/sign_up'>http://proposals.cimpa.info/users/sign_up</a></br>
+Écrivez votre email et choisissez un mot de passe.
+</p>
+<p>
+Une fois que votre compte est prêt, merci de faire une proposition pour une Ecole de recherche:<br/>
+<a href='http://proposals.cimpa.info/presentations/new'>http://proposals.cimpa.info/presentations/new</a>
+</p>
+<p>
+Lisez attentivement les explications sur le formulaire en ligne pour les nouvelles propositions.<br/>
+En cas de difficultés, écrivez à <a href='mailto:webmaster@cimpa.info'>webmaster@cimpa.info</a>
+</p>"
   address: Adresse
   show: Montrer
   actions: Actes
@@ -50,11 +63,12 @@ fr:
       user: Nom du propriétaire
       similar_project: Projet Similaire
       research_school_title: Titre
-      school_country: Pays
       project_type: Type de Projet
       title: Liste des PROJET D’ÉCOLE DE RECHERCHE CIMPA
       region: Region
       acronym: Acronym
+      preproposal_notice: Pre-proposals deadline has finished on June 15. We have disabled edition for few days, while we make some changes on the website.
+
     new:
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
     show:
