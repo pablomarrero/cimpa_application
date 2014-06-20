@@ -55,6 +55,8 @@ en:
       school_country: Country
       project_type: Project Type
       title: List of CIMPA RESEARCH SCHOOL PROPOSALS
+      local_contact: Local Officer
+      officer_in_place: Officer in FRA, ESP, NOR or CHE
       preproposal_notice: Pre-proposals deadline has finished on June 15. We have disabled edition for few days, while we make some changes on the website.
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
