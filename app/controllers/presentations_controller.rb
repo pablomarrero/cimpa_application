@@ -30,7 +30,7 @@ class PresentationsController < ApplicationController
                                       :comment],
                        :headers => [  'Nom du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
                                         'Date de début, option A', 'Date de fin, option A', 'Date de début, option B', 'Date de fin, option B',
-                                        'Commentaires ou remarques']
+                                        'Commentaires ou remarques', 'Evaluateur 1', 'Evaluateur 2', 'Synthèse']
       end
     end
   end
