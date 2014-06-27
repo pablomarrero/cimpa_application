@@ -9,10 +9,13 @@ class PresentationsController < ApplicationController
       format.html do
         if current_user.has_role?(:admin)
           @presentations = Presentation.all.page params[:page]
+          @preproposals = Presentation.where.not(pre_proposal_date: nil).page params[:page]
         elsif  current_user.has_role?(:scientific_officer)
           @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page]
         else
           @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+          @preproposals = Presentation.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page]
         end
       end
       format.xls do
@@ -40,6 +43,11 @@ class PresentationsController < ApplicationController
   def show
   end
 
+  def show_pre_proposal
+    prep = Presentation.find(params[:id])
+    @presentation = prep.version_at(prep.pre_proposal_date)
+    render :show
+  end
   # GET /presentations/new
   def new
     @presentation = Presentation.new
