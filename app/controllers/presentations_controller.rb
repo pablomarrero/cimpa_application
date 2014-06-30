@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
     :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file]
@@ -5,12 +7,33 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    if current_user.has_role?(:admin)
-      @presentations = Presentation.page params[:page]
-    elsif  current_user.has_role?(:scientific_officer)
-      @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
-    else
-      @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+    respond_to do |format|
+      format.html do
+        if current_user.has_role?(:admin)
+          @presentations = Presentation.all.page params[:page]
+        elsif  current_user.has_role?(:scientific_officer)
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
+        else
+          @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+        end
+      end
+      format.xls do
+        if current_user.has_role?(:admin)
+          @presentations = Presentation.all
+        elsif  current_user.has_role?(:scientific_officer)
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal])
+        else
+          @presentations = Presentation.where( user_id: current_user.id)
+        end
+        render :xls => @presentations,
+                       :columns => [  {:user => [:email]}, :id, :research_school_title, {:country => [:region, :name_fr]}, :school_place, 
+                                      {:local_contact => [:administration_name]}, {:scientific_contact => [:scientific_name]},
+                                      :school_date_a_start_str, :school_date_a_finish_str, :school_date_b_start_str, :school_date_b_finish_str, 
+                                      :comment],
+                       :headers => [  'Nom du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
+                                        'Date de début, option A', 'Date de fin, option A', 'Date de début, option B', 'Date de fin, option B',
+                                        'Commentaires ou remarques']
+      end
     end
   end
 
@@ -37,9 +60,11 @@ class PresentationsController < ApplicationController
 #  def create
 #    @presentation = Presentation.new(presentation_params)
 #    @presentation.proposal_state = :primary_fill
-#
 #    respond_to do |format|
 #      if @presentation.save
+#        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
+#                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+#        @presentation.save
 #        format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
 #        format.json { render action: 'show', status: :created, location: @presentation }
 #      else
@@ -48,12 +73,15 @@ class PresentationsController < ApplicationController
 #      end
 #    end
 #  end
-
+#
 #  # PATCH/PUT /presentations/1
 #  # PATCH/PUT /presentations/1.json
 #  def update
 #    respond_to do |format|
 #      if @presentation.update(presentation_params)
+#        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
+#                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+#        @presentation.save
 #        format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
 #        format.json { head :no_content }
 #      else
@@ -134,7 +162,7 @@ class PresentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
-      params.require(:presentation).permit(:similar_project, :user_id, :completely_read, :tentative_schedule_file, 
+      params.require(:presentation).permit(:country_id, :similar_project, :user_id, :completely_read, :tentative_schedule_file, 
         :research_school_title, :project_type, :subject_clasification, :school_place, :school_country, :school_date_a_start, :school_date_a_finish, 
         :school_date_b_start, :school_date_b_finish, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 

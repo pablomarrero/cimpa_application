@@ -57,6 +57,8 @@ en:
       title: List of CIMPA RESEARCH SCHOOL PROPOSALS
       local_contact: Local Officer
       officer_in_place: Officer in FRA, ESP, NOR or CHE
+      region: Region
+      acronym: Acronym
       preproposal_notice: Pre-proposals deadline has finished on June 15. We have disabled edition for few days, while we make some changes on the website.
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
@@ -137,7 +139,11 @@ en:
       course4: Course 4
       course5: Course 5
       course6: Course 6
+      acronym: Acronym
+      region: Region
     form:
+      acronym: Acronym
+      region: Region
       provisional_budget: Provisional Budget
       provisional_description: Description
       provisional_amount: Amount
