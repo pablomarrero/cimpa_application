@@ -13,7 +13,7 @@ class ScientificContact < ActiveRecord::Base
   validates :scientific_place, presence: true, if: :final_proposal?
   validates :scientific_email, presence: true, if: :final_proposal?
   validates :scientific_phone, presence: true, if: :final_proposal?
-  validates :scientific_cv, presence: true, if: :final_proposal?
+#  validates :scientific_cv, presence: true, if: :final_proposal?
   def final_proposal?
     !self.presentation.nil? && self.presentation.proposal_state == 'final_proposal'
   end

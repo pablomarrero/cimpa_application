@@ -12,7 +12,7 @@ class LocalContact < ActiveRecord::Base
   validates :administration_place, presence: true, if: :final_proposal?
   validates :administration_email, presence: true, if: :final_proposal?
   validates :administration_phone, presence: true, if: :final_proposal?
-  validates :administration_cv, presence: true, if: :final_proposal?
+#  validates :administration_cv, presence: true, if: :final_proposal?
   def final_proposal?
     !self.presentation.nil? && self.presentation.proposal_state == 'final_proposal'
   end
