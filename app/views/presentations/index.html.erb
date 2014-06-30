@@ -33,7 +33,7 @@
             <td><%= presentation.proposal_state %></td>
             <td><%= presentation.user.email %></td>
             <td><%= presentation.country.try(:region) %></td>
-            <td><%= presentation.country.try(:name_fr) %></td>
+            <td><%= presentation.country.try(:name_en) %></td>
             <td><%= presentation.acronym %></td>
             <td><%= presentation.research_school_title %></td>
             <td><%= presentation.project_type %></td>
@@ -54,8 +54,9 @@
     </table>
     <%= paginate @presentations %>
   </div>
+
   <div class="tab-pane <%= 'active' if current_user.has_role? :scientific_officer %>" id="profile">
-    <%= paginate @preproposals %>
+    <%= paginate @preproposals, {:param_name => :page_preproposal} %>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -70,12 +71,12 @@
         </tr>
       </thead>
       <tbody>
-        <% @preproposals.each do |presentation| %>
+      <% @preproposals.map {|presentation| presentation.as_pre_proposal }.each do |presentation| %>
           <tr>
             <td><%= presentation.proposal_state %></td>
             <td><%= presentation.user.email %></td>
             <td><%= presentation.country.try(:region) %></td>
-            <td><%= presentation.country.try(:name_fr) %></td>
+            <td><%= presentation.country.try(:name_en) %></td>
             <td><%= presentation.acronym %></td>
             <td><%= presentation.research_school_title %></td>
             <td><%= presentation.project_type %></td>
@@ -87,8 +88,8 @@
         <% end %>
       </tbody>
     </table>
-    <%= paginate @preproposals %>
+    <%= paginate @preproposals, {:param_name => :page_preproposal} %>
   </div>
 </div>
 <%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
-<%= link_to 'Export to Excel', url_for(:format => 'xls'), :class => 'btn btn-default' %>
+<%= link_to 'Export to Excel', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>

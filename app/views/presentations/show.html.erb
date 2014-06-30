@@ -443,7 +443,7 @@
     <%= link_to t('edit', :default => t("helpers.links.edit")),
                 edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_final_presentations?%>
     <%= link_to t('pre_proposal'),
-                pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_new_presentations? %>
+                pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
     <%= link_to t('final_proposal'),
                 final_proposal_path(@presentation), :class => 'btn' if current_user.id == @presentation.user.id && open_final_presentations?%>
     <%= link_to t('destroy', :default => t("helpers.links.destroy")),
