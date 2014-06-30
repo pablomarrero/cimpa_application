@@ -11,10 +11,13 @@ class PresentationsController < ApplicationController
       format.html do
         if current_user.has_role?(:admin)
           @presentations = Presentation.all.page params[:page]
+          @preproposals = Presentation.where.not(pre_proposal_date: nil).page params[:page]
         elsif  current_user.has_role?(:scientific_officer)
           @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page]
         else
           @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+          @preproposals = Presentation.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page]
         end
       end
       format.xls do
@@ -32,7 +35,7 @@ class PresentationsController < ApplicationController
                                       :comment],
                        :headers => [  'Nom du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
                                         'Date de début, option A', 'Date de fin, option A', 'Date de début, option B', 'Date de fin, option B',
-                                        'Commentaires ou remarques']
+                                        'Commentaires ou remarques', 'Evaluateur 1', 'Evaluateur 2', 'Synthèse']
       end
     end
   end
@@ -42,13 +45,18 @@ class PresentationsController < ApplicationController
   def show
   end
 
-#  # GET /presentations/new
-#  def new
-#    @presentation = Presentation.new
-#    @presentation.build_local_contact
-#    @presentation.build_scientific_contact
-#    @presentation.proposal_state = :proposal_fill
-#  end
+  def show_pre_proposal
+    prep = Presentation.find(params[:id])
+    @presentation = prep.version_at(prep.pre_proposal_date)
+    render :show
+  end
+  # GET /presentations/new
+  def new
+    @presentation = Presentation.new
+    @presentation.build_local_contact
+    @presentation.build_scientific_contact
+    @presentation.proposal_state = :proposal_fill
+  end
 
   # GET /presentations/1/edit
   def edit

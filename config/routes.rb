@@ -5,6 +5,7 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/download_administration_cv' => 'presentations#download_administration_cv', :as => :download_administration_cv
   get 'presentations/:id/download_scientific_cv' => 'presentations#download_scientific_cv', :as => :download_scientific_cv
   get 'presentations/:id/pre_proposal' => 'presentations#pre_proposal', :as => :pre_proposal
+  get 'presentations/:id/show_pre_proposal' => 'presentations#show_pre_proposal', :as => :show_pre_proposal
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
   resources :presentations
 
