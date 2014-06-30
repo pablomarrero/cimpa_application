@@ -33,3 +33,5 @@ migrate_countries(ScientificContact, :scientific_country)
 #  presentation.acronym = presentation.school_date_a_start.strftime('%Y') + '-' + (presentation.country.try(:name_fr)||'') + '-' + (presentation.country.try(:code)||'') + '-' + presentation.id.to_s
 #  presentation.save
 #end
+#
+
