@@ -14,82 +14,15 @@
 <div class="tab-content">
   <div class="tab-pane <%= 'active' unless current_user.has_role? :scientific_officer %>" id="home">
     <%= paginate @presentations %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th><%= t('.proposal_state') %></th>
-          <th><%= t('.user') %></th>
-          <th><%= t('.region') %></th>
-          <th><%= t('.school_country') %></th>
-          <th><%= t('.acronym') %></th>
-          <th><%= t('.research_school_title') %></th>
-          <th><%= t('.project_type') %></th>
-          <th><%=t 'actions' %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @presentations.each do |presentation| %>
-          <tr>
-            <td><%= presentation.proposal_state %></td>
-            <td><%= presentation.user.email %></td>
-            <td><%= presentation.country.try(:region) %></td>
-            <td><%= presentation.country.try(:name_en) %></td>
-            <td><%= presentation.acronym %></td>
-            <td><%= presentation.research_school_title %></td>
-            <td><%= presentation.project_type %></td>
-            <td>
-              <%= link_to t('view', :default => t('helpers.links.show')), 
-                          presentation_path(presentation), :class => 'btn btn-mini' %>
-              <%= link_to t('edit', :default => t("helpers.links.edit")),
-                          edit_presentation_path(presentation), :class => 'btn btn-mini' if current_user.id == presentation.user.id && open_final_presentations?%>
-              <%= link_to t('destroy', :default => t("helpers.links.destroy")),
-                          presentation_path(presentation),
-                          :method => :delete,
-                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger'  if current_user.id == presentation.user.id && open_new_presentations?%>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render :partial => "proposals", :locals => {:presentations => @presentations, :edit_enabled => true , :destroy_enabled => true} %>
     <%= paginate @presentations %>
   </div>
 
   <div class="tab-pane <%= 'active' if current_user.has_role? :scientific_officer %>" id="profile">
     <%= paginate @preproposals, {:param_name => :page_preproposal} %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th><%= t('.proposal_state') %></th>
-          <th><%= t('.user') %></th>
-          <th><%= t('.region') %></th>
-          <th><%= t('.school_country') %></th>
-          <th><%= t('.acronym') %></th>
-          <th><%= t('.research_school_title') %></th>
-          <th><%= t('.project_type') %></th>
-          <th><%=t 'actions' %></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @preproposals.map {|presentation| presentation.as_pre_proposal }.each do |presentation| %>
-          <tr>
-            <td><%= presentation.proposal_state %></td>
-            <td><%= presentation.user.email %></td>
-            <td><%= presentation.country.try(:region) %></td>
-            <td><%= presentation.country.try(:name_en) %></td>
-            <td><%= presentation.acronym %></td>
-            <td><%= presentation.research_school_title %></td>
-            <td><%= presentation.project_type %></td>
-            <td>
-              <%= link_to t('view', :default => t('helpers.links.show')), 
-                          show_pre_proposal_path(presentation), :class => 'btn btn-mini' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render :partial => "proposals", :locals => {:presentations => @preproposals, :edit_enabled => false, :destroy_enabled => false} %>
     <%= paginate @preproposals, {:param_name => :page_preproposal} %>
   </div>
 </div>
 <%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
-<%= link_to 'Export to Excel', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
+<%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
