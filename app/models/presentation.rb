@@ -60,19 +60,32 @@ class Presentation < ActiveRecord::Base
   def final_proposal?
     self.proposal_state == 'final_proposal'
   end
+
   def pre_proposal?
     self.proposal_state == 'pre_proposal'
   end
+
   def school_date_a_start_str
     school_date_a_start.strftime('%d-%m-%Y')
   end
+
   def school_date_a_finish_str
     school_date_a_finish.strftime('%d-%m-%Y')
   end
+
   def school_date_b_start_str
     school_date_b_start.strftime('%d-%m-%Y')
   end 
+
   def school_date_b_finish_str
     school_date_b_finish.strftime('%d-%m-%Y')
+  end
+
+  def as_pre_proposal
+    if self.pre_proposal_date
+      self.version_at(self.pre_proposal_date)
+    else
+      nil
+    end
   end
 end

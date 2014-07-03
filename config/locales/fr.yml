@@ -65,10 +65,13 @@ En cas de difficultés, écrivez à <a href='mailto:webmaster@cimpa.info'>webmas
       research_school_title: Titre
       project_type: Type de Projet
       title: Liste des PROJET D’ÉCOLE DE RECHERCHE CIMPA
+      local_contact: Responsable local
+      officer_in_place: Responsable en FRA, ESP, NOR or CHE
       region: Region
       acronym: Acronym
-      preproposal_notice: Pre-proposals deadline has finished on June 15. We have disabled edition for few days, while we make some changes on the website.
-
+      preproposal_notice_html: "We've made some changes on the website after pre-proposals deadline (June 15). If you have any issues, please contact us at: webmaster@cimpa.info"
+      proposals: Proposals
+      preproposals: Pre Proposals
     new:
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
     show:

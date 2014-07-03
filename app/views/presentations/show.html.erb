@@ -112,7 +112,7 @@
         <div class="control-group">
           <%= t('.administration_country') %>
           <div class="controls">
-            <pre><%= @presentation.local_contact.country.try(:name_fr)%></pre>
+            <pre><%= @presentation.local_contact.country.try(:name_fr) if @presentation.local_contact%></pre>
           </div>
         </div>
         <div class="control-group">
@@ -153,7 +153,7 @@
         <div class="control-group">
           <%= t('.scientific_country') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_contact.country.try(:name_fr)%></pre>
+            <pre><%= @presentation.scientific_contact.country.try(:name_fr) if @presentation.scientific_contact%></pre>
           </div>
         </div>
         <div class="control-group">
@@ -443,7 +443,7 @@
     <%= link_to t('edit', :default => t("helpers.links.edit")),
                 edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_final_presentations?%>
     <%= link_to t('pre_proposal'),
-                pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_new_presentations? %>
+                pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
     <%= link_to t('final_proposal'),
                 final_proposal_path(@presentation), :class => 'btn' if current_user.id == @presentation.user.id && open_final_presentations?%>
     <%= link_to t('destroy', :default => t("helpers.links.destroy")),

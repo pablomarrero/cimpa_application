@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
     :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file]
@@ -9,29 +11,29 @@ class PresentationsController < ApplicationController
       format.html do
         if current_user.has_role?(:admin)
           @presentations = Presentation.all.page params[:page]
-          @preproposals = Presentation.where.not(pre_proposal_date: nil).page params[:page]
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
         elsif  current_user.has_role?(:scientific_officer)
           @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
-          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page]
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
         else
           @presentations = Presentation.where( user_id: current_user.id).page params[:page]
-          @preproposals = Presentation.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page]
+          @preproposals = Presentation.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
         end
       end
       format.xls do
         if current_user.has_role?(:admin)
-          @presentations = Presentation.all
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).all.map {|presentation| presentation.as_pre_proposal}
         elsif  current_user.has_role?(:scientific_officer)
-          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal])
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).all.map {|presentation| presentation.as_pre_proposal}
         else
-          @presentations = Presentation.where( user_id: current_user.id)
+          redirect_to presentations_url
         end
         render :xls => @presentations,
-                       :columns => [  {:user => [:email]}, :id, :research_school_title, {:country => [:region, :name_fr]}, :school_place, 
+                       :columns => [  {:user => [:email]}, :id, :research_school_title, {:country => [:region, :name_en]}, :school_place, 
                                       {:local_contact => [:administration_name]}, {:scientific_contact => [:scientific_name]},
                                       :school_date_a_start_str, :school_date_a_finish_str, :school_date_b_start_str, :school_date_b_finish_str, 
                                       :comment],
-                       :headers => [  'Nom du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
+                       :headers => [  'email du propriétaire', 'N° Projets', 'Titre', 'Région', 'Pays', 'Lieu', 'Local Responsable', 'Scientific Responsable', 
                                         'Date de début, option A', 'Date de fin, option A', 'Date de début, option B', 'Date de fin, option B',
                                         'Commentaires ou remarques', 'Evaluateur 1', 'Evaluateur 2', 'Synthèse']
       end
@@ -45,7 +47,7 @@ class PresentationsController < ApplicationController
 
   def show_pre_proposal
     prep = Presentation.find(params[:id])
-    @presentation = prep.version_at(prep.pre_proposal_date)
+    @presentation = prep.as_pre_proposal
     render :show
   end
   # GET /presentations/new
@@ -58,7 +60,7 @@ class PresentationsController < ApplicationController
 
   # GET /presentations/1/edit
   def edit
-    redirect_to @presentation, notice: 'Edition temporarily disabled.'
+#    redirect_to @presentation, notice: 'Edition temporarily disabled.'
   end
 
   # POST /presentations
@@ -68,8 +70,8 @@ class PresentationsController < ApplicationController
     @presentation.proposal_state = :primary_fill
     respond_to do |format|
       if @presentation.save
-        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
-                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + (@presentation.country.try(:name_en)||'') + '-' + 
+                                (@presentation.country.try(:code)||'') + '-' + @presentation.id.to_s
         @presentation.save
         format.html { redirect_to @presentation, notice: 'Presentation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @presentation }
@@ -85,8 +87,8 @@ class PresentationsController < ApplicationController
   def update
     respond_to do |format|
       if @presentation.update(presentation_params)
-        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + @presentation.country.try(:name_fr) + '-' + 
-                                @presentation.country.try(:code) + '-' + @presentation.id.to_s
+        @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + (@presentation.country.try(:name_en)||'') + '-' + 
+                                (@presentation.country.try(:code)||'') + '-' + @presentation.id.to_s
         @presentation.save
         format.html { redirect_to @presentation, notice: 'Presentation was successfully updated.' }
         format.json { head :no_content }
@@ -127,16 +129,20 @@ class PresentationsController < ApplicationController
   end
 
   def pre_proposal
-    @presentation.pre_proposal_date = DateTime.now
-    @presentation.proposal_state = :pre_proposal 
-    respond_to do |format|
-      if @presentation.save
-        format.html { redirect_to @presentation, notice: 'OK.' }
-        format.json { render action: 'show', status: :created, location: @presentation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+    if DateTime.now < Date.strptime('20140815','%Y%m%d')
+      @presentation.pre_proposal_date = DateTime.now
+      @presentation.proposal_state = :pre_proposal 
+      respond_to do |format|
+        if @presentation.save
+          format.html { redirect_to @presentation, notice: 'OK.' }
+          format.json { render action: 'show', status: :created, location: @presentation }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @presentation.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to presentations_url, notice: 'Pre-proposals closed.'
     end
   end
   

@@ -55,9 +55,11 @@ en:
       school_country: Country
       project_type: Project Type
       title: List of CIMPA RESEARCH SCHOOL PROPOSALS
+      local_contact: Local Officer
+      officer_in_place: Officer in FRA, ESP, NOR or CHE
       region: Region
       acronym: Acronym
-      preproposal_notice: Pre-proposals deadline has finished on June 15. We have disabled edition for few days, while we make some changes on the website.
+      preproposal_notice_html: "We've made some changes on the website after pre-proposals deadline (June 15). If you have any issues, please contact us at: webmaster@cimpa.info"
       proposals: Proposals
       preproposals: Pre Proposals
     new:
