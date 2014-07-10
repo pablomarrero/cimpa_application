@@ -103,3 +103,5 @@ gem 'kaminari'
 gem 'paper_trail', '>= 3.0.0.beta1'
 
 gem 'enumerize'
+
+#gem 'mysql2'
