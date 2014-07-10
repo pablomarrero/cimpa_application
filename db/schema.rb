@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610143147) do
+ActiveRecord::Schema.define(version: 20140616180252) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20140610143147) do
 
   add_index "anticipated_fundings", ["currency_id"], name: "index_anticipated_fundings_on_currency_id", using: :btree
   add_index "anticipated_fundings", ["presentation_id"], name: "index_anticipated_fundings_on_presentation_id", using: :btree
+
+  create_table "countries", force: true do |t|
+    t.string   "code"
+    t.string   "code_4d"
+    t.string   "name_fr"
+    t.string   "name_en"
+    t.string   "name_short_fr"
+    t.string   "name_short_en"
+    t.string   "region"
+    t.string   "postal_zone"
+    t.string   "dhl_zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "currencies", force: true do |t|
     t.string   "name"
@@ -56,7 +70,10 @@ ActiveRecord::Schema.define(version: 20140610143147) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "administration_country"
+    t.integer  "country_id"
   end
+
+  add_index "local_contacts", ["country_id"], name: "index_local_contacts_on_country_id", using: :btree
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -117,8 +134,11 @@ ActiveRecord::Schema.define(version: 20140610143147) do
     t.string   "tentative_schedule_file_content_type"
     t.integer  "tentative_schedule_file_file_size"
     t.datetime "tentative_schedule_file_updated_at"
+    t.integer  "country_id"
+    t.string   "acronym"
   end
 
+  add_index "presentations", ["country_id"], name: "index_presentations_on_country_id", using: :btree
   add_index "presentations", ["user_id"], name: "index_presentations_on_user_id", using: :btree
 
   create_table "provisional_budgets", force: true do |t|
@@ -159,7 +179,10 @@ ActiveRecord::Schema.define(version: 20140610143147) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "scientific_country"
+    t.integer  "country_id"
   end
+
+  add_index "scientific_contacts", ["country_id"], name: "index_scientific_contacts_on_country_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

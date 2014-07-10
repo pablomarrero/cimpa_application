@@ -20,6 +20,12 @@
   </div>
   <hr>
   <div class="control-group">
+    <%= t('.acronym') %>
+    <div class="controls">
+      <pre><%= @presentation.acronym %></pre>
+    </div>
+  </div>
+  <div class="control-group">
     <%= t('.research_school_title') %>
     <div class="controls">
       <pre><%= @presentation.research_school_title %></pre>
@@ -51,7 +57,7 @@
     <div class="control-group">
       <%= t('.school_country_text') %>
       <div class="controls">
-        <pre><%= @presentation.school_country %></pre>
+        <pre><%= @presentation.country.try(:name_fr) %></pre>
       </div>
     </div>
   </div>
@@ -106,7 +112,7 @@
         <div class="control-group">
           <%= t('.administration_country') %>
           <div class="controls">
-            <pre><%= @presentation.local_contact.administration_country if @presentation.local_contact%></pre>
+            <pre><%= @presentation.local_contact.country.try(:name_fr) if @presentation.local_contact%></pre>
           </div>
         </div>
         <div class="control-group">
@@ -147,7 +153,7 @@
         <div class="control-group">
           <%= t('.scientific_country') %>
           <div class="controls">
-            <pre><%= @presentation.scientific_contact.scientific_country if @presentation.scientific_contact%></pre>
+            <pre><%= @presentation.scientific_contact.country.try(:name_fr) if @presentation.scientific_contact%></pre>
           </div>
         </div>
         <div class="control-group">
@@ -433,4 +439,17 @@
 <div class="form-actions hand_writer">
   <%= link_to t('back', :default => t("helpers.links.back")),
               presentations_path, :class => 'btn'  %>
+  <% unless current_user.has_role? :scientific_officer %>
+    <%= link_to t('edit', :default => t("helpers.links.edit")),
+                edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_final_presentations?%>
+    <%= link_to t('pre_proposal'),
+                pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
+    <%= link_to t('final_proposal'),
+                final_proposal_path(@presentation), :class => 'btn' if current_user.id == @presentation.user.id && open_final_presentations?%>
+    <%= link_to t('destroy', :default => t("helpers.links.destroy")),
+                presentation_path(@presentation),
+                :method => 'delete',
+                :data => { :confirm => t('confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger'  if current_user.id == @presentation.user.id && open_new_presentations?%>
+  <% end %>
 </div>

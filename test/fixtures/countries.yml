@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  code_4d: MyString
+  name_fr: MyString
+  name_en: MyString
+  name_short_fr: MyString
+  name_shor_en: MyString
+  region: MyString
+  postal_zone,: MyString
+  dhl_zone: MyString
+
+two:
+  code: MyString
+  code_4d: MyString
+  name_fr: MyString
+  name_en: MyString
+  name_short_fr: MyString
+  name_shor_en: MyString
+  region: MyString
+  postal_zone,: MyString
+  dhl_zone: MyString

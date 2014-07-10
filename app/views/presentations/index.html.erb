@@ -1,35 +1,28 @@
 <div class="page-header">
   <h1><%=t '.title' %></h1>
-  <div class="alert alert-error">
-    <%= t '.preproposal_notice' %>
+  <div class="alert alert-success">
+    <%= t '.preproposal_notice_html' %>
   </div>
 </div>
-<%= paginate @presentations %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t('.proposal_state') %></th>
-      <th><%= t('.user') %></th>
-      <th><%= t('.school_country') %></th>
-      <th><%= t('.research_school_title') %></th>
-      <th><%= t('.project_type') %></th>
-      <th><%=t 'actions' %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @presentations.each do |presentation| %>
-      <tr>
-        <td><%= presentation.proposal_state %></td>
-        <td><%= presentation.user.email %></td>
-        <td><%= presentation.school_country %></td>
-        <td><%= presentation.research_school_title %></td>
-        <td><%= presentation.project_type %></td>
-        <td>
-          <%= link_to t('view', :default => t('helpers.links.show')), 
-                      presentation_path(presentation), :class => 'btn btn-mini' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @presentations %>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="<%= 'active' unless current_user.has_role? :scientific_officer %>" ><a href="#home" role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
+  <li class="<%= 'active' if current_user.has_role? :scientific_officer %>"><a href="#profile" role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane <%= 'active' unless current_user.has_role? :scientific_officer %>" id="home">
+    <%= paginate @presentations %>
+    <%= render :partial => "proposals", :locals => {:search => @presentations_search, :presentations => @presentations, :edit_enabled => true , :destroy_enabled => true} %>
+    <%= paginate @presentations %>
+  </div>
+
+  <div class="tab-pane <%= 'active' if current_user.has_role? :scientific_officer %>" id="profile">
+    <%= paginate @preproposals, {:param_name => :page_preproposal} %>
+    <%= render :partial => "proposals", :locals => {:search => @preproposals_search, :presentations => @preproposals, :edit_enabled => false, :destroy_enabled => false} %>
+    <%= paginate @preproposals, {:param_name => :page_preproposal} %>
+  </div>
+</div>
+<%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
+<%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
