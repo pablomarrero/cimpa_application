@@ -7,7 +7,10 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/pre_proposal' => 'presentations#pre_proposal', :as => :pre_proposal
   get 'presentations/:id/show_pre_proposal' => 'presentations#show_pre_proposal', :as => :show_pre_proposal
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
-  resources :presentations
+  resources :presentations do
+    resources :evaluation1, only: [:new, :edit, :create, :update]
+    resources :evaluation2, only: [:new, :edit, :create, :update]
+  end
 
   devise_for :users
   resources :friends

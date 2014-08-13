@@ -46,8 +46,44 @@ en:
       fundamental: Fundamental
       applied: Applied
       mixed: Mixed
-
+  evaluation:
+    date_due: Date Due
+    organization_title: ORGANIZATION AND SCIENTIFIC COMMITTEE OF THE SCHOOL
+    organization_text: "If the application contains information on these points, answer the following questions (the absence of such information must not be penalized): I.1.Is there a well-organized coordination between the local and the foreign chairs? I.2. Is the infrastructure of the venue adequate? I.3.How many young people will attend the school? I.4.Are there any women interested in attending? I.5.Is it intended to set up a scientific committee? I.6.Will the organizers set up a website for the school?"
+    standard_title: SCIENTIFIC STANDARDS
+    standard_text: "1. What are the scientific standards of the project (good, average or poor)? II.2. Is the distribution of courses and lectures equilibrated? II.3. Are the abstracts of the courses and lectures clear and descriptive? II.4 What percentage of speakers are women?"
+    suitability_title: SUITABILITY OF THE SUBJECT AND IMPACT
+    suitability_text: "1. What is the level of the scientific work and training already carried out locally on the topics of the School (beginners’, intermediate, advanced)? III.2 Is the School sufficiently well motivated and integrated in the local science system? III.3. What is the expected future impact of the activity?"
+    funding_title: FUNDING
+    funding_text: "1. What is the estimated funding required from CIMPA? IV.2. What’s the total budget? IV.3 What is the confirmed and expected local financial support? IV.4. Is the overall financial project sound and consistent?"
+    report_title: REPORTS BY OTHER REFEREES
+    report_text: "What is the opinion (if any) of the RSR (regional scientific assistant of the CIMPA) or the Director in case they were consulted ? What is the opinion of any other expert you may have consulted ?"
+    assessment_title: OVERALL ASSESSMENT
+    assessment_text: "• θ POSITIVE ADVICE (please briefly list the strengths of the project)
+• θ NEGATIVE ADVICE (please write a short explanation describing carefully and
+constructively the grounds on which the project was rejected and giving suggestions for possible
+improvements to help future submissions)
+• The budget needs to be clarified before acceptance of this school. The two major issues are:
+• 1.- percetange of budget aimed to contribute to the venue of young attendees.
+• 2.- In case CIMPA provides, say, a 30% of the funding. How would organizers manage to get the
+extra 70%?"  
+  evaluation1:
+    edit: 
+      title: Edit Evaluation
+    new: 
+      title: New Evaluation
+    form:
+      evaluation: Evaluation
+  evaluation2:
+    edit: 
+      title: Edit Evaluation
+    new: 
+      title: New Evaluation
+    form:
+      evaluation: Evaluation
   presentations:
+    evaluation_form:
+      dont_exists: Non Fill Yet
     index:
       user: Owner Name
       similar_project: Similar Project
@@ -60,8 +96,9 @@ en:
       region: Region
       acronym: Acronym
       preproposal_notice_html: "We've made some changes on the website after pre-proposals deadline (June 15). If you have any issues, please contact us at: webmaster@cimpa.info"
-      proposals: Proposals
+      proposals: Total Proposals
       preproposals: Pre Proposals
+      finalproposals: Final Proposals
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
     show:
@@ -143,6 +180,7 @@ en:
       course6: Course 6
       acronym: Acronym
       region: Region
+      final_proposal_dont_set: Final Proposal Dont Set yet
     form:
       acronym: Acronym
       region: Region

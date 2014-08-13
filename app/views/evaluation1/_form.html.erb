@@ -1,0 +1,59 @@
+<div class="content-fluid">
+  <%= render "shared/error_messages_presentation", :target => @presentation %>  
+  <%= form_for @presentation.evaluation1, url: path, method: method, :html => { :class => 'hand_writer well' } do |f| %>
+    <h2><%= t('.evaluation') %></h2>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.organization_title') %></h4>
+      <p><%= t('evaluation.organization_text') %></p>
+      <div class="controls">
+        <%= f.text_area :organization, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.standard_title') %></h4>
+      <p><%= t('evaluation.standard_text') %></p>
+      <div class="controls">
+        <%= f.text_area :standard, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.suitability_title') %></h4>
+      <p><%= t('evaluation.suitability_text') %></p>
+      <div class="controls">
+        <%= f.text_area :suitability, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.funding_title') %></h4>
+      <p><%= t('evaluation.funding_text') %></p>
+      <div class="controls">
+        <%= f.text_area :funding, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.report_title') %></h4>
+      <p><%= t('evaluation.report_text') %></p>
+      <div class="controls">
+        <%= f.text_area :report, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('evaluation.assessment_title') %></h4>
+      <p><%= t('evaluation.assessment_text') %></p>
+      <div class="controls">
+        <%= f.text_area :assessment, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="form-actions">
+      <%= f.submit t('save'), :class => 'btn btn-primary hand_writer' %>
+      <%= link_to t('cancel', :default => t("helpers.links.cancel")), presentations_path, :class => 'btn hand_writer' %>
+    </div>
+  <% end %>
+</div>

@@ -5,6 +5,9 @@ class Presentation < ActiveRecord::Base
   belongs_to :user
   belongs_to :country 
 
+  belongs_to :evaluation1, class_name: 'Evaluation', foreign_key: 'evaluation1_id'
+  belongs_to :evaluation2, class_name: 'Evaluation', foreign_key: 'evaluation2_id'
+
   has_one :local_contact
   accepts_nested_attributes_for :local_contact, :reject_if => :all_blank, :allow_destroy => true
   
@@ -27,6 +30,7 @@ class Presentation < ActiveRecord::Base
   validates_attachment  :tentative_schedule_file, 
                         :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
                         :size => { :in => 0..10.megabytes }
+
 
 #  validates :similar_project, presence: true, if: :pre_proposal? || :final_proposal?
   validates :completely_read, presence: true, if: :pre_proposal? || :final_proposal?

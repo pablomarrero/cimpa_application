@@ -7,21 +7,28 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="<%= 'active' unless current_user.has_role? :scientific_officer %>" ><a href="#home" role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
-  <li class="<%= 'active' if current_user.has_role? :scientific_officer %>"><a href="#profile" role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
+  <li><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.finalproposals' %></a></li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
   <div class="tab-pane <%= 'active' unless current_user.has_role? :scientific_officer %>" id="home">
     <%= paginate @presentations %>
-    <%= render :partial => "proposals", :locals => {:search => @presentations_search, :presentations => @presentations, :edit_enabled => true , :destroy_enabled => true} %>
+    <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @presentations, :edit_enabled => true , :destroy_enabled => true} %>
     <%= paginate @presentations %>
   </div>
 
-  <div class="tab-pane <%= 'active' if current_user.has_role? :scientific_officer %>" id="profile">
+  <div class="tab-pane" id="profile">
     <%= paginate @preproposals, {:param_name => :page_preproposal} %>
-    <%= render :partial => "proposals", :locals => {:search => @preproposals_search, :presentations => @preproposals, :edit_enabled => false, :destroy_enabled => false} %>
+    <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @preproposals, :edit_enabled => false, :destroy_enabled => false} %>
     <%= paginate @preproposals, {:param_name => :page_preproposal} %>
+  </div>
+
+  <div class="tab-pane" id="final_proposal">
+    <%= paginate @finalproposals, {:param_name => :page_preproposal} %>
+    <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @finalproposals, :edit_enabled => false, :destroy_enabled => false} %>
+    <%= paginate @finalproposals, {:param_name => :page_preproposal} %>
   </div>
 </div>
 <%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>

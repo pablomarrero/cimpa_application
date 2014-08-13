@@ -70,8 +70,9 @@ En cas de difficultés, écrivez à <a href='mailto:webmaster@cimpa.info'>webmas
       region: Region
       acronym: Acronym
       preproposal_notice_html: "We've made some changes on the website after pre-proposals deadline (June 15). If you have any issues, please contact us at: webmaster@cimpa.info"
-      proposals: Proposals
+      proposals: Total Proposals
       preproposals: Pre Proposals
+      finalproposals: Final Proposals
     new:
       title: PROJET D’ÉCOLE DE RECHERCHE CIMPA
     show:

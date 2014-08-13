@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616180252) do
+ActiveRecord::Schema.define(version: 20140811141855) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 20140616180252) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "evaluations", force: true do |t|
+    t.date     "date_due"
+    t.integer  "person_id"
+    t.text     "organization"
+    t.text     "standard"
+    t.text     "suitability"
+    t.text     "funding"
+    t.text     "report"
+    t.text     "assessment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "evaluations", ["person_id"], name: "index_evaluations_on_person_id", using: :btree
 
   create_table "friends", force: true do |t|
     t.integer  "person_id"
@@ -136,6 +151,8 @@ ActiveRecord::Schema.define(version: 20140616180252) do
     t.datetime "tentative_schedule_file_updated_at"
     t.integer  "country_id"
     t.string   "acronym"
+    t.integer  "evaluation1_id"
+    t.integer  "evaluation2_id"
   end
 
   add_index "presentations", ["country_id"], name: "index_presentations_on_country_id", using: :btree

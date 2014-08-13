@@ -7,19 +7,17 @@ class PresentationsController < ApplicationController
   # GET /presentations
   # GET /presentations.json
   def index
-    @presentations_search = Presentation.search params[:q]
-    @preproposals_search = Presentation.search params[:q]
+    @proposals_search = Presentation.search params[:q]
     respond_to do |format|
       format.html do
-        if current_user.has_role?(:admin)
-          @presentations = @presentations_search.page params[:page]
-          @preproposals = @preproposals_search.result.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
-        elsif  current_user.has_role?(:scientific_officer)
-          @presentations = @presentations_search.result.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
-          @preproposals = @preproposals_search.result.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
+        if current_user.has_any_role?(:admin, :scientific_officer)
+          @presentations = @proposals_search.result.page params[:page]
+          @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
+          @finalproposals = @proposals_search.result.where(proposal_state: :final_proposal).page params[:page_preproposal]
         else
-          @presentations = @presentations_search.result.where( user_id: current_user.id).page params[:page]
-          @preproposals = @preproposals_search.result.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
+          @presentations = @proposals_search.result.where( user_id: current_user.id).page params[:page]
+          @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
+          @finalproposals = @proposals_search.result.where(proposal_state: [:final_proposal]).where( user_id: current_user.id).page params[:page_preproposal]
         end
       end
       format.xls do
