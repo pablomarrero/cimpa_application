@@ -15,6 +15,9 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div class="tab-pane active" id="proposal">
+    <h2><%= t('.proposal') %></h2>
+  <hr>
+
     <%= render :partial => "show", :locals => {:proposal => @presentation} %>
     <div class="form-actions hand_writer">
       <%= link_to t('back', :default => t("helpers.links.back")),
@@ -39,6 +42,8 @@
     <% if @presentation.pre_proposal_date.nil? %>
       <h3><%= t '.pre_proposal_dont_set' %></h3>
     <% else %>
+  <h2><%= t('.preproposal') %></h2>
+  <hr>
       <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.pre_proposal_date) }%>
     <% end %>
   </div>
@@ -47,6 +52,8 @@
     <% if @presentation.final_proposal_date.nil? %>
       <h3><%= t '.final_proposal_dont_set' %></h3>
     <% else %>
+  <h2><%= t('.final_proposal') %></h2>
+  <hr>
       <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.final_proposal_date)} %>
     <% end %>
   </div>

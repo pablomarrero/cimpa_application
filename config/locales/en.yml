@@ -131,6 +131,8 @@ extra 70%?"
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       title: CIMPA RESEARCH SCHOOL PROPOSAL
       proposal: Proposal
+      preproposal: Pre-Proposal
+      final_proposal: Final Proposal
       deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1 (all fields required)."
       please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
       similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one? *"
