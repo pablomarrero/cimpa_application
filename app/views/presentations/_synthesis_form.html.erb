@@ -1,0 +1,33 @@
+<% unless synthesis.nil? %>
+	<div class="content-fluid">
+	  <h2><%= title %></h2>
+	  <hr>
+	  <div class="control-group">
+	    <%= t('synthesis.date_due') %>
+	    <div class="controls">
+	      <pre><%= synthesis.date_due.try(:strftime,'%d-%m-%Y') %></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('synthesis.summary_title') %></h4>
+      <p><%= t('synthesis.summary_text') %></p>
+	    <div class="controls">
+	      <pre><%= synthesis.summary %></pre>
+	    </div>
+	  </div>
+	  <div class="control-group">
+      <h4><%= t('synthesis.comment_title') %></h4>
+      <p><%= t('synthesis.comment_text') %></p>
+	    <div class="controls">
+	      <pre><%= synthesis.comment %></pre>
+	    </div>
+	  </div>
+	</div>
+	<%= link_to t('edit', :default => t("helpers.links.edit")),
+            path_edit, :class => 'btn'%>
+<% else %>
+	<h4><%= t '.dont_exists'%></h4>
+	<%= link_to t('new', :default => t("helpers.links.edit")),
+            path_new, class: 'btn'%>
+<% end %>

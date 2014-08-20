@@ -8,6 +8,7 @@ class ScientificContact < ActiveRecord::Base
   validates_attachment  :scientific_cv, 
                         :content_type => {:content_type => 'application/pdf' , :message => 'Only pdf'},
                         :size => { :in => 0..10.megabytes }
+  validates_attachment_presence :scientific_cv
 
   validates :scientific_name, presence: true, if: :final_proposal?
   validates :scientific_place, presence: true, if: :final_proposal?

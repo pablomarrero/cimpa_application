@@ -2,7 +2,7 @@
 
 class PresentationsController < ApplicationController
   before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
-    :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file]
+    :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file, :cancel_proposal]
 
   # GET /presentations
   # GET /presentations.json
@@ -160,6 +160,12 @@ class PresentationsController < ApplicationController
     end
   end
 
+  def cancel_proposal
+    @presentation.cancel_date = DateTime.now
+    @presentation.save
+    redirect_to action: :index
+    
+  end
   private
     def verify_pre_proposal_fields
       true

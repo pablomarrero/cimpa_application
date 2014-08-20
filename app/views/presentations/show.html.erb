@@ -8,8 +8,12 @@
   <li class="active"><a href="#proposal" role="tab" data-toggle="tab"><%= t '.proposal' %></a></li>
   <li><a href="#preproposal" role="tab" data-toggle="tab"><%= t '.preproposal' %></a></li>
   <li><a href="#finalproposal" role="tab" data-toggle="tab"><%= t '.finalproposal' %></a></li>
+  <li><a href="#modification1" role="tab" data-toggle="tab"><%= t '.modification1' %></a></li>
   <li><a href="#evaluation1" role="tab" data-toggle="tab"><%= t '.evaluation1' %></a></li>
   <li><a href="#evaluation2" role="tab" data-toggle="tab"><%= t '.evaluation2' %></a></li>
+  <li><a href="#synthesis1" role="tab" data-toggle="tab"><%= t '.synthesis1' %></a></li>
+  <li><a href="#modification2" role="tab" data-toggle="tab"><%= t '.modification2' %></a></li>
+  <li><a href="#synthesis2" role="tab" data-toggle="tab"><%= t '.synthesis2' %></a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -52,21 +56,53 @@
     <% if @presentation.final_proposal_date.nil? %>
       <h3><%= t '.final_proposal_dont_set' %></h3>
     <% else %>
-  <h2><%= t('.final_proposal') %></h2>
-  <hr>
-      <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.final_proposal_date)} %>
+      <h2><%= t('.final_proposal') %></h2>
+      <hr>
+          <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.final_proposal_date)} %>
     <% end %>
   </div>
+
+  <div class="tab-pane" id="modification1">
+    <% if @presentation.modification1_date.nil? %>
+      <h3><%= t '.modification1_dont_set' %></h3>
+    <% else %>
+      <h2><%= t('.modification1') %></h2>
+      <hr>
+          <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification1_date)} %>
+    <% end %>
+  </div>
+
   <div class="tab-pane" id="evaluation1">
     <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation1,
         :path_edit => edit_presentation_evaluation1_path(@presentation, @presentation.evaluation1),
-        :path_new => new_presentation_evaluation1_path(@presentation)} %>
+        :path_new => new_presentation_evaluation1_path(@presentation), :title => t('.title_evaluation1')} %>
   </div>
   <div class="tab-pane" id="evaluation2">
     <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation2,
         :path_edit => edit_presentation_evaluation2_path(@presentation, @presentation.evaluation2),
-        :path_new => new_presentation_evaluation2_path(@presentation)} %>
+        :path_new => new_presentation_evaluation2_path(@presentation), :title => t('.title_evaluation2')} %>
   </div>
+  <div class="tab-pane" id="synthesis1">
+    <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis1,
+        :path_edit => edit_presentation_synthesis1_path(@presentation, @presentation.synthesis1),
+        :path_new => new_presentation_synthesis1_path(@presentation), :title => t('.title_synthesis1')} %>
+  </div>
+
+  <div class="tab-pane" id="modification2">
+    <% if @presentation.modification2_date.nil? %>
+      <h3><%= t '.modification2_dont_set' %></h3>
+    <% else %>
+      <h2><%= t('.modification2') %></h2>
+      <hr>
+          <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification2_date)} %>
+    <% end %>
+  </div>
+  <div class="tab-pane" id="synthesis2">
+    <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis2,
+        :path_edit => edit_presentation_synthesis2_path(@presentation, @presentation.synthesis2),
+        :path_new => new_presentation_synthesis2_path(@presentation), :title => t('.title_synthesis2')} %>
+  </div>
+
 </div>
 
 

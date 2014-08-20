@@ -1,4 +1,7 @@
 CimpaApplication::Application.routes.draw do
+  get "evaluators/index", as: :evaluators
+  post "evaluators/set_evaluator1/:presentation_id" => "evaluators#set_evaluator1", as: :set_evaluator1
+  post "evaluators/set_evaluator2/:presentation_id" => "evaluators#set_evaluator2", as: :set_evaluator2
   resources :currencies
   get 'presentations/:id/download_tentative_schedule_file' => 'presentations#download_tentative_schedule_file', :as => :download_tentative_schedule_file
 
@@ -7,9 +10,12 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/pre_proposal' => 'presentations#pre_proposal', :as => :pre_proposal
   get 'presentations/:id/show_pre_proposal' => 'presentations#show_pre_proposal', :as => :show_pre_proposal
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
+  get 'presentations/:id/cancel_proposal' => 'presentations#cancel_proposal', as: :cancel_proposal
   resources :presentations do
     resources :evaluation1, only: [:new, :edit, :create, :update]
     resources :evaluation2, only: [:new, :edit, :create, :update]
+    resources :synthesis1, only: [:new, :edit, :create, :update]
+    resources :synthesis2, only: [:new, :edit, :create, :update]
   end
 
   devise_for :users

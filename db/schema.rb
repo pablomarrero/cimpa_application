@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811141855) do
+ActiveRecord::Schema.define(version: 20140820210853) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -153,6 +153,13 @@ ActiveRecord::Schema.define(version: 20140811141855) do
     t.string   "acronym"
     t.integer  "evaluation1_id"
     t.integer  "evaluation2_id"
+    t.integer  "evaluator1_id"
+    t.integer  "evaluator2_id"
+    t.date     "cancel_date"
+    t.date     "modification1_date"
+    t.date     "modification2_date"
+    t.integer  "synthesis1_id"
+    t.integer  "synthesis2_id"
   end
 
   add_index "presentations", ["country_id"], name: "index_presentations_on_country_id", using: :btree
@@ -200,6 +207,17 @@ ActiveRecord::Schema.define(version: 20140811141855) do
   end
 
   add_index "scientific_contacts", ["country_id"], name: "index_scientific_contacts_on_country_id", using: :btree
+
+  create_table "syntheses", force: true do |t|
+    t.date     "date_due"
+    t.integer  "user_id"
+    t.text     "summary"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "syntheses", ["user_id"], name: "index_syntheses_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

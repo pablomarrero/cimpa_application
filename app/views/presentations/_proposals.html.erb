@@ -17,7 +17,7 @@
   </thead>
   <tbody>
   <% presentations.each do |presentation| %>
-    <tr>
+    <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
       <td><%= presentation.proposal_state %></td>
       <td><%= presentation.user.email %></td>
       <td><%= presentation.id %></td>
@@ -30,6 +30,7 @@
       <td><%= presentation.school_date_b_start_str %></td>
       <td><%= presentation.school_date_b_finish_str %></td>
       <td>
+        <%= link_to t('.cancel_propososal'), cancel_proposal_path(presentation), :class => 'btn btn-mini btn-danger' if current_user.id == presentation.user.id && presentation.cancel_date.nil? %>
         <%= link_to t('view', :default => t('helpers.links.show')), 
           presentation_path(presentation), :class => 'btn btn-mini' %>
         <%= link_to t('edit', :default => t("helpers.links.edit")),

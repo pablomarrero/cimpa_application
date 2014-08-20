@@ -8,6 +8,12 @@ class Presentation < ActiveRecord::Base
   belongs_to :evaluation1, class_name: 'Evaluation', foreign_key: 'evaluation1_id'
   belongs_to :evaluation2, class_name: 'Evaluation', foreign_key: 'evaluation2_id'
 
+  belongs_to :evaluator1, class_name: 'User', foreign_key: 'evaluator1_id'
+  belongs_to :evaluator2, class_name: 'User', foreign_key: 'evaluator2_id'
+
+  belongs_to :synthesis1, class_name: 'Synthesis', foreign_key: 'synthesis1_id'
+  belongs_to :synthesis2, class_name: 'Synthesis', foreign_key: 'synthesis2_id'
+
   has_one :local_contact
   accepts_nested_attributes_for :local_contact, :reject_if => :all_blank, :allow_destroy => true
   

@@ -41,11 +41,35 @@ en:
   cimpa_name: International Center for Pure and Applied Mathematics
   address: Address
   presentations_link: Proposals
+  evaluators_link: Evaluators
   enumerize:
     presentation:
       fundamental: Fundamental
       applied: Applied
       mixed: Mixed
+  shared:
+    assign_modal:
+      evaluator: Evaluator
+  evaluators:
+    index:
+      set_evaluator1: Evaluator 1
+      set_evaluator2: Evaluator 2
+      title: Assigning Evaluators
+      presentations_without_evaluator: Proposal without Evaluators 
+      presentations_with_evaluator: Proposal with Evaluators
+      proposal_state: Proposal State
+      user: Owner Name
+      similar_project: Similar Project
+      research_school_title: Title
+      school_country: Country
+      project_type: Project Type
+      title: List of CIMPA RESEARCH SCHOOL PROPOSALS
+      local_contact: Local Officer
+      officer_in_place: Officer in FRA, ESP, NOR or CHE
+      region: Region
+      acronym: Acronym
+      evaluator1: Evaluator 1
+      evaluator2: Evaluator 2
   evaluation:
     date_due: Date Due
     organization_title: ORGANIZATION AND SCIENTIFIC COMMITTEE OF THE SCHOOL
@@ -82,6 +106,8 @@ extra 70%?"
     form:
       evaluation: Evaluation
   presentations:
+    synthesis_form:
+      dont_exists: Non Fill Yet
     evaluation_form:
       dont_exists: Non Fill Yet
     index:
@@ -102,6 +128,10 @@ extra 70%?"
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
     show:
+      title_evaluation1: Evaluation 1
+      title_evaluation2: Evaluation 2
+      title_synthesis1: Synthesis 1
+      title_synthesis2: Synthesis 2
       provisional_budget: Provisional Budget
       provisional_description: Description
       provisional_amount: Amount
@@ -183,6 +213,8 @@ extra 70%?"
       acronym: Acronym
       region: Region
       final_proposal_dont_set: Final Proposal Dont Set yet
+      modification1_dont_set: Modification 1 of Proposal Dont Set yet
+      modification2_dont_set: Modification 2 of Proposal Dont Set yet
     form:
       acronym: Acronym
       region: Region
