@@ -1,0 +1,27 @@
+<div class="content-fluid">
+  <%= render "shared/error_messages_presentation", :target => @presentation.synthesis1 %>  
+  <%= form_for @presentation.synthesis1, url: path, method: method, :html => { :class => 'hand_writer well' } do |f| %>
+    <h2><%= t('.synthesis') %></h2>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('synthesis.summary_title') %></h4>
+      <p><%= t('synthesis.summary_text') %></p>
+      <div class="controls">
+        <%= f.text_area :summary, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="control-group">
+      <h4><%= t('synthesis.comment_title') %></h4>
+      <p><%= t('synthesis.comment_text') %></p>
+      <div class="controls">
+        <%= f.text_area :comment, :class => 'span12 text_area' %>
+      </div>
+    </div>
+    <hr>
+    <div class="form-actions">
+      <%= f.submit t('save'), :class => 'btn btn-primary hand_writer' %>
+      <%= link_to t('cancel', :default => t("helpers.links.cancel")), presentations_path, :class => 'btn hand_writer' %>
+    </div>
+  <% end %>
+</div>

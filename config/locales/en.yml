@@ -70,6 +70,22 @@ en:
       acronym: Acronym
       evaluator1: Evaluator 1
       evaluator2: Evaluator 2
+  synthesis1:
+    new:
+      title: New Synthesis 1
+    edit:
+      title: Edit Synthesis 1
+  synthesis2:
+    new:
+      title: New Synthesis 2
+    edit:
+      title: Edit Synthesis 2
+  synthesis:
+    date_due: Date Due
+    summary_title: SUMMARY REPORT TO BE SENT TO THE APPLICANTS
+    summary_text: PLEASE MAKE SURE THAT THE SUMMARY INCLUDES ALL THE RECOMMENDATIONS NEEDED BOTH TO IMPROVE THE ACTIVITY IN CASE OF ACCEPTANCE, TO MAKE SURE WE GET THE NEEDED COMPLEMENTARY INFORMATION WHEN THE DECISION IS PENDING, AND ALSO TO EXPLAIN REJECTION TO ENHANCE AN IMPROVED NEW SUBMISSION, IF ANY.
+    comment_title: CONFIDENTIAL COMMENTS FOR CIMPA
+    comment_text: MAKING SURE THAT THE 1/2/3 RECOMMENDATION OF THE COMMITTEE IS CLEARLY SPECIFIED
   evaluation:
     date_due: Date Due
     organization_title: ORGANIZATION AND SCIENTIFIC COMMITTEE OF THE SCHOOL
