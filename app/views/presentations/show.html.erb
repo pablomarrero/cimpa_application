@@ -8,12 +8,14 @@
   <li class="active"><a href="#proposal" role="tab" data-toggle="tab"><%= t '.proposal' %></a></li>
   <li><a href="#preproposal" role="tab" data-toggle="tab"><%= t '.preproposal' %></a></li>
   <li><a href="#finalproposal" role="tab" data-toggle="tab"><%= t '.finalproposal' %></a></li>
-  <li><a href="#modification1" role="tab" data-toggle="tab"><%= t '.modification1' %></a></li>
-  <li><a href="#evaluation1" role="tab" data-toggle="tab"><%= t '.evaluation1' %></a></li>
-  <li><a href="#evaluation2" role="tab" data-toggle="tab"><%= t '.evaluation2' %></a></li>
-  <li><a href="#synthesis1" role="tab" data-toggle="tab"><%= t '.synthesis1' %></a></li>
-  <li><a href="#modification2" role="tab" data-toggle="tab"><%= t '.modification2' %></a></li>
-  <li><a href="#synthesis2" role="tab" data-toggle="tab"><%= t '.synthesis2' %></a></li>
+  <% if current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) %>
+    <li><a href="#modification1" role="tab" data-toggle="tab"><%= t '.modification1' %></a></li>
+    <li><a href="#evaluation1" role="tab" data-toggle="tab"><%= t '.evaluation1' %></a></li>
+    <li><a href="#evaluation2" role="tab" data-toggle="tab"><%= t '.evaluation2' %></a></li>
+    <li><a href="#synthesis1" role="tab" data-toggle="tab"><%= t '.synthesis1' %></a></li>
+    <li><a href="#modification2" role="tab" data-toggle="tab"><%= t '.modification2' %></a></li>
+    <li><a href="#synthesis2" role="tab" data-toggle="tab"><%= t '.synthesis2' %></a></li>
+  <% end %>
 </ul>
 
 <!-- Tab panes -->
@@ -28,7 +30,11 @@
                   presentations_path, :class => 'btn'  %>
       <% unless current_user.has_role? :scientific_officer %>
         <%= link_to t('edit', :default => t("helpers.links.edit")),
-                    edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_final_presentations?%>
+                    edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || need_modification?(@presentation))%>
+        <%= link_to t('modification1'),
+                    modification1_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || (need_modification?(@presentation) && need_modification1?(@presentation)))%>
+        <%= link_to t('modification2'),
+                    modification2_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || (need_modification?(@presentation) && need_modification2?(@presentation)))%>
         <%= link_to t('pre_proposal'),
                     pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
         <%= link_to t('final_proposal'),
@@ -39,6 +45,10 @@
                     :data => { :confirm => t('confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                     :class => 'btn btn-danger'  if current_user.id == @presentation.user.id && open_new_presentations?%>
       <% end %>
+        <%= link_to t('req_modification1'),
+                    req_modification1_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification1_req_date.nil?%>
+        <%= link_to t('req_modification2'),
+                    req_modification2_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification2_req_date.nil?%>
     </div>
   </div>
 

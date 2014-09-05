@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820210853) do
+ActiveRecord::Schema.define(version: 20140905203525) do
 
   create_table "anticipated_fundings", force: true do |t|
     t.integer  "presentation_id"
@@ -160,6 +160,8 @@ ActiveRecord::Schema.define(version: 20140820210853) do
     t.date     "modification2_date"
     t.integer  "synthesis1_id"
     t.integer  "synthesis2_id"
+    t.date     "modification1_req_date"
+    t.date     "modification2_req_date"
   end
 
   add_index "presentations", ["country_id"], name: "index_presentations_on_country_id", using: :btree

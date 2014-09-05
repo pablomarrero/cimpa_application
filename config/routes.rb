@@ -8,6 +8,10 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/download_administration_cv' => 'presentations#download_administration_cv', :as => :download_administration_cv
   get 'presentations/:id/download_scientific_cv' => 'presentations#download_scientific_cv', :as => :download_scientific_cv
   get 'presentations/:id/pre_proposal' => 'presentations#pre_proposal', :as => :pre_proposal
+  get 'presentations/:id/modification1_proposal' => 'presentations#modification1_proposal', :as => :modification1_proposal
+  get 'presentations/:id/modification2_proposal' => 'presentations#modification2_proposal', :as => :modification2_proposal
+  get 'presentations/:id/req_modification1_proposal' => 'presentations#req_modification1_proposal', :as => :req_modification1_proposal
+  get 'presentations/:id/req_modification2_proposal' => 'presentations#req_modification2_proposal', :as => :req_modification2_proposal
   get 'presentations/:id/show_pre_proposal' => 'presentations#show_pre_proposal', :as => :show_pre_proposal
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
   get 'presentations/:id/cancel_proposal' => 'presentations#cancel_proposal', as: :cancel_proposal

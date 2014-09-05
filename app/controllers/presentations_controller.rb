@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class PresentationsController < ApplicationController
-  before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, 
+  before_action :set_presentation, only: [:show, :edit, :update, :destroy, :pre_proposal, :final_proposal, :modification1_proposal, :modification2_proposal,
     :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file, :cancel_proposal]
 
   # GET /presentations
@@ -14,6 +14,7 @@ class PresentationsController < ApplicationController
           @presentations = @proposals_search.result.page params[:page]
           @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
           @finalproposals = @proposals_search.result.where(proposal_state: :final_proposal).page params[:page_preproposal]
+          @revisionproposals = @proposals_search.result.where.not(evaluator1_id: nil).where.not(evaluator2_id: nil).page params[:page_revisionproposal]
         else
           @presentations = @proposals_search.result.where( user_id: current_user.id).page params[:page]
           @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
@@ -160,6 +161,54 @@ class PresentationsController < ApplicationController
     end
   end
 
+  def modification1_proposal
+    @presentation.modification1_date = DateTime.now
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def modification2_proposal
+    @presentation.modification2_date = DateTime.now
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def req_modification1_proposal
+    @presentation.modification1_req_date = DateTime.now
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  def req_modification2_proposal
+    @presentation.modification2_req_date = DateTime.now
+    respond_to do |format|
+      if @presentation.save
+        format.html { redirect_to @presentation, notice: 'OK.' }
+        format.json { render action: 'show', status: :created, location: @presentation }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @presentation.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   def cancel_proposal
     @presentation.cancel_date = DateTime.now
     @presentation.save
