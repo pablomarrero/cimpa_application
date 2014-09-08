@@ -25,10 +25,10 @@
       <td><%= presentation.country.try(:region) %></td>
       <td><%= presentation.country.try(:name_en) %></td>
       <td><%= presentation.school_place %></td>
-      <td><%= presentation.school_date_a_start_str %></td>
-      <td><%= presentation.school_date_a_finish_str %></td>
-      <td><%= presentation.school_date_b_start_str %></td>
-      <td><%= presentation.school_date_b_finish_str %></td>
+      <td><%= presentation.school_date_a_start ? presentation.school_date_a_start_str : '' %></td>
+      <td><%= presentation.school_date_a_finish ? presentation.school_date_a_finish_str : '' %></td>
+      <td><%= presentation.school_date_b_start ? presentation.school_date_b_start_str : '' %></td>
+      <td><%= presentation.school_date_b_finish ? presentation.school_date_b_finish_str : '' %></td>
       <td>
         <%= link_to t('.cancel_propososal'), cancel_proposal_path(presentation), :class => 'btn btn-mini btn-danger' if current_user.id == presentation.user.id && presentation.cancel_date.nil? %>
         <%= link_to t('view', :default => t('helpers.links.show')), 
