@@ -105,3 +105,5 @@
     <%= paginate @presentations_with_evaluator, {:param_name => :page_presentations_with_evaluator} %>
   </div>
 </div>
+
+<%= link_to t('export_pdf'), '/evaluators/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>

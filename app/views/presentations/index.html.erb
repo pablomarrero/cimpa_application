@@ -43,3 +43,4 @@
 </div>
 <%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
 <%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
+<%= link_to t('export_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>

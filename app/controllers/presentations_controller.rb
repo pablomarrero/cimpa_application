@@ -41,6 +41,20 @@ class PresentationsController < ApplicationController
     end
   end
 
+  def index_print
+    if current_user.has_any_role?(:admin, :scientific_officer)
+      @presentations = Presentation.all
+      @preproposals = Presentation.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil)
+      @finalproposals = Presentation.where(proposal_state: :final_proposal)
+      @revisionproposals = Presentation.where.not(evaluator1_id: nil).where.not(evaluator2_id: nil)
+    else
+      @presentations = Presentation.where( user_id: current_user.id)
+      @preproposals = Presentation.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).where( user_id: current_user.id)
+      @finalproposals = Presentation.where(proposal_state: [:final_proposal]).where( user_id: current_user.id)
+    end
+    render layout: 'print'
+  end
+
   # GET /presentations/1
   # GET /presentations/1.json
   def show

@@ -1,5 +1,6 @@
 CimpaApplication::Application.routes.draw do
   get "evaluators/index", as: :evaluators
+  get "evaluators/index_print", as: :evaluators_print
   post "evaluators/set_evaluator1/:presentation_id" => "evaluators#set_evaluator1", as: :set_evaluator1
   post "evaluators/set_evaluator2/:presentation_id" => "evaluators#set_evaluator2", as: :set_evaluator2
   resources :currencies
@@ -15,6 +16,7 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/show_pre_proposal' => 'presentations#show_pre_proposal', :as => :show_pre_proposal
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
   get 'presentations/:id/cancel_proposal' => 'presentations#cancel_proposal', as: :cancel_proposal
+  get "presentations/index_print", as: :presentations_print
   resources :presentations do
     resources :evaluation1, only: [:new, :edit, :create, :update]
     resources :evaluation2, only: [:new, :edit, :create, :update]

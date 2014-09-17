@@ -2,9 +2,14 @@ class EvaluatorsController < ApplicationController
   def index
   	@presentations_without_evaluator = Presentation.where("evaluator1_id is null or evaluator2_id is  null").page params[:page_presentations_without_evaluator]
   	@presentations_with_evaluator = Presentation.where("evaluator1_id is not null and evaluator2_id is not null").page params[:page_presentations_with_evaluator]
-  	@evaluators = User.all
+  	@evaluators = User.all.order(:email).select{|a| a.has_role? :scientific_officer }
   end
 
+  def index_print
+    @presentations_without_evaluator = Presentation.where("evaluator1_id is null or evaluator2_id is  null")
+    @presentations_with_evaluator = Presentation.where("evaluator1_id is not null and evaluator2_id is not null")
+    render layout: 'print'
+  end
   def set_evaluator1
   	presentation = Presentation.find params[:presentation_id]
   	presentation.evaluator1 = User.find params[:evaluator]

@@ -1,0 +1,162 @@
+<div class="page-header">
+  <h1>List of CIMPA RESEARCH SCHOOL PROPOSALS</h1>
+</div>
+
+
+  <h3>Total Proposals</h3>
+<br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.proposal_state') %></th>
+        <th><%= t('.user') %></th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.research_school_title') %></th>
+        <th><%= t('.region') %></th>
+        <th><%= t('.school_country') %></th>
+        <th><%= t('.school_place') %></th>
+        <th><%= t('.school_date_a_start') %></th>
+        <th><%= t('.school_date_a_finish') %></th>
+        <th><%= t('.school_date_b_start') %></th>
+        <th><%= t('.school_date_b_finish') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @presentations.each do |presentation| %>
+      <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+        <td><%= presentation.proposal_state %></td>
+        <td><%= presentation.user.email %></td>
+        <td><%= presentation.id %></td>
+        <td><%= presentation.research_school_title %></td>
+        <td><%= presentation.country.try(:region) %></td>
+        <td><%= presentation.country.try(:name_en) %></td>
+        <td><%= presentation.school_place %></td>
+        <td><%= presentation.school_date_a_start ? presentation.school_date_a_start_str : '' %></td>
+        <td><%= presentation.school_date_a_finish ? presentation.school_date_a_finish_str : '' %></td>
+        <td><%= presentation.school_date_b_start ? presentation.school_date_b_start_str : '' %></td>
+        <td><%= presentation.school_date_b_finish ? presentation.school_date_b_finish_str : '' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+<br/>
+<br/>
+
+  <h3>Pre Proposals</h3>
+<br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.proposal_state') %></th>
+        <th><%= t('.user') %></th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.research_school_title') %></th>
+        <th><%= t('.region') %></th>
+        <th><%= t('.school_country') %></th>
+        <th><%= t('.school_place') %></th>
+        <th><%= t('.school_date_a_start') %></th>
+        <th><%= t('.school_date_a_finish') %></th>
+        <th><%= t('.school_date_b_start') %></th>
+        <th><%= t('.school_date_b_finish') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @preproposals.each do |presentation| %>
+      <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+        <td><%= presentation.proposal_state %></td>
+        <td><%= presentation.user.email %></td>
+        <td><%= presentation.id %></td>
+        <td><%= presentation.research_school_title %></td>
+        <td><%= presentation.country.try(:region) %></td>
+        <td><%= presentation.country.try(:name_en) %></td>
+        <td><%= presentation.school_place %></td>
+        <td><%= presentation.school_date_a_start ? presentation.school_date_a_start_str : '' %></td>
+        <td><%= presentation.school_date_a_finish ? presentation.school_date_a_finish_str : '' %></td>
+        <td><%= presentation.school_date_b_start ? presentation.school_date_b_start_str : '' %></td>
+        <td><%= presentation.school_date_b_finish ? presentation.school_date_b_finish_str : '' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<br/>
+<br/>
+
+  <h3>Final Proposals</h3>
+<br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.proposal_state') %></th>
+        <th><%= t('.user') %></th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.research_school_title') %></th>
+        <th><%= t('.region') %></th>
+        <th><%= t('.school_country') %></th>
+        <th><%= t('.school_place') %></th>
+        <th><%= t('.school_date_a_start') %></th>
+        <th><%= t('.school_date_a_finish') %></th>
+        <th><%= t('.school_date_b_start') %></th>
+        <th><%= t('.school_date_b_finish') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @finalproposals.each do |presentation| %>
+      <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+        <td><%= presentation.proposal_state %></td>
+        <td><%= presentation.user.email %></td>
+        <td><%= presentation.id %></td>
+        <td><%= presentation.research_school_title %></td>
+        <td><%= presentation.country.try(:region) %></td>
+        <td><%= presentation.country.try(:name_en) %></td>
+        <td><%= presentation.school_place %></td>
+        <td><%= presentation.school_date_a_start ? presentation.school_date_a_start_str : '' %></td>
+        <td><%= presentation.school_date_a_finish ? presentation.school_date_a_finish_str : '' %></td>
+        <td><%= presentation.school_date_b_start ? presentation.school_date_b_start_str : '' %></td>
+        <td><%= presentation.school_date_b_finish ? presentation.school_date_b_finish_str : '' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<br/>
+<br/>
+
+  <h3>Revision</h3>
+<br/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.acronym') %></th>
+        <th><%= t('.user') %></th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.research_school_title') %></th>
+        <th><%= t('.region') %></th>
+        <th><%= t('.school_country') %></th>
+        <th><%= t('.school_place') %></th>
+        <% if current_user.has_any_role?(:admin, :scientific_officer) %> 
+          <th><%= t('.evaluator1') %></th>
+          <th><%= t('.evaluator2') %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @revisionproposals.each do |presentation| %>
+      <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+        <td><%= presentation.acronym %></td>
+        <td><%= presentation.user.email %></td>
+        <td><%= presentation.id %></td>
+        <td><%= presentation.research_school_title %></td>
+        <td><%= presentation.country.try(:region) %></td>
+        <td><%= presentation.country.try(:name_en) %></td>
+        <td><%= presentation.school_place %></td>
+        <% if current_user.has_any_role?(:admin, :scientific_officer) %> 
+          <td><%= presentation.evaluator1.email %></td>
+          <td><%= presentation.evaluator2.email %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>

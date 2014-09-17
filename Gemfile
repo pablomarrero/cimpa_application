@@ -65,7 +65,7 @@ end
 gem 'capistrano', '2.15.4' , group: :development
 gem 'rvm-capistrano' , group: :development
 # Use Webserver Puma
-#gem 'puma'
+gem 'puma'
 # Use foreman for executing
 gem 'foreman'
 
@@ -107,3 +107,4 @@ gem 'to_xls'
 gem 'ransack'
 gem 'rake'
 gem 'newrelic_rpm'
+gem 'pdfkit'
