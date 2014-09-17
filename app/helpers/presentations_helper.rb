@@ -14,7 +14,9 @@ module PresentationsHelper
 	def need_modification1? presentation
 		(!presentation.modification1_date.nil? && presentation.modification1_req_date.nil?)
 	end
-
+	def modification1_closed? presentation
+		!presentation.modification1_date.nil?
+	end
 	def need_modification2? presentation
 		(!presentation.modification2_date.nil? && presentation.modification2_req_date.nil?)
 	end

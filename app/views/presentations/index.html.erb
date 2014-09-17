@@ -9,7 +9,7 @@
   <li class="<%= 'active' unless current_user.has_role? :scientific_officer %>" ><a href="#home" role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
   <li class="<%= 'active' if current_user.has_role? :scientific_officer %>" ><a href="#profile" role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
   <li><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.finalproposals' %></a></li>
-  <% if current_user.has_role? :scientific_officer %>
+  <% if current_user.has_any_role? :scientific_officer, :admin %>
     <li><a href="#revision" role="tab" data-toggle="tab"><%= t '.revision' %></a></li>
   <% end %>
 </ul>
@@ -33,7 +33,7 @@
     <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @finalproposals, :edit_enabled => false, :destroy_enabled => false} %>
     <%= paginate @finalproposals, {:param_name => :page_preproposal} %>
   </div>
-  <% if current_user.has_role? :scientific_officer %>
+  <% if current_user.has_any_role? :scientific_officer, :admin %>
     <div class="tab-pane" id="revision">
       <%= paginate @revisionproposals, {:param_name => :page_revisionproposal} %>
       <%= render :partial => "revision_proposals", :locals => {:search => @proposals_search, :presentations => @revisionproposals, :edit_enabled => false, :destroy_enabled => false} %>

@@ -229,7 +229,7 @@ class PresentationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presentation_params
-      params.require(:presentation).permit(:country_id, :similar_project, :user_id, :completely_read, :tentative_schedule_file, 
+      params.require(:presentation).permit(:acronym, :country_id, :similar_project, :user_id, :completely_read, :tentative_schedule_file, 
         :research_school_title, :project_type, :subject_clasification, :school_place, :school_country, :school_date_a_start, :school_date_a_finish, 
         :school_date_b_start, :school_date_b_finish, :scientific_content, :members_of_scientific_committee, :comment, 
         :members_of_local_committee, :local_institution_description, :motivation, 
@@ -238,9 +238,9 @@ class PresentationsController < ApplicationController
         :women_percentage_scientific, :women_percentage_local, :women_percentage_course, 
         :how_much_cimpa, :how_much_cimpa_percentage, :young_people, :average_time_scientific, 
         :day_time_scientific, :confirmation_completely_read,   
-        scientific_contact_attributes: [:id, :scientific_name, :scientific_place, :scientific_country,
+        scientific_contact_attributes: [:id, :country_id, :scientific_name, :scientific_place, :scientific_country,
         :scientific_email, :scientific_phone, :scientific_cv],
-        local_contact_attributes: [:id, :administration_name, :administration_place, :administration_country,
+        local_contact_attributes: [:id, :country_id, :administration_name, :administration_place, :administration_country,
         :administration_email, :administration_phone, :administration_cv],
         provisional_budgets_attributes: [:_destroy, :id, :description, :currency_id, :amount, :provisional_type, :presentation_id],
         anticipated_fundings_attributes: [:_destroy, :id, :description, :currency_id, :amount, :anticipated_type, :presentation_id])

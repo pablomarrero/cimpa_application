@@ -32,9 +32,9 @@
         <%= link_to t('edit', :default => t("helpers.links.edit")),
                     edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || need_modification?(@presentation))%>
         <%= link_to t('modification1'),
-                    modification1_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || (need_modification?(@presentation) && need_modification1?(@presentation)))%>
+                    modification1_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && need_modification1?(@presentation)))%>
         <%= link_to t('modification2'),
-                    modification2_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || (need_modification?(@presentation) && need_modification2?(@presentation)))%>
+                    modification2_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && modification1_closed?(@presentation) && need_modification2?(@presentation)))%>
         <%= link_to t('pre_proposal'),
                     pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
         <%= link_to t('final_proposal'),
@@ -48,7 +48,7 @@
         <%= link_to t('req_modification1'),
                     req_modification1_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification1_req_date.nil?%>
         <%= link_to t('req_modification2'),
-                    req_modification2_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification2_req_date.nil?%>
+                    req_modification2_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification2_req_date.nil? && !@presentation.modification1_req_date.nil? && !@presentation.modification1_date.nil?%>
     </div>
   </div>
 
