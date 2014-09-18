@@ -4,10 +4,15 @@
     <%= t '.preproposal_notice_html' %>
   </div>
 </div>
+<%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
+<%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
+<%= link_to t('export_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
+<% unless (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin) %>
   <li class="<%= 'active' unless current_user.has_role? :scientific_officer %>" ><a href="#home" role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
   <li class="<%= 'active' if current_user.has_role? :scientific_officer %>" ><a href="#profile" role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
+<% end %>
   <li><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.finalproposals' %></a></li>
   <% if current_user.has_any_role? :scientific_officer, :admin %>
     <li><a href="#revision" role="tab" data-toggle="tab"><%= t '.revision' %></a></li>
@@ -41,6 +46,3 @@
     </div>
   <% end %>
 </div>
-<%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' if open_new_presentations?%>
-<%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' if (current_user.has_role? :scientific_officer) || (current_user.has_role? :admin)%>
-<%= link_to t('export_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>

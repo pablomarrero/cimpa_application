@@ -17,6 +17,7 @@ CimpaApplication::Application.routes.draw do
   get 'presentations/:id/final_proposal' => 'presentations#final_proposal', :as => :final_proposal
   get 'presentations/:id/cancel_proposal' => 'presentations#cancel_proposal', as: :cancel_proposal
   get "presentations/index_print", as: :presentations_print
+  get 'presentations/:id/print_proposal' => 'presentations#print_proposal', :as => :print_proposal
   resources :presentations do
     resources :evaluation1, only: [:new, :edit, :create, :update]
     resources :evaluation2, only: [:new, :edit, :create, :update]

@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>CIMPA RESEARCH SCHOOL PROPOSAL</h1>
+  <h2><%= @presentation.acronym %></h2>
+</div>
+
+<h3>Proposal</h3>
+<%= render :partial => "printable_presentation_show", :locals => {:presentation => @presentation} %>
+
+<% if @evaluation1 %>
+  <h3 class="page_breaker">Evaluation 1</h3>
+  <%= render :partial => "printable_evaluation", :locals => {:evaluation => @evaluation1} %>
+<% end %>
+
+<% if @evaluation2 %>
+  <h3 class="page_breaker">Evaluation 2</h3>
+  <%= render :partial => "printable_evaluation", :locals => {:evaluation => @evaluation2} %>
+<% end %>

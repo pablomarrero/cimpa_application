@@ -1,3 +1,5 @@
+<%= link_to t('export_pdf'), "#{presentation_path(@presentation)}/print_proposal.pdf", :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>
+
 <div class="page-header">
   <h1 class="hand_writer_title"><%=t '.title' %></h1>
   <span class="label label-info"><%=t "states_#{@presentation.proposal_state}"%></span>
@@ -114,5 +116,4 @@
   </div>
 
 </div>
-
 

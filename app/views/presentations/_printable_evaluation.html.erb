@@ -1,0 +1,55 @@
+	<div class="content-fluid">
+	  <div class="control-group">
+	    <%= t('evaluation.date_due') %>
+	    <div class="controls">
+	      <pre><%= evaluation.date_due.try(:strftime,'%d-%m-%Y') %></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('evaluation.organization_title') %></h4>
+      <p><%= t('evaluation.organization_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.organization %></pre>
+	    </div>
+	  </div>
+	  <div class="control-group">
+      <h4><%= t('evaluation.standard_title') %></h4>
+      <p><%= t('evaluation.standard_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.standard %></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('evaluation.suitability_title') %></h4>
+      <p><%= t('evaluation.suitability_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.suitability %></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('evaluation.funding_title') %></h4>
+      <p><%= t('evaluation.funding_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.funding%></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('evaluation.report_title') %></h4>
+      <p><%= t('evaluation.report_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.report%></pre>
+	    </div>
+	  </div>
+	  <hr>
+	  <div class="control-group">
+      <h4><%= t('evaluation.assessment_title') %></h4>
+      <p><%= t('evaluation.assessment_text') %></p>
+	    <div class="controls">
+	      <pre><%= evaluation.assessment%></pre>
+	    </div>
+	  </div>
+	</div>
