@@ -95,6 +95,7 @@
                   <i class="icon-search"></i>
                   <%= t('.set_evaluator2') %>
                 </a>
+								<%= link_to t('notificate_evaluators'), evaluators_notificate_path(presentation), :class => 'btn btn-primary btn-mini'%>
 			      </td>
 			    </tr>
           <%= render 'shared/assign_modal', id: "evaluator1_#{presentation.id}_view", title: t('.set_evaluator1'), path: set_evaluator1_path(presentation.id)%>
