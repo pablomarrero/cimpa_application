@@ -62,23 +62,57 @@ class PresentationsController < ApplicationController
 
   def print_proposal
     @presentation  = Presentation.find(params[:id])
-    @preproposal   = @presentation.as_pre_proposal
-#    @final_proposal = @presentation.as_final_proposal
     if current_user.has_any_role?(:admin, :scientific_officer)
       @evaluation1    = @presentation.evaluation1
       @evaluation2    = @presentation.evaluation2
       @synthesis1     = @presentation.synthesis1
       @synthesis2     = @presentation.synthesis2
-#    send_file @presentation.local_contact.administration_cv.path,
-#      :filename => @presentation.local_contact.administration_cv_file_name,
-#      :type => @presentation.local_contact.administration_cv_content_type,
-#      :disposition => 'attachment'
-#    send_file @presentation.scientific_contact.scientific_cv.path,
-#      :filename => @presentation.scientific_contact.scientific_cv_file_name,
-#      :type => @presentation.scientific_contact.scientific_cv_content_type,
-#      :disposition => 'attachment'
     end
     render layout: 'print'
+  end
+
+  def generate_printable_proposal
+    if current_user.has_any_role?(:admin, :scientific_officer)
+      @evaluation1    = @presentation.evaluation1
+      @evaluation2    = @presentation.evaluation2
+      @synthesis1     = @presentation.synthesis1
+      @synthesis2     = @presentation.synthesis2
+    end
+    pdf_files = ""
+    content_type = "pdf"
+    presentation_path = "#{Rails.root}/tmp/#{@presentation.id}" 
+    result_path = "#{presentation_path}_#{@presentation.acronym}.pdf" 
+
+    proposal_html = (render "print_proposal", layout: 'print')[0]
+    proposal_path = "#{presentation_path}_#{@presentation.acronym}_partial" 
+    proposal_path_pdf  = "#{proposal_path}.pdf" 
+    proposal_kit = PDFKit.new proposal_html, :page_size => 'A4', :orientation => 'portrait'
+    proposal_kit.to_file proposal_path_pdf
+    pdf_files += proposal_path_pdf
+
+    if @presentation.local_contact.administration_cv
+      administration_cv_path = @presentation.local_contact.administration_cv.path
+      pdf_files += " " + administration_cv_path
+    end
+
+    if @presentation.scientific_contact.scientific_cv
+      scientific_cv_path = @presentation.scientific_contact.scientific_cv.path
+      pdf_files += " " + scientific_cv_path
+    end
+
+    options = "-q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite"
+    system "gs #{options} -sOutputFile=#{result_path} #{pdf_files}"
+  end
+
+  def print_proposal_full
+    @presentation     = Presentation.find(params[:id])
+    generate_printable_proposal
+    result_path       = "#{Rails.root}/tmp/#{@presentation.id}_#{@presentation.acronym}.pdf" 
+
+    send_file         result_path,
+      :filename    => @presentation.acronym,
+      :type        => 'pdf',
+      :disposition => 'attachment'
   end
 
   def show_pre_proposal
@@ -86,6 +120,7 @@ class PresentationsController < ApplicationController
     @presentation = prep.as_pre_proposal
     render :show
   end
+
   # GET /presentations/new
   def new
     @presentation = Presentation.new
