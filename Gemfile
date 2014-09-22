@@ -109,3 +109,4 @@ gem 'rake'
 gem 'newrelic_rpm'
 gem 'pdfkit'
 gem 'rubyzip'
+gem 'annotate', ">=2.6.0"
