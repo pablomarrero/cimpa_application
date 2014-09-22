@@ -1,7 +1,16 @@
 require File.expand_path('../boot', __FILE__)
 
+require 'bundler'
 require 'rails/all'
 require 'pdfkit'
+require 'zip'
+class PDFKit
+  class Configuration
+    def wkhtmltopdf
+      @wkhtmltopdf ||= `which wkhtmltopdf`.chomp
+    end
+  end
+end
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
