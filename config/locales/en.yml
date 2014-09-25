@@ -72,6 +72,7 @@ en:
       acronym: Acronym
       evaluator1: Evaluator 1
       evaluator2: Evaluator 2
+      confirm_evaluators_notification: Every referee will receive an email notification. Are you sure?
   synthesis1:
     new:
       title: New Synthesis 1
@@ -101,8 +102,8 @@ en:
     report_title: REPORTS BY OTHER REFEREES
     report_text: "What is the opinion (if any) of the RSR (regional scientific assistant of the CIMPA) or the Director in case they were consulted ? What is the opinion of any other expert you may have consulted ?"
     assessment_title: OVERALL ASSESSMENT
-    assessment_text: "• θ POSITIVE ADVICE (please briefly list the strengths of the project)
-• θ NEGATIVE ADVICE (please write a short explanation describing carefully and
+    assessment_text: "• POSITIVE ADVICE (please briefly list the strengths of the project)
+• NEGATIVE ADVICE (please write a short explanation describing carefully and
 constructively the grounds on which the project was rejected and giving suggestions for possible
 improvements to help future submissions)
 • The budget needs to be clarified before acceptance of this school. The two major issues are:

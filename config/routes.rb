@@ -2,6 +2,7 @@ CimpaApplication::Application.routes.draw do
   get "evaluators/index", as: :evaluators
   get "evaluators/index_print", as: :evaluators_print
   get "evaluators/send_notification/:presentation_id" => "evaluators#notificate_evaluator", as: :evaluators_notificate
+  post "evaluators/notificate" => "evaluators#notificate_evaluators", as: :notificate_evaluators
   post "evaluators/set_evaluator1/:presentation_id" => "evaluators#set_evaluator1", as: :set_evaluator1
   post "evaluators/set_evaluator2/:presentation_id" => "evaluators#set_evaluator2", as: :set_evaluator2
   resources :currencies
