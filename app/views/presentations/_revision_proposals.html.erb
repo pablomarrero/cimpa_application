@@ -1,46 +1,32 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= t('full project') %></th>
       <th><%= t('.acronym') %></th>
-      <th><%= t('.user') %></th>
-      <th><%= t('.id') %></th>
       <th><%= t('.research_school_title') %></th>
       <th><%= sort_link search, :country_region, t('.region') %></th>
       <th><%= t('.school_country') %></th>
-      <th><%= t('.school_place') %></th>
       <% if current_user.has_any_role?(:admin, :scientific_officer) %> 
         <th><%= t('.evaluator1') %></th>
         <th><%= t('.evaluator2') %></th>
       <% end %>
-      <th><%= t('actions') %></th>
     </tr>
   </thead>
   <tbody>
   <% presentations.each do |presentation| %>
     <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+      <td>
+        <%= link_to t('view', :default => t('helpers.links.show')), 
+          presentation_path(presentation), :class => 'btn btn-mini' %>
+      </td>
       <td><%= presentation.acronym %></td>
-      <td><%= presentation.user.email %></td>
-      <td><%= presentation.id %></td>
       <td><%= presentation.research_school_title %></td>
       <td><%= presentation.country.try(:region) %></td>
       <td><%= presentation.country.try(:name_en) %></td>
-      <td><%= presentation.school_place %></td>
       <% if current_user.has_any_role?(:admin, :scientific_officer) %> 
-        <td><%= presentation.evaluator1.email %></td>
-        <td><%= presentation.evaluator2.email %></td>
+        <td><%= presentation.evaluator1 ? presentation.evaluator1.email : ''%></td>
+        <td><%= presentation.evaluator2 ? presentation.evaluator2.email : ''%></td>
       <% end %>
-      <td>
-        <%= link_to t('.cancel_propososal'), cancel_proposal_path(presentation), :class => 'btn btn-mini btn-danger' if current_user.id == presentation.user.id && presentation.cancel_date.nil? %>
-        <%= link_to t('view', :default => t('helpers.links.show')), 
-          presentation_path(presentation), :class => 'btn btn-mini' %>
-        <%= link_to t('edit', :default => t("helpers.links.edit")),
-          edit_presentation_path(presentation), :class => 'btn btn-mini' if current_user.id == presentation.user.id && open_final_presentations? && edit_enabled  %>
-        <%= link_to t('destroy', :default => t("helpers.links.destroy")),
-          presentation_path(presentation),
-          :method => :delete,
-          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-          :class => 'btn btn-mini btn-danger'  if current_user.id == presentation.user.id && open_new_presentations? && destroy_enabled %>
-      </td>
     </tr>
   <% end %>
   </tbody>
