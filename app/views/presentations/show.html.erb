@@ -1,5 +1,3 @@
-<%= link_to t('export_pdf'), "#{presentation_path(@presentation)}/print_proposal_full.pdf", :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>
-
 <div class="page-header">
   <h1 class="hand_writer_title"><%=t '.title' %></h1>
   <span class="label label-info"><%=t "states_#{@presentation.proposal_state}"%></span>
@@ -7,64 +5,75 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li class="active"><a href="#proposal" role="tab" data-toggle="tab"><%= t '.proposal' %></a></li>
-  <li><a href="#preproposal" role="tab" data-toggle="tab"><%= t '.preproposal' %></a></li>
-  <li><a href="#finalproposal" role="tab" data-toggle="tab"><%= t '.finalproposal' %></a></li>
-  <% if current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) %>
+    <li class="active"><%= link_to t('export_pdf'), "#{presentation_path(@presentation)}/print_proposal_full.pdf", :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
+  <% unless current_user.has_role?(:scientific_officer) %>
+    <li class="active"><a href="#proposal" role="tab" data-toggle="tab"><%= t '.proposal' %></a></li>
+    <li><a href="#preproposal" role="tab" data-toggle="tab"><%= t '.preproposal' %></a></li>
+  <% end %>
+  <% if current_user.has_role?(:scientific_officer) %>
+    <li class="active"><a href="#finalproposal" role="tab" data-toggle="tab"><%= t '.proposal' %></a></li>
+  <% else %>
+    <li><a href="#finalproposal" role="tab" data-toggle="tab"><%= t '.finalproposal' %></a></li>
+  <% end %>
+  <% if current_user.has_role?(:admin) %>
     <li><a href="#modification1" role="tab" data-toggle="tab"><%= t '.modification1' %></a></li>
-    <li><a href="#evaluation1" role="tab" data-toggle="tab"><%= t '.evaluation1' %></a></li>
-    <li><a href="#evaluation2" role="tab" data-toggle="tab"><%= t '.evaluation2' %></a></li>
-    <li><a href="#synthesis1" role="tab" data-toggle="tab"><%= t '.synthesis1' %></a></li>
     <li><a href="#modification2" role="tab" data-toggle="tab"><%= t '.modification2' %></a></li>
-    <li><a href="#synthesis2" role="tab" data-toggle="tab"><%= t '.synthesis2' %></a></li>
+  <% end %>
+  <% if current_user.has_any_role?(:scientific_officer, :admin) %>
+    <li><a href="#evaluation1" role="tab" data-toggle="tab"><%= "#{t('.title_evaluation1')} (#{@presentation.evaluator1 && @presentation.evaluator1.email})" %></a></li>
+    <li><a href="#evaluation2" role="tab" data-toggle="tab"><%= "#{t('.title_evaluation2')} (#{@presentation.evaluator2 && @presentation.evaluator2.email})" %></a></li>
+    <li><a href="#synthesis1" role="tab" data-toggle="tab"><%= t '.synthesis_pre_meeting' %></a></li>
+    <li><a href="#synthesis2" role="tab" data-toggle="tab"><%= t '.synthesis_post_meeting' %></a></li>
   <% end %>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="proposal">
-    <h2><%= t('.proposal') %></h2>
-  <hr>
+  <% unless current_user.has_role?(:scientific_officer) %>
+    <div class="tab-pane active" id="proposal">
+      <h2><%= t('.proposal') %></h2>
+    <hr>
 
-    <%= render :partial => "show", :locals => {:proposal => @presentation} %>
-    <div class="form-actions hand_writer">
-      <%= link_to t('back', :default => t("helpers.links.back")),
-                  presentations_path, :class => 'btn'  %>
-      <% unless current_user.has_role? :scientific_officer %>
-        <%= link_to t('edit', :default => t("helpers.links.edit")),
-                    edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || need_modification?(@presentation))%>
-        <%= link_to t('modification1'),
-                    modification1_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && need_modification1?(@presentation)))%>
-        <%= link_to t('modification2'),
-                    modification2_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && modification1_closed?(@presentation) && need_modification2?(@presentation)))%>
-        <%= link_to t('pre_proposal'),
-                    pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
-        <%= link_to t('final_proposal'),
-                    final_proposal_path(@presentation), :class => 'btn' if current_user.id == @presentation.user.id && open_final_presentations?%>
-        <%= link_to t('destroy', :default => t("helpers.links.destroy")),
-                    presentation_path(@presentation),
-                    :method => 'delete',
-                    :data => { :confirm => t('confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger'  if current_user.id == @presentation.user.id && open_new_presentations?%>
-      <% end %>
-        <%= link_to t('req_modification1'),
-                    req_modification1_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification1_req_date.nil?%>
-        <%= link_to t('req_modification2'),
-                    req_modification2_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification2_req_date.nil? && !@presentation.modification1_req_date.nil? && !@presentation.modification1_date.nil?%>
+      <%= render :partial => "show", :locals => {:proposal => @presentation} %>
+      <div class="form-actions hand_writer">
+        <%= link_to t('back', :default => t("helpers.links.back")),
+                    presentations_path, :class => 'btn'  %>
+        <% unless current_user.has_role? :scientific_officer %>
+          <%= link_to t('edit', :default => t("helpers.links.edit")),
+                      edit_presentation_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && (open_final_presentations? || need_modification?(@presentation))%>
+          <%= link_to t('modification1'),
+                      modification1_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && need_modification1?(@presentation)))%>
+          <%= link_to t('modification2'),
+                      modification2_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && ( (need_modification?(@presentation) && modification1_closed?(@presentation) && need_modification2?(@presentation)))%>
+          <%= link_to t('pre_proposal'),
+                      pre_proposal_path(@presentation), :class => 'btn'  if current_user.id == @presentation.user.id && open_pre_proposals? %>
+          <%= link_to t('final_proposal'),
+                      final_proposal_path(@presentation), :class => 'btn' if current_user.id == @presentation.user.id && open_final_presentations?%>
+          <%= link_to t('destroy', :default => t("helpers.links.destroy")),
+                      presentation_path(@presentation),
+                      :method => 'delete',
+                      :data => { :confirm => t('confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger'  if current_user.id == @presentation.user.id && open_new_presentations?%>
+        <% end %>
+          <%= link_to t('req_modification1'),
+                      req_modification1_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification1_req_date.nil?%>
+          <%= link_to t('req_modification2'),
+                      req_modification2_proposal_path(@presentation), :class => 'btn'  if current_user.has_any_role?(:admin, :scientific_officer) && @presentation.modification2_req_date.nil? && !@presentation.modification1_req_date.nil? && !@presentation.modification1_date.nil?%>
+      </div>
     </div>
-  </div>
 
-  <div class="tab-pane" id="preproposal">
-    <% if @presentation.pre_proposal_date.nil? %>
-      <h3><%= t '.pre_proposal_dont_set' %></h3>
-    <% else %>
-  <h2><%= t('.preproposal') %></h2>
-  <hr>
-      <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.pre_proposal_date) }%>
-    <% end %>
-  </div>
+    <div class="tab-pane" id="preproposal">
+      <% if @presentation.pre_proposal_date.nil? %>
+        <h3><%= t '.pre_proposal_dont_set' %></h3>
+      <% else %>
+    <h2><%= t('.preproposal') %></h2>
+    <hr>
+        <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.pre_proposal_date) }%>
+      <% end %>
+    </div>
+  <% end %>
 
-  <div class="tab-pane" id="finalproposal">
+  <div class="tab-pane <%= 'active' if current_user.has_role?(:scientific_officer) %>" id="finalproposal">
     <% if @presentation.final_proposal_date.nil? %>
       <h3><%= t '.final_proposal_dont_set' %></h3>
     <% else %>
@@ -74,46 +83,51 @@
     <% end %>
   </div>
 
-  <div class="tab-pane" id="modification1">
-    <% if @presentation.modification1_date.nil? %>
-      <h3><%= t '.modification1_dont_set' %></h3>
-    <% else %>
-      <h2><%= t('.modification1') %></h2>
-      <hr>
-          <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification1_date)} %>
-    <% end %>
-  </div>
+  <% if current_user.has_role?(:admin) %>
+    <div class="tab-pane" id="modification1">
+      <% if @presentation.modification1_date.nil? %>
+        <h3><%= t '.modification1_dont_set' %></h3>
+      <% else %>
+        <h2><%= t('.modification1') %></h2>
+        <hr>
+            <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification1_date)} %>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="modification2">
+      <% if @presentation.modification2_date.nil? %>
+        <h3><%= t '.modification2_dont_set' %></h3>
+      <% else %>
+        <h2><%= t('.modification2') %></h2>
+        <hr>
+            <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification2_date)} %>
+      <% end %>
+    </div>
+  <% end %>
 
-  <div class="tab-pane" id="evaluation1">
-    <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation1,
-        :path_edit => edit_presentation_evaluation1_path(@presentation, @presentation.evaluation1),
-        :path_new => new_presentation_evaluation1_path(@presentation), :title => t('.title_evaluation1')} %>
-  </div>
-  <div class="tab-pane" id="evaluation2">
-    <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation2,
-        :path_edit => edit_presentation_evaluation2_path(@presentation, @presentation.evaluation2),
-        :path_new => new_presentation_evaluation2_path(@presentation), :title => t('.title_evaluation2')} %>
-  </div>
-  <div class="tab-pane" id="synthesis1">
-    <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis1,
-        :path_edit => edit_presentation_synthesis1_path(@presentation, @presentation.synthesis1),
-        :path_new => new_presentation_synthesis1_path(@presentation), :title => t('.title_synthesis1')} %>
-  </div>
-
-  <div class="tab-pane" id="modification2">
-    <% if @presentation.modification2_date.nil? %>
-      <h3><%= t '.modification2_dont_set' %></h3>
-    <% else %>
-      <h2><%= t('.modification2') %></h2>
-      <hr>
-          <%= render :partial => "show", :locals => {:proposal => @presentation.version_at(@presentation.modification2_date)} %>
-    <% end %>
-  </div>
-  <div class="tab-pane" id="synthesis2">
-    <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis2,
-        :path_edit => edit_presentation_synthesis2_path(@presentation, @presentation.synthesis2),
-        :path_new => new_presentation_synthesis2_path(@presentation), :title => t('.title_synthesis2')} %>
-  </div>
-
+  <% if current_user.has_any_role?(:scientific_officer, :admin) %>
+    <div class="tab-pane" id="evaluation1">
+      <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation1,
+          :path_edit => edit_presentation_evaluation1_path(@presentation, @presentation.evaluation1),
+          :path_new  => new_presentation_evaluation1_path(@presentation),
+          :evaluator => @presentation.evaluator1,
+          :title => "#{t('.title_evaluation1')} (#{@presentation.evaluator1 && @presentation.evaluator1.email})"} %>
+    </div>
+    <div class="tab-pane" id="evaluation2">
+      <%= render :partial => "evaluation_form", :locals => {:evaluation => @presentation.evaluation2,
+          :path_edit => edit_presentation_evaluation2_path(@presentation, @presentation.evaluation2),
+          :path_new => new_presentation_evaluation2_path(@presentation),
+          :evaluator => @presentation.evaluator2,
+          :title => "#{t('.title_evaluation2')} (#{@presentation.evaluator2 && @presentation.evaluator2.email})"} %>
+    </div>
+    <div class="tab-pane" id="synthesis1">
+      <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis1,
+          :path_edit => edit_presentation_synthesis1_path(@presentation, @presentation.synthesis1),
+          :path_new => new_presentation_synthesis1_path(@presentation), :title => t('.title_synthesis1')} %>
+    </div>
+    <div class="tab-pane" id="synthesis2">
+      <%= render :partial => "synthesis_form", :locals => {:synthesis => @presentation.synthesis2,
+          :path_edit => edit_presentation_synthesis2_path(@presentation, @presentation.synthesis2),
+          :path_new => new_presentation_synthesis2_path(@presentation), :title => t('.title_synthesis2')} %>
+    </div>
+  <% end %>
 </div>
-

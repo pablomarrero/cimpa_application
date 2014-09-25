@@ -1,6 +1,9 @@
 <% unless evaluation.nil? %>
+	<h2><%= title %></h2>
+        <% if current_user==evaluator %>
+	  <%= link_to t('edit', :default => t("helpers.links.edit")), path_edit, :class => 'btn'%>
+        <% end %>
 	<div class="content-fluid">
-	  <h2><%= title %></h2>
 	  <hr>
 	  <div class="control-group">
 	    <%= t('evaluation.date_due') %>
@@ -56,10 +59,13 @@
 	    </div>
 	  </div>
 	</div>
-	<%= link_to t('edit', :default => t("helpers.links.edit")),
-            path_edit, :class => 'btn'%>
+        <% if current_user==evaluator %>
+	  <%= link_to t('edit', :default => t("helpers.links.edit")), path_edit, :class => 'btn'%>
+        <% end %>
 <% else %>
+	<h2><%= title %></h2>
 	<h4><%= t '.dont_exists'%></h4>
-	<%= link_to t('new', :default => t("helpers.links.edit")),
-            path_new, class: 'btn'%>
+        <% if current_user==evaluator %>
+	  <%= link_to t('new', :default => t("helpers.links.edit")), path_new, class: 'btn'%>
+        <% end %>
 <% end %>

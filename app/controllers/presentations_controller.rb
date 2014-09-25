@@ -12,28 +12,30 @@ class PresentationsController < ApplicationController
       @synthesis2     = @presentation.synthesis2
     end
     pdf_files = ""
-    content_type = "pdf"
     partial_path = "#{Rails.root}/tmp/partial_proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
     full_path    = "#{Rails.root}/tmp/proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
 
-#    proposal_html = render_to_string "print_proposal", layout: 'print'
-    proposal_html = (render "print_proposal", layout: 'print')[0]
-    proposal_kit = PDFKit.new proposal_html, :page_size => 'A4', :orientation => 'portrait'
-    proposal_kit.to_file partial_path
-    pdf_files += partial_path
-
-#    if @presentation.local_contact.administration_cv
-#      administration_cv_path = @presentation.local_contact.administration_cv.path
-#      pdf_files += " " + administration_cv_path
-#    end
+    proposal_html = render_to_string "print_proposal", layout: 'print'
+    proposal_pdf  = PDFKit.new proposal_html, :page_size => 'A4', :orientation => 'portrait', :print_media_type => true
+file = File.open(partial_path, 'wb')
+file.write(proposal_pdf.to_pdf)
+file.close
+#    proposal_pdf.to_file partial_path
+    proposal_pdf
+#    pdf_files += partial_path
 #
-#    if @presentation.scientific_contact.scientific_cv
-#      scientific_cv_path = @presentation.scientific_contact.scientific_cv.path
-#      pdf_files += " " + scientific_cv_path
-#    end
-
-    options = "-q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite"
-    system "gs #{options} -sOutputFile=#{full_path} #{pdf_files}"
+##    if @presentation.local_contact.administration_cv
+##      administration_cv_path = @presentation.local_contact.administration_cv.path
+##      pdf_files += " " + administration_cv_path
+##    end
+##
+##    if @presentation.scientific_contact.scientific_cv
+##      scientific_cv_path = @presentation.scientific_contact.scientific_cv.path
+##      pdf_files += " " + scientific_cv_path
+##    end
+#
+#    options = "-q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite"
+#    system "gs #{options} -sOutputFile=#{full_path} #{pdf_files}"
   end
 
   # GET /presentations
@@ -46,7 +48,8 @@ class PresentationsController < ApplicationController
           @presentations = @proposals_search.result.page params[:page]
           @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
           @finalproposals = @proposals_search.result.where(proposal_state: :final_proposal).page params[:page_preproposal]
-          @revisionproposals = @proposals_search.result.where.not(evaluator1_id: nil).where.not(evaluator2_id: nil).page params[:page_revisionproposal]
+#          @revisionproposals = @proposals_search.result.where.not(evaluator1_id: nil).where.not(evaluator2_id: nil).page params[:page_revisionproposal]
+          @revisionproposals = Presentation.where("evaluator1_id = #{current_user.id} OR evaluator2_id = #{current_user.id}")
         else
           @presentations = @proposals_search.result.where( user_id: current_user.id).page params[:page]
           @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
@@ -78,7 +81,7 @@ class PresentationsController < ApplicationController
       @presentations = Presentation.all
       @preproposals = Presentation.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil)
       @finalproposals = Presentation.where(proposal_state: :final_proposal)
-      @revisionproposals = Presentation.where.not(evaluator1_id: nil).where.not(evaluator2_id: nil)
+      @revisionproposals = Presentation.where("evaluator1_id = #{current_user.id} OR evaluator2_id = #{current_user.id}")
     else
       @presentations = Presentation.where( user_id: current_user.id)
       @preproposals = Presentation.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).where( user_id: current_user.id)
@@ -90,15 +93,16 @@ class PresentationsController < ApplicationController
   def export_zip
     redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer)
 
-    @presentations = Presentation.where(proposal_state: :final_proposal)
-    @presentations.each do |presentation|
-      @presentation = presentation
-      generate_printable_proposal
-    end
+#    @presentations = Presentation.where(proposal_state: :final_proposal)
+#    @presentations.each do |presentation|
+#      proposal_pdf = PDFKit.new "http://proposals.dev.cimpa.info/presentations/#{presentation.id}/print_proposal.pdf", :page_size => 'A4', :orientation => 'portrait'
+#      partial_path = "#{Rails.root}/tmp/proposals/for_zip/#{presentation.id}_#{presentation.acronym}.pdf" 
+#      proposal_pdf.to_file partial_path
+#    end
     tmp = "#{Rails.root}/tmp" 
-    pdfs = Dir["#{tmp}/proposals/*.pdf"].map {|proposal| "proposals/#{File.basename(proposal)}"}
 
-    zipfile_name = "#{tmp}/proposals.zip"
+    pdfs = Dir["#{tmp}/proposals/for_zip/*.pdf"].map {|proposal| "proposals/#{File.basename(proposal)}"}
+    zipfile_name = "#{tmp}/proposals/for_zip/proposals.zip"
 
     File.delete(zipfile_name) if File.exists?(zipfile_name)
 
@@ -116,28 +120,44 @@ class PresentationsController < ApplicationController
   # GET /presentations/1
   # GET /presentations/1.json
   def show
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
   end
 
   def print_proposal
     @presentation  = Presentation.find(params[:id])
-    render "print_proposal", layout: 'print'
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+
+    partial_path = "#{Rails.root}/tmp/partial_proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
+    output = generate_printable_proposal
+p output.to_pdf.length
+    [output.to_pdf]
+#    p File.open(partial_path, 'r').
+#    render "print_proposal", layout: 'print'
+
+#    send_file         partial_path,
+#      :filename    => @presentation.acronym,
+#      :type        => 'pdf',
+#      :disposition => 'inline'
   end
 
   def print_proposal_full
     @presentation = Presentation.find(params[:id])
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+
     generate_printable_proposal
-    presentations = "#{Rails.root}/tmp/proposals" 
     full_path = "#{Rails.root}/tmp/proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
 
     send_file         full_path,
       :filename    => @presentation.acronym,
       :type        => 'pdf',
-      :disposition => 'attachment'
+      :disposition => 'inline'
   end
 
   def show_pre_proposal
     prep = Presentation.find(params[:id])
     @presentation = prep.as_pre_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+
     render :show
   end
 
@@ -176,6 +196,8 @@ class PresentationsController < ApplicationController
   # PATCH/PUT /presentations/1
   # PATCH/PUT /presentations/1.json
   def update
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     respond_to do |format|
       if @presentation.update(presentation_params)
         @presentation.acronym = @presentation.school_date_a_start.strftime('%Y') + '-' + (@presentation.country.try(:name_en)||'') + '-' + 
@@ -193,6 +215,8 @@ class PresentationsController < ApplicationController
   # DELETE /presentations/1
   # DELETE /presentations/1.json
   def destroy
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     @presentation.destroy
     respond_to do |format|
       format.html { redirect_to presentations_url }
@@ -201,18 +225,26 @@ class PresentationsController < ApplicationController
   end
 
   def download_administration_cv
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+
     send_file @presentation.local_contact.administration_cv.path,
       :filename => @presentation.local_contact.administration_cv_file_name,
       :type => @presentation.local_contact.administration_cv_content_type,
       :disposition => 'attachment'
   end
+
   def download_scientific_cv
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     send_file @presentation.scientific_contact.scientific_cv.path,
       :filename => @presentation.scientific_contact.scientific_cv_file_name,
       :type => @presentation.scientific_contact.scientific_cv_content_type,
       :disposition => 'attachment'
   end
+
   def download_tentative_schedule_file
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     send_file @presentation.tentative_schedule_file.path,
       :filename => @presentation.tentative_schedule_file_file_name,
       :type => @presentation.tentative_schedule_file_content_type,
@@ -220,6 +252,8 @@ class PresentationsController < ApplicationController
   end
 
   def pre_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     if DateTime.now < Date.strptime('20140815','%Y%m%d')
       @presentation.pre_proposal_date = DateTime.now
       @presentation.proposal_state = :pre_proposal 
@@ -238,6 +272,8 @@ class PresentationsController < ApplicationController
   end
   
   def final_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+
     @presentation.final_proposal_date = DateTime.now
     @presentation.proposal_state = :final_proposal 
     respond_to do |format|
@@ -252,6 +288,8 @@ class PresentationsController < ApplicationController
   end
 
   def modification1_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     @presentation.modification1_date = DateTime.now
     respond_to do |format|
       if @presentation.save
@@ -263,7 +301,10 @@ class PresentationsController < ApplicationController
       end
     end
   end
+
   def modification2_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     @presentation.modification2_date = DateTime.now
     respond_to do |format|
       if @presentation.save
@@ -275,7 +316,10 @@ class PresentationsController < ApplicationController
       end
     end
   end
+
   def req_modification1_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, scientific_officer_admin)
+
     @presentation.modification1_req_date = DateTime.now
     respond_to do |format|
       if @presentation.save
@@ -287,7 +331,10 @@ class PresentationsController < ApplicationController
       end
     end
   end
+
   def req_modification2_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin, scientific_officer_admin)
+
     @presentation.modification2_req_date = DateTime.now
     respond_to do |format|
       if @presentation.save
@@ -299,12 +346,16 @@ class PresentationsController < ApplicationController
       end
     end
   end
+
   def cancel_proposal
+    redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+
     @presentation.cancel_date = DateTime.now
     @presentation.save
     redirect_to action: :index
     
   end
+
   private
     def verify_pre_proposal_fields
       true

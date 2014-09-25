@@ -1,11 +1,17 @@
 class Evaluation2Controller < ApplicationController
   def new
-  	@presentation = Presentation.find params[:presentation_id]
-  	@presentation.build_evaluation2
+    @presentation = Presentation.find params[:presentation_id]
+    redirect_to '/' unless current_user.has_any_role?(:admin, :scientific_officer_admin)
+    redirect_to '/' unless current_user.has_role?(:scientific_officer) && @presentation.evaluator2==current_user
+
+    @presentation.build_evaluation2
   end
 
   def create
   	@presentation = Presentation.find params[:presentation_id]
+    redirect_to '/' unless current_user.has_any_role?(:admin, :scientific_officer_admin)
+    redirect_to '/' unless current_user.has_role?(:scientific_officer) && @presentation.evaluator2==current_user
+
     @evaluation = Evaluation.new(evaluation_params)
     @evaluation.date_due = Date.today
     respond_to do |format|
@@ -21,10 +27,16 @@ class Evaluation2Controller < ApplicationController
 
   def edit
   	@presentation = Presentation.find params[:presentation_id]
+    redirect_to '/' unless current_user.has_any_role?(:admin, :scientific_officer_admin)
+    redirect_to '/' unless current_user.has_role?(:scientific_officer) && @presentation.evaluator2==current_user
+
   end
 
   def update
   	@presentation = Presentation.find params[:presentation_id]
+    redirect_to '/' unless current_user.has_any_role?(:admin, :scientific_officer_admin)
+    redirect_to '/' unless current_user.has_role?(:scientific_officer) && @presentation.evaluator2==current_user
+
   	@evaluation = Evaluation.find params[:id]
     respond_to do |format|
       if @evaluation.update(evaluation_params)
