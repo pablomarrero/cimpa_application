@@ -5,12 +5,21 @@ class PresentationsController < ApplicationController
     :download_administration_cv, :download_scientific_cv, :download_tentative_schedule_file, :cancel_proposal]
 
   def generate_printable_proposal(dest=nil)
-    if current_user.has_any_role?(:admin, :scientific_officer)
+    if current_user.has_any_role?(:admin, :scientific_officer, :pilotaje)
       @evaluation1    = @presentation.evaluation1
       @evaluation2    = @presentation.evaluation2
       @synthesis1     = @presentation.synthesis1
       @synthesis2     = @presentation.synthesis2
     end
+
+    if current_user.has_any_role?(:admin, :scientific_officer)
+      @title_evaluation1 = "#{t('.title_evaluation1')} (#{@presentation.evaluator1 && @presentation.evaluator1.email})"
+      @title_evaluation2 = "#{t('.title_evaluation2')} (#{@presentation.evaluator2 && @presentation.evaluator2.email})"
+    elsif current_user.has_any_role?(:pilotaje)
+      @title_evaluation1 = "#{t('.title_evaluation1')}"
+      @title_evaluation2 = "#{t('.title_evaluation2')}"
+    end
+
     pdf_files = ""
     partial_path = "#{Rails.root}/tmp/partial_proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
     dest_path    = dest || "#{Rails.root}/tmp/proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
@@ -52,7 +61,7 @@ class PresentationsController < ApplicationController
     @proposals_search = Presentation.search params[:q]
     respond_to do |format|
       format.html do
-        if current_user.has_any_role?(:admin, :scientific_officer)
+        if current_user.has_any_role?(:admin, :scientific_officer, :pilotaje)
           @presentations = @proposals_search.result.page params[:page]
           @preproposals = @proposals_search.result.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
           @finalproposals = @proposals_search.result.where(proposal_state: :final_proposal).page params[:page_preproposal]
@@ -84,7 +93,7 @@ class PresentationsController < ApplicationController
   end
 
   def index_print
-    if current_user.has_any_role?(:admin, :scientific_officer)
+    if current_user.has_any_role?(:admin, :scientific_officer, :pilotaje)
       @presentations = Presentation.all
       @preproposals = Presentation.where(proposal_state: [:pre_proposal]).where.not(pre_proposal_date: nil)
       @finalproposals = Presentation.where(proposal_state: :final_proposal)
@@ -98,7 +107,7 @@ class PresentationsController < ApplicationController
   end
 
   def export_zip
-    return redirect_to('/') unless current_user.has_any_role?(:admin, :scientific_officer)
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje)
 
     tmp = "#{Rails.root}/tmp" 
     dest_path = "#{tmp}/proposals_for_cc" 
@@ -128,12 +137,19 @@ class PresentationsController < ApplicationController
   # GET /presentations/1
   # GET /presentations/1.json
   def show
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
+    if current_user.has_any_role?(:admin, :scientific_officer)
+      @title_evaluation1 = "#{t('.title_evaluation1')} (#{@presentation.evaluator1 && @presentation.evaluator1.email})"
+      @title_evaluation2 = "#{t('.title_evaluation2')} (#{@presentation.evaluator2 && @presentation.evaluator2.email})"
+    elsif current_user.has_any_role?(:pilotaje)
+      @title_evaluation1 = "#{t('.title_evaluation1')}"
+      @title_evaluation2 = "#{t('.title_evaluation2')}"
+    end
   end
 
   def print_proposal
     @presentation  = Presentation.find(params[:id])
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     partial_path = "#{Rails.root}/tmp/partial_proposals/#{@presentation.id}_#{@presentation.acronym}.pdf" 
     generate_printable_proposal
@@ -146,7 +162,7 @@ class PresentationsController < ApplicationController
 
   def print_proposal_full
     @presentation = Presentation.find(params[:id])
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     generate_printable_proposal
 
@@ -177,6 +193,7 @@ class PresentationsController < ApplicationController
   # GET /presentations/1/edit
   def edit
 #    return redirect_to @presentation, notice: 'Edition temporarily disabled.'
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
   end
 
   # POST /presentations
@@ -230,7 +247,7 @@ class PresentationsController < ApplicationController
   end
 
   def download_administration_cv
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     send_file @presentation.local_contact.administration_cv.path,
       :filename => @presentation.local_contact.administration_cv_file_name,
@@ -239,7 +256,7 @@ class PresentationsController < ApplicationController
   end
 
   def download_scientific_cv
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     send_file @presentation.scientific_contact.scientific_cv.path,
       :filename => @presentation.scientific_contact.scientific_cv_file_name,
@@ -248,7 +265,7 @@ class PresentationsController < ApplicationController
   end
 
   def download_tentative_schedule_file
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     send_file @presentation.tentative_schedule_file.path,
       :filename => @presentation.tentative_schedule_file_file_name,
@@ -277,7 +294,7 @@ class PresentationsController < ApplicationController
   end
   
   def final_proposal
-    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer) || @presentation.user==current_user
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin, :scientific_officer, :pilotaje) || @presentation.user==current_user
 
     @presentation.final_proposal_date = DateTime.now
     @presentation.proposal_state = :final_proposal 

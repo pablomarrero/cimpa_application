@@ -4,18 +4,25 @@
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <% if current_user.has_any_role? :scientific_officer, :admin %>
+  <% if current_user.has_role? :scientific_officer%>
     <li><%= link_to t('list_in_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
     <li><%= link_to t('zip_all_proposals'), '/presentations/export_zip', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
-  <% end %>
-  <% if current_user.has_role? :scientific_officer %>
     <li class="active" ><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.all_proposals' %></a></li>
     <li                ><a href="#revision"       role="tab" data-toggle="tab"><%= t '.proposals_for_your_evaluation' %></a></li>
+  <% elsif current_user.has_role? :pilotaje %>
+    <li><%= link_to t('list_in_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
+    <li><%= link_to t('zip_all_proposals'), '/presentations/export_zip', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
+    <li class="active" ><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.all_proposals' %></a></li>
   <% elsif current_user.has_role? :admin %>
     <li><%= link_to 'Export pre-proposals', url_for(:format => 'xls'), :class => 'btn btn-default' %></li>
+    <li><%= link_to t('list_in_pdf'), '/presentations/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
+    <li><%= link_to t('zip_all_proposals'), '/presentations/export_zip', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%></li>
+    <li class="active" ><a href="#home"           role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
+    <li                ><a href="#profile"        role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
+    <li                ><a href="#final_proposal" role="tab" data-toggle="tab"><%= t '.final_proposals' %></a></li>
   <% else %>
     <% if open_new_presentations? %>
-      <li><%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' %>
+      <li><%= link_to t('new'), new_presentation_path, :class => 'btn btn-primary' %></li>
     <% end %>
     <li class="active" ><a href="#home"           role="tab" data-toggle="tab"><%= t '.proposals' %></a></li>
     <li                ><a href="#profile"        role="tab" data-toggle="tab"><%= t '.preproposals' %></a></li>
@@ -25,7 +32,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <% unless current_user.has_role?(:scientific_officer) %>
+  <% unless current_user.has_any_role?(:scientific_officer, :pilotaje) %>
     <div class="tab-pane active" id="home">
       <%= paginate @presentations %>
       <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @presentations, :edit_enabled => true , :destroy_enabled => true} %>
@@ -33,7 +40,7 @@
     </div>
   <% end %>
 
-  <% unless current_user.has_role?(:scientific_officer) %>
+  <% unless current_user.has_any_role?(:scientific_officer, :pilotaje) %>
     <div class="tab-pane" id="profile">
       <%= paginate @preproposals, {:param_name => :page_preproposal} %>
       <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @preproposals, :edit_enabled => false, :destroy_enabled => false} %>
@@ -41,9 +48,9 @@
     </div>
   <% end %>
 
-  <div class="tab-pane <%= 'active' if current_user.has_role?(:scientific_officer) %>" id="final_proposal">
+  <div class="tab-pane <%= 'active' if current_user.has_any_role?(:scientific_officer, :pilotaje) %>" id="final_proposal">
     <%= paginate @finalproposals, {:param_name => :page_preproposal} %>
-    <% if current_user.has_role?(:scientific_officer) %>
+    <% if current_user.has_any_role?(:scientific_officer, :pilotaje) %>
         <%= render :partial => "proposals_for_cc", :locals => {:search => @proposals_search, :presentations => @finalproposals, :edit_enabled => false, :destroy_enabled => false} %>
     <% else %>
         <%= render :partial => "proposals", :locals => {:search => @proposals_search, :presentations => @finalproposals, :edit_enabled => false, :destroy_enabled => false} %>

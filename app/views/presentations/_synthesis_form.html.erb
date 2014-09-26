@@ -1,4 +1,7 @@
 <% unless synthesis.nil? %>
+        <% if current_user==@presentation.evaluator1 || current_user==@presentation.evaluator2 %>
+	  <%= link_to t('edit', :default => t("helpers.links.edit")), path_edit, :class => 'btn'%>
+        <% end %> 
 	<div class="content-fluid">
 	  <h2><%= title %></h2>
 	  <hr>
@@ -24,10 +27,12 @@
 	    </div>
 	  </div>
 	</div>
-	<%= link_to t('edit', :default => t("helpers.links.edit")),
-            path_edit, :class => 'btn'%>
+        <% if current_user==@presentation.evaluator1 || current_user==@presentation.evaluator2 %>
+	  <%= link_to t('edit', :default => t("helpers.links.edit")), path_edit, :class => 'btn'%>
+        <% end %> 
 <% else %>
 	<h4><%= t '.dont_exists'%></h4>
-	<%= link_to t('new', :default => t("helpers.links.edit")),
-            path_new, class: 'btn'%>
+        <% if current_user==@presentation.evaluator1 || current_user==@presentation.evaluator2 %>
+          <%= link_to t('new', :default => t("helpers.links.edit")), path_new, class: 'btn'%>
+        <% end %> 
 <% end %>

@@ -4,26 +4,31 @@ class CurrenciesController < ApplicationController
   # GET /currencies
   # GET /currencies.json
   def index
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
     @currencies = Currency.all
   end
 
   # GET /currencies/1
   # GET /currencies/1.json
   def show
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
   end
 
   # GET /currencies/new
   def new
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
     @currency = Currency.new
   end
 
   # GET /currencies/1/edit
   def edit
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
   end
 
   # POST /currencies
   # POST /currencies.json
   def create
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
     @currency = Currency.new(currency_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class CurrenciesController < ApplicationController
   # PATCH/PUT /currencies/1
   # PATCH/PUT /currencies/1.json
   def update
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
     respond_to do |format|
       if @currency.update(currency_params)
         format.html { redirect_to @currency, notice: 'Currency was successfully updated.' }
@@ -54,6 +60,7 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1
   # DELETE /currencies/1.json
   def destroy
+    return redirect_to(presentations_url) unless current_user.has_any_role?(:admin) 
     @currency.destroy
     respond_to do |format|
       format.html { redirect_to currencies_url }
