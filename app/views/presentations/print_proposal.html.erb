@@ -8,10 +8,12 @@
 
 <% if @evaluation1 %>
   <h3 class="page_breaker">Evaluation 1</h3>
+  <h4><%= @presentation.acronym %><h4>
   <%= render :partial => "printable_evaluation", :locals => {:evaluation => @evaluation1} %>
 <% end %>
 
 <% if @evaluation2 %>
   <h3 class="page_breaker">Evaluation 2</h3>
+  <h4><%= @presentation.acronym %><h4>
   <%= render :partial => "printable_evaluation", :locals => {:evaluation => @evaluation2} %>
 <% end %>

@@ -1,7 +1,7 @@
 <div class="content-fluid">
   <%= render "shared/error_messages_presentation", :target => @presentation %>  
   <%= form_for @presentation.evaluation2, url: path, method: method, :html => { :class => 'hand_writer well' } do |f| %>
-    <h2><%= t('.evaluation') %></h2>
+    <h2><%= @presentation.research_school_title %></h2>
     <hr>
     <div class="control-group">
       <h4><%= t('evaluation.organization_title') %></h4>

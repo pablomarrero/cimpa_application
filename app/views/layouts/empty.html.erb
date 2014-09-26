@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title><%= content_for?(:title) ? yield(:title) : "CIMPA" %></title>
+    <style type="text/css">
+      .page_breaker { page-break-before: always }
+    </style>
+  </head>
+  <body class="empty_stylesheet">
+    <%= yield %>
+  </body>
+</html>
