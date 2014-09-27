@@ -30,6 +30,8 @@ en:
   edit: Edit
   destroy: Destroy
   save: Save
+  modification1: Send Modification
+  modification2: Send Modification
   download: Download
   pre_proposal: Send Pre Proposal
   final_proposal: Send Final Proposal
@@ -41,13 +43,92 @@ en:
   cimpa_name: International Center for Pure and Applied Mathematics
   address: Address
   presentations_link: Proposals
+  evaluators_link: Evaluators
   enumerize:
     presentation:
       fundamental: Fundamental
       applied: Applied
       mixed: Mixed
-
+  shared:
+    assign_modal:
+      evaluator: Evaluator
+  evaluators:
+    index:
+      set_evaluator1: Evaluator 1
+      set_evaluator2: Evaluator 2
+      title: Assigning Evaluators
+      presentations_without_evaluator: Proposal without evaluators 
+      presentations_with_evaluator: Proposal with assigned evaluators
+      proposal_state: Proposal State
+      user: Owner Name
+      similar_project: Similar Project
+      research_school_title: Title
+      school_country: Country
+      project_type: Project Type
+      title: List of CIMPA RESEARCH SCHOOL PROPOSALS
+      local_contact: Local Officer
+      officer_in_place: Officer in FRA, ESP, NOR or CHE
+      region: Region
+      acronym: Acronym
+      evaluator1: Evaluator 1
+      evaluator2: Evaluator 2
+      confirm_evaluators_notification: Every referee will receive an email notification. Are you sure?
+  synthesis1:
+    new:
+      title: New Synthesis 1
+    edit:
+      title: Edit Synthesis 1
+  synthesis2:
+    new:
+      title: New Synthesis 2
+    edit:
+      title: Edit Synthesis 2
+  synthesis:
+    date_due: Date Due
+    summary_title: SUMMARY REPORT TO BE SENT TO THE APPLICANTS
+    summary_text: PLEASE MAKE SURE THAT THE SUMMARY INCLUDES ALL THE RECOMMENDATIONS NEEDED BOTH TO IMPROVE THE ACTIVITY IN CASE OF ACCEPTANCE, TO MAKE SURE WE GET THE NEEDED COMPLEMENTARY INFORMATION WHEN THE DECISION IS PENDING, AND ALSO TO EXPLAIN REJECTION TO ENHANCE AN IMPROVED NEW SUBMISSION, IF ANY.
+    comment_title: CONFIDENTIAL COMMENTS FOR CIMPA
+    comment_text: MAKING SURE THAT THE 1/2/3 RECOMMENDATION OF THE COMMITTEE IS CLEARLY SPECIFIED
+  evaluation:
+    date_due: Date Due
+    organization_title: ORGANIZATION AND SCIENTIFIC COMMITTEE OF THE SCHOOL
+    organization_text: "If the application contains information on these points, answer the following questions (the absence of such information must not be penalized): I.1.Is there a well-organized coordination between the local and the foreign chairs? I.2. Is the infrastructure of the venue adequate? I.3.How many young people will attend the school? I.4.Are there any women interested in attending? I.5.Is it intended to set up a scientific committee? I.6.Will the organizers set up a website for the school?"
+    standard_title: SCIENTIFIC STANDARDS
+    standard_text: "1. What are the scientific standards of the project (good, average or poor)? II.2. Is the distribution of courses and lectures equilibrated? II.3. Are the abstracts of the courses and lectures clear and descriptive? II.4 What percentage of speakers are women?"
+    suitability_title: SUITABILITY OF THE SUBJECT AND IMPACT
+    suitability_text: "1. What is the level of the scientific work and training already carried out locally on the topics of the School (beginners’, intermediate, advanced)? III.2 Is the School sufficiently well motivated and integrated in the local science system? III.3. What is the expected future impact of the activity?"
+    funding_title: FUNDING
+    funding_text: "1. What is the estimated funding required from CIMPA? IV.2. What’s the total budget? IV.3 What is the confirmed and expected local financial support? IV.4. Is the overall financial project sound and consistent?"
+    report_title: REPORTS BY OTHER REFEREES
+    report_text: "What is the opinion (if any) of the RSR (regional scientific assistant of the CIMPA) or the Director in case they were consulted ? What is the opinion of any other expert you may have consulted ?"
+    assessment_title: OVERALL ASSESSMENT
+    assessment_text: "• POSITIVE ADVICE (please briefly list the strengths of the project)
+• NEGATIVE ADVICE (please write a short explanation describing carefully and
+constructively the grounds on which the project was rejected and giving suggestions for possible
+improvements to help future submissions)
+• The budget needs to be clarified before acceptance of this school. The two major issues are:
+• 1.- percetange of budget aimed to contribute to the venue of young attendees.
+• 2.- In case CIMPA provides, say, a 30% of the funding. How would organizers manage to get the
+extra 70%?"  
+  evaluation1:
+    edit: 
+      title: Edit Evaluation
+    new: 
+      title: New Evaluation
+    form:
+      evaluation: Evaluation
+  evaluation2:
+    edit: 
+      title: Edit Evaluation
+    new: 
+      title: New Evaluation
+    form:
+      evaluation: Evaluation
   presentations:
+    synthesis_form:
+      dont_exists: Non Fill Yet
+    evaluation_form:
+      dont_exists: Non Fill Yet
     index:
       user: Owner Name
       similar_project: Similar Project
@@ -60,11 +141,16 @@ en:
       region: Region
       acronym: Acronym
       preproposal_notice_html: "We've made some changes on the website after pre-proposals deadline (June 15). If you have any issues, please contact us at: webmaster@cimpa.info"
-      proposals: Proposals
+      proposals: Total Proposals
       preproposals: Pre Proposals
+      finalproposals: Final Proposals
     new:
       title: CIMPA RESEARCH SCHOOL PROPOSAL
     show:
+      title_evaluation1: Evaluation 1
+      title_evaluation2: Evaluation 2
+      title_synthesis1: Synthesis 1
+      title_synthesis2: Synthesis 2
       provisional_budget: Provisional Budget
       provisional_description: Description
       provisional_amount: Amount
@@ -94,6 +180,8 @@ en:
       sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
       title: CIMPA RESEARCH SCHOOL PROPOSAL
       proposal: Proposal
+      preproposal: Pre-Proposal
+      final_proposal: Final Proposal
       deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1 (all fields required)."
       please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
       similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one? *"
@@ -143,6 +231,97 @@ en:
       course6: Course 6
       acronym: Acronym
       region: Region
+      final_proposal_dont_set: Final Proposal Dont Set yet
+      modification1_dont_set: Modification 1 of Proposal Dont Set yet
+      modification2_dont_set: Modification 2 of Proposal Dont Set yet
+    printable_presentation_show:
+      title_evaluation1: Evaluation 1
+      title_evaluation2: Evaluation 2
+      title_synthesis1: Synthesis 1
+      title_synthesis2: Synthesis 2
+      provisional_budget: Provisional Budget
+      provisional_description: Description
+      provisional_amount: Amount
+      provisional_type: Type
+      anticipated_funding: Anticipated Funding
+      anticipated_description: Description
+      anticipated_amount: Amount
+      anticipated_type: Type
+      add_provisional_budget: Add Provisional Budget
+      add_anticipated_funding: Add Anticipated Funding
+      responsables_html: "<em class='alert-error'>*</em><strong>Exactly</strong> two mathematicians, which will be scientific and administrative Officers (one local and one working in France, Spain, Norway or Switzerland). They will be active, present during the Research School and responsible for everything, in particular with respect to CIMPA."
+      local_coordinator: Local Officer
+      foreign_coordinator: Officer working in France, Spain, Norway or Switzerland
+      administration_name: Name
+      administration_place: Place of work
+      administration_country: Country of work
+      administration_email: Email
+      administration_phone: Phone
+      administration_cv: CV of at most two pages
+      scientific_coordinator: Scientific Mathematician Responsable
+      scientific_name: Name
+      scientific_place: Place of work
+      scientific_country: Country of work
+      scientific_email: Email
+      scientific_phone: Phone
+      scientific_cv: CV of at most two pages
+      sumary_point: "<strong>SUMMARY POINTS</strong> to be filled by yourself."
+      title: CIMPA RESEARCH SCHOOL PROPOSAL
+      proposal: Proposal
+      preproposal: Pre-Proposal
+      final_proposal: Final Proposal
+      deadlines_html: "<h4>Deadlines:</h4><br><strong>Pre-proposal:</strong> June 15 (fields with <em class='alert-error'>*</em>). <br><strong>Complete proposal:</strong> October 1 (all fields required)."
+      please_read_html: "Please read carefully the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>."
+      similar_project_html: "<em class='alert-error'>*</em> A similar project has been submitted to CIMPA last year or the previous one? *"
+      completely_read_html: "<em class='alert-error'>*</em> We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>. <br><strong>Non-compliance may result in the withdrawal of CIMPA.</strong>"
+      research_school_title_html: "<em class='alert-error'>*</em> Title of the Research School (neither too general nor too long and without acronyms)"
+      project_type: "The project is rather in fundamental mathematics, applied mathematics or mixed (made of fundamental, applied and/or interactions)"
+      subject_clasification_html: "<em class='alert-error'>*</em> <strong>Only</strong> the two digits of the 2010 Mathematics Subject Classification that mainly concern your project (<a href='http://zbmath.org/classification/' target='_blank'>2010 MSC</a> )."
+      school_place_html: "<em class='alert-error'>*</em> Place and dates: two precise and equally possible periods.<br><strong>Warning:</strong> the actual dates will be decided by CIMPA in February or March next year."
+      school_place_text: Place
+      school_country_text: Country
+      school_date_a_start: Start date for option A
+      school_date_a_finish: End date for option A
+      school_date_b_start: Start date for option B
+      school_date_b_finish: End date for B
+      scientific_content_html: "<em class='alert-error'>*</em> Short abstract of the scientific content."
+      balance_woman: "Gender balance is an important point for the entire evaluation of your project."
+      members_of_scientific_committee_html: "<em class='alert-error'>*</em> Who will be the members of the Scientific Committee? <br>They will participate in the Research School and to give at least a lecture. At most five persons from at least three different countries.<br><strong> This committee must explicitly approve this project before sending it to CIMPA.</strong>"
+      members_of_local_committee: "Who are the members of the local organizing committee? Normally they are between two and five; indicate the role of each one and their email."
+      local_institution_description: "Describe in a few lines the local institution related to this project, provide its internet site and its main mathematical subjects. Describe the plan for the website for the Research School and/or give a temporary site."
+      motivation_html: "<em class='alert-error'>*</em> Give the motivation for this Research School proposal and the activities planned around it"
+      related_scientific_work: "Describe the related scientific work and training already carried out locally. What impact is expected? How many young - see the Road Map - should participate (locally, from your country, and from neighbouring countries)?"
+      infrastructure: "Describe briefly the infrastructure of the place where the Research School will take place and how you get there and ensure safety for participants. Will at least 25 accommodation places be available for young mathematicians from neighboring developing countries?"
+      courses_html: "<strong>At most 6 courses</strong>, linked to the subject and the title of the Research School. Lecturers and abstracts (written by the lecturers) of 10 lines each. Members of the Scientific Committee must participate."
+      tentative_schedule_html: "Provide a tentative schedule (<strong>at most six hours each day</strong>, normally Wednesday afternoon is free)"
+      tentative_schedule_file: "Upload a File"
+      women_percentage_text: "What percentage of women?"
+      women_percentage_scientific: "In the Scientific Committee"
+      women_percentage_local: "In the Local organisation committee"
+      women_percentage_course: "Which will give a course?"
+      how_much_cimpa_text: How much are you applying to CIMPA (2/3 at least will be for young mathematicians) and what percentage this represents of the anticipated financing?
+      how_much_cimpa: "Hou much"
+      how_much_cimpa_percentage: "Percentage"
+      young_people: "How many young people from the region (not local ones) might be involved?"
+      time_scientific_text: What is the average time per day of scientific activities and during how many days?
+      average_time_scientific: "Average time"
+      day_time_scientific: "Days"
+      confirmation_completely_read_html: "<em class='alert-error'>*</em> <strong>Please confirm:</strong><br>We have completely read, we have understood and we will apply the points of the <a href='http://www.cimpa-icpam.org/spip.php?article153' target='_blank'>roadmap</a>.<p class='alert-error'><strong>This is crucial and will avoid misunderstandings.</strong></p>"
+      
+      notified_text: "You will be notified of the Scientific Committee's advice and the Steering Council decision by the end of January or beginning of February of next year. It may be possible that the Scientific Committee will request more details or changes at the beginning of December."
+      notified2_text: In all cases keep the lecturers informed. It's up to you to confirm their participation and to ask them to try to take care of their ticket with their own funding. This will allow CIMPA to allocate more funding to young people from neighbouring countries."
+      comment: Comments and/or remarks
+      course1: Course 1
+      course2: Course 2
+      course3: Course 3
+      course4: Course 4
+      course5: Course 5
+      course6: Course 6
+      acronym: Acronym
+      region: Region
+      final_proposal_dont_set: Final Proposal Dont Set yet
+      modification1_dont_set: Modification 1 of Proposal Dont Set yet
+      modification2_dont_set: Modification 2 of Proposal Dont Set yet
     form:
       acronym: Acronym
       region: Region

@@ -1,0 +1,116 @@
+<div class="page-header">
+  <h1><%=t '.list_of_evaluators' %></h1>
+</div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active" ><a href="#presentations_without_evaluator" role="tab" data-toggle="tab"><%= t '.presentations_without_evaluator' %></a></li>
+  <li><a href="#presentations_with_evaluator" role="tab" data-toggle="tab"><%= t '.presentations_with_evaluator' %></a></li>
+</ul>
+
+<%= link_to t('export_pdf'), '/evaluators/index_print.pdf', :class => 'btn btn-primary', :data => { 'no-turbolink' => true }, :target => '_blank'%>
+<% if current_user.has_any_role? :admin, :scientific_officer_admin %> 
+  <%= link_to t('notificate_evaluators'), 
+    'notificate',
+    :method => :post,
+    :data => { :confirm => t('.confirm_evaluators_notification') }, 
+    :class => 'btn btn-primary btn-danger'
+%>
+<% end %> 
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="presentations_without_evaluator">
+    <%= paginate @presentations_without_evaluator, {:param_name => :page_presentations_without_evaluator}  %>
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+                              <% if current_user.has_any_role? :admin, :scientific_officer_admin %> 
+			         <th><%= t('assign_evaluators') %></th>
+                              <% end %> 
+			      <th><%= t('.evaluator1') %></th>
+			      <th><%= t('.evaluator2') %></th>
+			      <th><%= t('.acronym') %></th>
+			      <th><%= t('.id') %></th>
+			      <th><%= t('.research_school_title') %></th>
+			      <th><%= t('.region') %></th>
+			      <th><%= t('.school_country') %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <% @presentations_without_evaluator.each do |presentation| %>
+			    <tr>
+                              <% if current_user.has_any_role? :admin, :scientific_officer_admin %> 
+			         <td>
+                                   <a data-target="#evaluator1_<%=presentation.id%>_view" role="button" class="btn btn-mini" data-toggle="modal">
+                                     <i class="icon-search"></i>
+                                     <%= t('.set_evaluator1') %>
+                                   </a>
+                                   <a data-target="#evaluator2_<%=presentation.id%>_view" role="button" class="btn btn-mini" data-toggle="modal">
+                                     <i class="icon-search"></i>
+                                     <%= t('.set_evaluator2') %>
+                                   </a>
+			         </td>
+                              <% end %> 
+			      <td><%= presentation.evaluator1.email unless presentation.evaluator1.nil? %></td>
+			      <td><%= presentation.evaluator2.email unless presentation.evaluator2.nil? %></td>
+			    	<td><%= presentation.acronym %></td>
+			      <td><%= presentation.id %></td>
+			      <td><%= presentation.research_school_title %></td>
+			      <td><%= presentation.country.try(:region) %></td>
+			      <td><%= presentation.country.try(:name_en) %></td>
+			    </tr>
+          <%= render 'shared/assign_modal', id: "evaluator1_#{presentation.id}_view", title: t('.set_evaluator1'), path: set_evaluator1_path(presentation.id)%>
+          <%= render 'shared/assign_modal', id: "evaluator2_#{presentation.id}_view", title: t('.set_evaluator2'), path: set_evaluator2_path(presentation.id) %>
+			  <% end %>
+			  </tbody>
+			</table>
+    <%= paginate @presentations_without_evaluator, {:param_name => :page_presentations_without_evaluator}  %>
+  </div>
+  <div class="tab-pane" id="presentations_with_evaluator">
+    <%= paginate @presentations_with_evaluator, {:param_name => :page_presentations_with_evaluator} %>
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+                              <% if current_user.has_any_role? :admin, :scientific_officer_admin %> 
+			        <th><%= t('change evaluators') %></th>
+                              <% end %> 
+			      <th><%= t('.evaluator1') %></th>
+			      <th><%= t('.evaluator2') %></th>
+			    	<th><%= t('.acronym') %></th>
+			      <th><%= t('.id') %></th>
+			      <th><%= t('.research_school_title') %></th>
+			      <th><%= t('.region') %></th>
+			      <th><%= t('.school_country') %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  <% @presentations_with_evaluator.each do |presentation| %>
+			    <tr>
+                              <% if current_user.has_any_role? :admin, :scientific_officer_admin %> 
+			        <td>
+                                  <a data-target="#evaluator1_<%=presentation.id%>_view" role="button" class="btn btn-mini" data-toggle="modal">
+                                    <i class="icon-search"></i>
+                                    <%= t('.set_evaluator1') %>
+                                  </a>
+                                  <a data-target="#evaluator2_<%=presentation.id%>_view" role="button" class="btn btn-mini" data-toggle="modal">
+                                    <i class="icon-search"></i>
+                                    <%= t('.set_evaluator2') %>
+                                  </a>
+			        </td>
+                              <% end %> 
+			      <td><%= presentation.evaluator1.email %></td>
+			      <td><%= presentation.evaluator2.email %></td>
+			    	<td><%= presentation.acronym %></td>
+			      <td><%= presentation.id %></td>
+			      <td><%= presentation.research_school_title %></td>
+			      <td><%= presentation.country.try(:region) %></td>
+			      <td><%= presentation.country.try(:name_en) %></td>
+			    </tr>
+          <%= render 'shared/assign_modal', id: "evaluator1_#{presentation.id}_view", title: t('.set_evaluator1'), path: set_evaluator1_path(presentation.id)%>
+          <%= render 'shared/assign_modal', id: "evaluator2_#{presentation.id}_view", title: t('.set_evaluator2'), path: set_evaluator2_path(presentation.id) %>
+			  <% end %>
+			  </tbody>
+			</table>
+    <%= paginate @presentations_with_evaluator, {:param_name => :page_presentations_with_evaluator} %>
+  </div>
+</div>

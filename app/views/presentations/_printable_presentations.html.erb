@@ -1,0 +1,24 @@
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.acronym') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.evaluator1') %></th>
+        <th><%= t('.evaluator2') %></th>
+        <th><%= t('.overall_assesment_1') %></th>
+        <th><%= t('.overall_assesment_2') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% presentations.each do |presentation| %>
+      <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+        <td><%= presentation.acronym %></td> 
+        <td><%= presentation.research_school_title %></td> 
+        <td><%= presentation.evaluator1 ? presentation.evaluator1.email : ''%></td> 
+        <td><%= presentation.evaluator2 ? presentation.evaluator2.email : ''%></td> 
+        <td><%= presentation.evaluation1 ? presentation.evaluation1.assessment : '' %></td>
+        <td><%= presentation.evaluation2 ? presentation.evaluation2.assessment : '' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>

@@ -48,11 +48,16 @@
           <a class="brand" href="/">CIMPA</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li>
-                <% if user_signed_in? %>  
+              <% if user_signed_in? %>  
+                <li>
                   <%= link_to t("presentations_link"), presentations_path  %>
+                </li>
+                <% if current_user.has_any_role? :admin, :scientific_officer %>
+                  <li>
+                    <%= link_to t("evaluators_link"), evaluators_path  %>
+                  </li>
                 <% end %>
-              </li>
+              <% end %>
             </ul>
             <ul class="nav pull-right">
               <li>

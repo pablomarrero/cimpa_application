@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('full project') %></th>
+      <th><%= t('.acronym') %></th>
+      <th><%= t('.research_school_title') %></th>
+      <th><%= sort_link search, :country_region, t('.region') %></th>
+      <th><%= t('.school_country') %></th>
+      <% if current_user.has_any_role?(:admin, :scientific_officer) %>  
+        <th><%= t('.evaluator1') %></th> 
+        <th><%= t('.evaluator2') %></th> 
+      <% end %> 
+    </tr>
+  </thead>
+  <tbody>
+  <% presentations.each do |presentation| %>
+    <tr <%= "style=color:red" unless presentation.cancel_date.nil?%>>
+      <td>
+        <%= link_to t('view', :default => t('helpers.links.show')), 
+          presentation_path(presentation), :class => 'btn btn-mini' %>
+      </td>
+      <td><%= presentation.acronym %></td>
+      <td><%= presentation.research_school_title %></td>
+      <td><%= presentation.country.try(:region) %></td>
+      <td><%= presentation.country.try(:name_en) %></td>
+      <% if current_user.has_any_role?(:admin, :scientific_officer) %>
+        <td><%= presentation.evaluator1 ? presentation.evaluator1.email : ''%></td>
+        <td><%= presentation.evaluator2 ? presentation.evaluator2.email : ''%></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

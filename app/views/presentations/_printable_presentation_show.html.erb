@@ -1,0 +1,408 @@
+<div class="content-fluid">
+  <div class="control-group">
+    <%= t('.similar_project') %>
+    <div class="controls">
+      <pre><%= presentation.similar_project %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.completely_read_html') %>
+    <div class="controls">
+      <pre><%= presentation.completely_read %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.acronym') %>
+    <div class="controls">
+      <pre><%= presentation.acronym %></pre>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= t('.research_school_title') %>
+    <div class="controls">
+      <pre><%= presentation.research_school_title %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.project_type') %>
+    <div class="controls">
+      <pre><%= presentation.project_type && t("enumerize.presentation.#{presentation.project_type}") %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.subject_clasification_html') %>
+    <div class="controls">
+      <pre><%= presentation.subject_clasification && t("msc.#{presentation.subject_clasification}")%></pre>
+    </div>
+  </div>
+  <hr>
+  <p><h6><%= t('.school_place_html') %></h6></p>
+  <div class="row-fluid span8">
+    <div class="control-group">
+      <%= t('.school_place_text') %>
+      <div class="controls">
+        <pre><%= presentation.school_place %></pre>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= t('.school_country_text') %>
+      <div class="controls">
+        <pre><%= presentation.country.try(:name_fr) %></pre>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="alert alert-info span6">
+      <div class="control-group">
+        <%= t('.school_date_a_start') %>
+        <div class="controls">
+          <pre><%= presentation.school_date_a_start %></pre>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= t('.school_date_a_finish') %>
+        <div class="controls">
+          <pre><%= presentation.school_date_a_finish %></pre>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info span6">
+      <div class="control-group">
+        <%= t('.school_date_b_start') %>
+        <div class="controls">
+          <pre><%= presentation.school_date_b_start %></pre>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= t('.school_date_b_finish') %>
+        <div class="controls">
+          <pre><%= presentation.school_date_b_finish %></pre>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <hr>
+  <h4><%= raw t '.responsables' %></h4>
+  <p><%= t '.responsables_html' %></p>
+  <div class="row-fluid">
+    <div class="alert alert-info span6">
+        <h5><%= t '.local_coordinator' %></h5>
+        <div class="control-group">
+          <%= t('.administration_name') %>
+          <div class="controls">
+            <pre><%= presentation.local_contact.administration_name if presentation.local_contact %></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.administration_place') %>
+          <div class="controls">
+            <pre><%= presentation.local_contact.administration_place if presentation.local_contact%></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.administration_country') %>
+          <div class="controls">
+            <pre><%= presentation.local_contact.country.try(:name_fr) if presentation.local_contact%></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.administration_email') %>
+          <div class="controls">
+            <pre><%= presentation.local_contact.administration_email if presentation.local_contact%></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.administration_phone') %>
+          <div class="controls">
+            <pre><%= presentation.local_contact.administration_phone if presentation.local_contact%></pre>
+          </div>
+        </div>
+    </div>
+    <div class="alert alert-info span6">
+        <h5><%= t '.foreign_coordinator' %></h5>
+        <div class="control-group">
+          <%= t('.scientific_name') %>
+          <div class="controls">
+            <pre><%= presentation.scientific_contact.scientific_name if presentation.scientific_contact%></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.scientific_place') %>
+          <div class="controls">
+            <pre><%= presentation.scientific_contact.scientific_place if presentation.scientific_contact %></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.scientific_country') %>
+          <div class="controls">
+            <pre><%= presentation.scientific_contact.country.try(:name_fr) if presentation.scientific_contact%></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.scientific_email') %>
+          <div class="controls">
+            <pre><%= presentation.scientific_contact.scientific_email if presentation.scientific_contact %></pre>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= t('.scientific_phone') %>
+          <div class="controls">
+            <pre><%= presentation.scientific_contact.scientific_phone if presentation.scientific_contact %></pre>
+          </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.scientific_content') %>
+    <div class="controls">
+      <pre><%= presentation.scientific_content %></pre>
+    </div>
+  </div>
+  <hr>
+  <p><blockquote><h5><%= t('.balance_woman') %></h5></blockquote></p>
+  <hr>
+  <div class="control-group">
+    <%= t('.members_of_scientific_committee_html') %>
+    <div class="controls">
+      <pre><%= presentation.members_of_scientific_committee %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.members_of_local_committee') %>
+    <div class="controls">
+      <pre><%= presentation.members_of_local_committee %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.local_institution_description') %>
+    <div class="controls">
+      <pre><%= presentation.local_institution_description %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.motivation_html') %>
+    <div class="controls">
+      <pre><%= presentation.motivation %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.related_scientific_work') %>
+    <div class="controls">
+      <pre><%= presentation.related_scientific_work %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.infrastructure') %>
+    <div class="controls">
+      <pre><%= presentation.infrastructure %></pre>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.courses_html') %>
+    <div class="controls">
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course1') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course1 %></pre>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course2') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course2 %></pre>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course3') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course3 %></pre>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course4') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course4 %></pre>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course5') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course5 %></pre>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span1">
+          <%= t('.course6') %>
+        </div>
+        <div class="span11">
+          <pre><%= presentation.course6 %></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.tentative_schedule_html') %>
+    <div class="controls">
+      <pre><%= presentation.tentative_schedule %></pre>
+    </div>
+  </div>
+
+  <hr>
+  <div id="provisional_budget" class="row-fluid">
+    <div >
+      <fieldset class="provisional_budget">
+        <legend class="no-margin-bottom"><%= t('.provisional_budget')%></legend>
+        <table class="table table-striped well table-condensed">
+          <thead>
+            <tr>
+              <th class="span5"><%= t('.provisional_description') %></th>
+              <th class="span2"><%= t('.currency') %></th>
+              <th class="span2"><%= t('.provisional_amount') %></th>
+              <th class="span2"><%= t('.provisional_type') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% presentation.provisional_budgets.each do |pro| %>
+            <tr>
+              <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.currency.try(:symbol) %></pre></td>
+              <td class="span2"><pre><%= pro.amount %></pre></td>
+              <td class="span2"><pre><%= pro.provisional_type %></pre></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <hr>
+  <div id="anticipated_funding" class="row-fluid">
+    <div >
+      <fieldset class="anticipated_funding">
+        <legend class="no-margin-bottom"><%= t('.anticipated_funding')%></legend>
+        <table class="table table-striped well table-condensed">
+          <thead>
+            <tr>
+              <th class="span5"><%= t('.anticipated_description') %></th>
+              <th class="span2"><%= t('.currency') %></th>
+              <th class="span2"><%= t('.anticipated_amount') %></th>
+              <th class="span2"><%= t('.anticipated_type') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% presentation.anticipated_fundings.each do |pro| %>
+            <tr>
+              <td class="span5"><pre><%= pro.description %></pre></td>
+              <td class="span2"><pre><%= pro.currency.try(:symbol) %></pre></td>
+              <td class="span2"><pre><%= pro.amount %></pre></td>
+              <td class="span2"><pre><%= pro.anticipated_type %></pre></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <hr>
+
+  <p><h6><%= t('.women_percentage_text') %></h6></p>
+  <div class="row-fluid">
+    <div class="control-group span3">
+      <%= t('.women_percentage_scientific') %>
+      <div class="controls">
+        <pre><%= presentation.women_percentage_scientific %></pre>
+      </div>
+    </div>
+    <div class="control-group span3">
+      <%= t('.women_percentage_local') %>
+      <div class="controls">
+        <pre><%= presentation.women_percentage_local %></pre>
+      </div>
+    </div>
+    <div class="control-group span3">
+      <%= t('.women_percentage_course') %>
+      <div class="controls">
+        <pre><%= presentation.women_percentage_course %></pre>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <p><h6><%= t('.how_much_cimpa_text') %></h6></p>
+  <div class="row-fluid">
+    <div class="control-group span3">
+      <%= t('.how_much_cimpa') %>
+      <div class="controls">
+        <pre><%= presentation.how_much_cimpa %></pre>
+      </div>
+    </div>
+    <div class="control-group span3">
+      <%= t('.how_much_cimpa_percentage') %>
+      <div class="controls">
+        <pre><%= presentation.how_much_cimpa_percentage %></pre>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="control-group">
+    <%= t('.young_people') %>
+    <div class="controls">
+      <pre><%= presentation.young_people %></pre>
+    </div>
+  </div>
+  <hr>
+  <p><h6><%= t('.time_scientific_text') %></h6></p>
+  <div class="row-fluid">
+    <div class="control-group span3">
+      <%= t('.average_time_scientific') %>
+      <div class="controls">
+        <pre><%= presentation.average_time_scientific %></pre>
+      </div>
+    </div>
+    <div class="control-group span3">
+      <%= t('.day_time_scientific') %>
+      <div class="controls">
+        <pre><%= presentation.day_time_scientific %></pre>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row-fluid">
+    <div class="control-group span12">
+      <%= t('.comment') %>
+      <div class="controls">
+        <pre><%= presentation.comment %></pre>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <p><blockquote><h5><%= t('.notified_text') %></h5></blockquote></p>
+  <p><blockquote><h5><%= t('.notified2_text') %></h5></blockquote></p>
+  <div class="control-group">
+    <%= t('.confirmation_completely_read_html') %>
+    <div class="controls">
+      <pre><%= presentation.confirmation_completely_read %></pre>
+    </div>
+  </div>
+</div>
