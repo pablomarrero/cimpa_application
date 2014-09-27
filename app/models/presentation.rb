@@ -57,6 +57,10 @@ class Presentation < ActiveRecord::Base
   validates :average_time_scientific, presence: true, if: :final_proposal?
   validates :day_time_scientific, presence: true, if: :final_proposal?
 
+  def self.by_region
+    self.all.sort_by {|x| (x.country && x.country.region)||''}
+  end
+
   def final_proposal?
     self.proposal_state == 'final_proposal'
   end

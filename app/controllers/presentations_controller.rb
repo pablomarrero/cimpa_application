@@ -10,15 +10,17 @@ class PresentationsController < ApplicationController
     respond_to do |format|
       format.html do
         if current_user.has_role?(:admin)
-          @presentations = Presentation.all.page params[:page]
-          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
+          @presentations = Presentation.all
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil)
         elsif  current_user.has_role?(:scientific_officer)
-          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).page params[:page]
-          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil).page params[:page_preproposal]
+          @presentations = Presentation.where(proposal_state: [:pre_proposal, :final_proposal])
+          @preproposals = Presentation.where(proposal_state: [:pre_proposal, :final_proposal]).where.not(pre_proposal_date: nil)
         else
-          @presentations = Presentation.where( user_id: current_user.id).page params[:page]
+          @presentations = Presentation.where( user_id: current_user.id)
           @preproposals = Presentation.where.not(pre_proposal_date: nil).where( user_id: current_user.id).page params[:page_preproposal]
         end
+        @presentations = @presentations.to_a.sort {|x,y| ((x.country ? x.country.region : "")<=>(y.country ? y.country.region : ""))}
+        @preproposals  = @preproposals.to_a.sort  {|x,y| ((x.country ? x.country.region : "")<=>(y.country ? y.country.region : ""))}
       end
       format.xls do
         if current_user.has_role?(:admin)
